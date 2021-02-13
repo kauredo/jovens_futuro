@@ -1,0 +1,45 @@
+@import '../../../assets/stylesheets/utils/utils';
+
+.container {
+	width: 80%;
+	margin: auto;
+
+	.topSection {
+		margin-top: 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.leftText {
+			width: 40%;
+			font-weight: bold;
+			color: $futuro;
+		}
+
+		.rigthText {
+			width: 50%;
+			.text {
+				font-size: 18px;
+				margin-bottom: 10px;
+				line-height: 22px;
+			}
+		}
+	}
+
+	.bottomSection {
+		margin-bottom: 50px;
+		.subtitle {
+			font-weight: bolder;
+			color: $jovens;
+			margin-bottom: 20px;
+		}
+		.colaboradores {
+			columns: 2;
+			margin-left: 20px;
+			.colaborador {
+				font-size: 20px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+}

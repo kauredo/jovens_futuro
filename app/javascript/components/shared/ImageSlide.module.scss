@@ -1,0 +1,31 @@
+@import '../../../assets/stylesheets/utils/utils';
+
+.container {
+	width: 90%;
+	height: 300px;
+	margin: auto;
+	margin-bottom: 50px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+
+	.bar {
+		position: absolute;
+		bottom: -25px;
+		left: -5%;
+		width: 110%;
+		height: 50px;
+		background-color: $jovens;
+		color: white;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.text {
+			padding-left: 2.5%;
+			min-width: 100%;
+		}
+	}
+}
