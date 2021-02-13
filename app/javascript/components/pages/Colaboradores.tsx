@@ -1,10 +1,12 @@
 import React from 'react';
+import ImageSlide from '../shared/ImageSlide';
 
 const styles = require('./Colaboradores.module.scss');
 
 export default function Colaboradores() {
 	return (
 		<div className={styles.container}>
+			<ImageSlide image={'/images/people.png'} />
 			<div className={styles.topSection}>
 				<h2 className={styles.leftText}>
 					O desafio lançado a todos os que foram contactados estende-se a jovens
