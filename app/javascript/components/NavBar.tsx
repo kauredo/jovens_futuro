@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-const styles = './HorizontalCards.module.scss';
+const styles = require('./NavBar.module.scss');
 
 export default function NavBar() {
 	const [navbar, setNavbar] = useState(false);
+	const narrowLinksRef = useRef(null);
+	const [selectedLink, setSelectedLink] = useState(0);
 	const translate = (elem, y) => {
 		const top = parseInt(css(elem, 'top'), 10);
 		const dy = top - y;
@@ -29,9 +31,9 @@ export default function NavBar() {
 	};
 
 	const burgerToggle = () => {
-		let linksEl = document.querySelector('.narrowLinks');
+		let linksEl = narrowLinksRef.current;
 		if (navbar) {
-			translate(linksEl, -156);
+			translate(linksEl, -172);
 			setNavbar(false);
 		} else {
 			translate(linksEl, 0);
@@ -41,43 +43,88 @@ export default function NavBar() {
 
 	return (
 		<>
-			<nav className='navbar'>
-				<div className='navWide'>
-					<div className='container'>
-						<div className='left'>
-							<a href='/menu' className='link'>
-								Menu
+			<nav className={styles.navbar}>
+				<div className={styles.navWide}>
+					<div className={styles.container}>
+						<div className={styles.links}>
+							<a
+								href='#'
+								className={`${styles.link} ${
+									selectedLink === 0 && styles.selected
+								}`}
+							>
+								Sobre
 							</a>
-						</div>
-						<a href='/' className='brand'>
-							<img src='/assets/logo.jpeg' alt='logo' className='nav-logo' />
-						</a>
-						<div className='right'>
-							<a href='/mapa' className='link'>
-								Mapa
+							<a
+								href='#'
+								className={`${styles.link} ${
+									selectedLink === 1 && styles.selected
+								}`}
+							>
+								Artigos
 							</a>
-							<a href='#' className='link'>
-								Link 2
+							<a
+								href='#'
+								className={`${styles.link} ${
+									selectedLink === 2 && styles.selected
+								}`}
+							>
+								Colaboradores
+							</a>
+							<a
+								href='#'
+								className={`${styles.link} ${
+									selectedLink === 3 && styles.selected
+								}`}
+							>
+								Contacto
 							</a>
 						</div>
 					</div>
 				</div>
-				<div className='navNarrow'>
-					<div className='container'>
-						<a href='/' className='brand'>
-							<img src='/assets/logo.jpeg' alt='logo' className='nav-logo' />
+				<div className={styles.navNarrow}>
+					<div className={styles.container}>
+						<a href='/' className={styles.brand}>
+							{/* <img src='/assets/logo.jpeg' alt='logo' className='nav-logo' /> */}
 						</a>
 						<i className='fa fa-bars fa-2x' onClick={burgerToggle}></i>
 					</div>
-					<div className='narrowLinks'>
-						<a href='/menu' onClick={burgerToggle} className='link'>
-							Menu
+					<div className={styles.narrowLinks} ref={narrowLinksRef}>
+						<a
+							href='#'
+							className={`${styles.link} ${
+								selectedLink === 0 && styles.selected
+							}`}
+							onClick={burgerToggle}
+						>
+							Sobre
 						</a>
-						<a href='/mapa' onClick={burgerToggle} className='link'>
-							Mapa
+						<a
+							href='#'
+							className={`${styles.link} ${
+								selectedLink === 1 && styles.selected
+							}`}
+							onClick={burgerToggle}
+						>
+							Artigos
 						</a>
-						<a href='#' onClick={burgerToggle} className='link'>
-							Link 2
+						<a
+							href='#'
+							className={`${styles.link} ${
+								selectedLink === 2 && styles.selected
+							}`}
+							onClick={burgerToggle}
+						>
+							Colaboradores
+						</a>
+						<a
+							href='#'
+							className={`${styles.link} ${
+								selectedLink === 3 && styles.selected
+							}`}
+							onClick={burgerToggle}
+						>
+							Contacto
 						</a>
 					</div>
 				</div>

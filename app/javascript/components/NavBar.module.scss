@@ -1,106 +1,78 @@
+@import '../../assets/stylesheets/utils/utils';
+
 .navbar {
-	// display: none;
-	color: blue;
-	background-color: blue;
-	text-transform: uppercase;
-	font-size: 1.5rem;
-	font-weight: 600;
-	height: 100px;
 	width: 100%;
-	top: 0;
-	z-index: 1;
-
-	.container {
-		height: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.brand {
-		height: 100px;
-		.nav-logo {
-			background-color: white;
-			margin-top: 10px;
-			border: 0.25rem solid blue;
-			border-radius: 50%;
-			height: 80px;
-		}
-	}
-
-	@media screen and (min-width: 767px) {
-		top: 0;
-		display: block;
-		z-index: 9;
-
-		.link:not(:first-of-type) {
-			padding-left: 1rem;
-		}
-
-		.brand {
-			.nav-logo {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				margin: auto;
-				border: 1rem solid blue;
-				margin-top: calc(100px - (1rem + 150px) / 2);
-				height: calc(1rem + 150px);
-			}
-		}
-	}
-
+	height: 100px;
+	background-color: $jovens;
 	.navWide {
 		display: none;
-	}
-
-	// Navbar is set to default with the "hamburger" and links on the left
-	// side of the screen. To move to the right of the screen, simply
-	// change the three "float: Left;" references to read "float: right;".
-	.navNarrow {
 		height: 100%;
-
 		.container {
-			justify-content: space-between;
-			align-items: center;
-			position: relative;
-			width: 100%;
-			padding: 0 5%;
-			z-index: 13;
-			background-color: blue;
-		}
-
-		i {
-			float: right;
-			cursor: pointer;
-			color: #fff;
-		}
-
-		.narrowLinks {
-			position: relative;
-			top: -156px;
-			background-color: blue;
-			float: right;
-			width: 100%;
-			z-index: 12;
-			padding-right: 1rem;
-			// display: none;
-
-			a {
-				text-decoration: none;
-				display: block;
-				float: right;
-				clear: right;
-				padding: 0.5em 0;
+			width: 90%;
+			height: 100%;
+			margin: auto;
+			.links {
+				height: 100%;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				font-size: 40px;
+				font-weight: bold;
+				.link {
+					text-decoration: none;
+					color: $ando;
+					&.selected {
+						color: $futuro;
+					}
+				}
 			}
 		}
 	}
-	@media screen and (min-width: 767px) {
+	.navNarrow {
+		height: 100%;
+		background-color: inherit;
+
+		.container {
+			height: 100%;
+			width: 90%;
+			color: $futuro;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			background-color: inherit;
+			position: relative;
+			z-index: 2;
+		}
+		.narrowLinks {
+			padding-right: 10%;
+			width: 100%;
+			background-color: $jovens;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-end;
+			position: relative;
+			top: -172px;
+			z-index: 1;
+			font-size: 20px;
+			font-weight: bold;
+			.link {
+				padding: 10px 0;
+				text-decoration: none;
+				color: $ando;
+				&.selected {
+					color: $futuro;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 750px) {
+	.navbar {
 		.navWide {
 			display: block;
 		}
-
 		.navNarrow {
 			display: none;
 		}
