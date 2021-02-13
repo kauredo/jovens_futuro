@@ -5,7 +5,8 @@ const styles = require('./NavBar.module.scss');
 export default function NavBar() {
 	const [navbar, setNavbar] = useState(false);
 	const narrowLinksRef = useRef(null);
-	const [selectedLink, setSelectedLink] = useState(0);
+	const [selectedLink, setSelectedLink] = useState(window.location.pathname);
+
 	const translate = (elem, y) => {
 		const top = parseInt(css(elem, 'top'), 10);
 		const dy = top - y;
@@ -48,33 +49,33 @@ export default function NavBar() {
 					<div className={styles.container}>
 						<div className={styles.links}>
 							<a
-								href='#'
+								href='/'
 								className={`${styles.link} ${
-									selectedLink === 0 && styles.selected
+									selectedLink === '/' && styles.selected
 								}`}
 							>
 								Sobre
 							</a>
 							<a
-								href='#'
+								href='/artigos'
 								className={`${styles.link} ${
-									selectedLink === 1 && styles.selected
+									selectedLink === '/artigos' && styles.selected
 								}`}
 							>
 								Artigos
 							</a>
 							<a
-								href='#'
+								href='/colaboradores'
 								className={`${styles.link} ${
-									selectedLink === 2 && styles.selected
+									selectedLink === '/colaboradores' && styles.selected
 								}`}
 							>
 								Colaboradores
 							</a>
 							<a
-								href='#'
+								href='/contacto'
 								className={`${styles.link} ${
-									selectedLink === 3 && styles.selected
+									selectedLink === '/contacto' && styles.selected
 								}`}
 							>
 								Contacto
@@ -93,7 +94,7 @@ export default function NavBar() {
 						<a
 							href='#'
 							className={`${styles.link} ${
-								selectedLink === 0 && styles.selected
+								selectedLink === '/' && styles.selected
 							}`}
 							onClick={burgerToggle}
 						>
@@ -102,7 +103,7 @@ export default function NavBar() {
 						<a
 							href='#'
 							className={`${styles.link} ${
-								selectedLink === 1 && styles.selected
+								selectedLink === '/artigos' && styles.selected
 							}`}
 							onClick={burgerToggle}
 						>
@@ -111,7 +112,7 @@ export default function NavBar() {
 						<a
 							href='#'
 							className={`${styles.link} ${
-								selectedLink === 2 && styles.selected
+								selectedLink === '/colaboradores' && styles.selected
 							}`}
 							onClick={burgerToggle}
 						>
@@ -120,7 +121,7 @@ export default function NavBar() {
 						<a
 							href='#'
 							className={`${styles.link} ${
-								selectedLink === 3 && styles.selected
+								selectedLink === '/contacto' && styles.selected
 							}`}
 							onClick={burgerToggle}
 						>
