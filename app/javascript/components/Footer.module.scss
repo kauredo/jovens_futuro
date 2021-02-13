@@ -1,0 +1,17 @@
+@import '../../assets/stylesheets/utils/utils';
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	height: 100px;
+	width: 100%;
+	background-color: $jovens;
+	.container {
+		height: 100%;
+		width: 90%;
+		margin: auto;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+}
