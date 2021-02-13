@@ -1,12 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 
 const styles = require('./Footer.module.scss');
 
 export default function NavBar() {
-	const [navbar, setNavbar] = useState(false);
-	const narrowLinksRef = useRef(null);
-	const [selectedLink, setSelectedLink] = useState(0);
-
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.container}>
