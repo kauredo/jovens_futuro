@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Novo contacto:</p><br>
+    <p>Nome: <%= @params[:name] %></p>
+    <p>Email: <%= @params[:email] %></p>
+    <p>Telefone: <%= @params[:phone] %></p>
+    <p>
+    Mensagem:<br>
+    ----------
+    </p>
+    <p><%= @params[:message] %></p>
+  </body>
+</html>
