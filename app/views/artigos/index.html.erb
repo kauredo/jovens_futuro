@@ -1,3 +1,4 @@
 <% if user_signed_in? %>
-
+  <%= link_to 'Criar novo artigo', new_artigo_path %>
 <% end %>
+<%= react_component('artigos/Artigos', artigos: @artigos) %>

@@ -1,10 +1,9 @@
 class PagesController < ApplicationController
   def home; end
 
-  def artigos
+  def colaboradores
+    @colaboradores = UserSerializer.new(User.all).serializable_hash[:data]
   end
-
-  def colaboradores; end
 
   def contacto; end
 
