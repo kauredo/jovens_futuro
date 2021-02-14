@@ -1,1 +1,6 @@
-<%= react_component('artigos/Artigo', artigo: @artigo, full: true) %>
+<div class="container">
+<%= @artigo.title %>
+<%= @artigo.contents %>
+<%= @artigo.updated_at %>
+<%= @artigo.user.name %>
+</div>

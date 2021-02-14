@@ -5,29 +5,35 @@ class ArtigosController < ApplicationController
   end
 
   def show
-    @artigo = ArtigoSerializer.new(Artigo.find(params[:id])).serializable_hash[:data]
+    @artigo = Artigo.find(params[:id])
+    @artigo1 = ArtigoSerializer.new(@artigo).serializable_hash[:data]
   end
 
   def new
     @artigo = Artigo.new
-    @artigo.user = current_user
-    @artigo = ArtigoSerializer.new(@artigo).serializable_hash[:data]
   end
 
   def create
     @artigo = Artigo.new(artigo_params)
     @artigo.user = current_user
     if @artigo.save
-      render json: { notice: 'Artigo criado' }
+      redirect_to artigos_path, notice: 'Artigo criado' 
     else
       render json: { error: 'Artigo não criado' }
     end
   end
 
   def edit
+    @artigo = Artigo.find(params[:id])
   end
 
   def update
+    @artigo = Artigo.find(params[:id])
+    if @artigo.update(artigo_params)
+      redirect_to artigos_path, notice: 'Artigo criado' 
+    else
+      render json: { error: 'Artigo não criado' }
+    end
   end
 
   def destroy
@@ -36,7 +42,7 @@ class ArtigosController < ApplicationController
   private
 
   def artigo_params 
-    params.require(:artigo).permit(:title, :content, :published, :user)
+    params.require(:artigo).permit(:title, :content, :contents, :published, :user)
   end
 
   def check_user

@@ -1,0 +1,14 @@
+<%= form_with model: @artigo, class: "artigo-form" do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.rich_text_area :contents %>
+  </div>
+  <div class="field">
+    <%= form.label :published %>
+    <%= form.check_box :published %>
+  </div>
+  <%= form.submit %>
+<% end %>
