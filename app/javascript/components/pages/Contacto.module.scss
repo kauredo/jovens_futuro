@@ -5,9 +5,9 @@
 	margin: auto;
 
 	.topSection {
-		margin-top: 50px;
+		margin: 50px 0;
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
 
 		.leftText {
@@ -22,23 +22,6 @@
 				font-size: 18px;
 				margin-bottom: 10px;
 				line-height: 22px;
-			}
-		}
-	}
-
-	.bottomSection {
-		margin-bottom: 50px;
-		.subtitle {
-			font-weight: bolder;
-			color: $jovens;
-			margin-bottom: 20px;
-		}
-		.colaboradores {
-			columns: 2;
-			margin-left: 20px;
-			.colaborador {
-				font-size: 20px;
-				margin-bottom: 5px;
 			}
 		}
 	}
