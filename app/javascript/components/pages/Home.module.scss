@@ -15,6 +15,13 @@
 		margin-bottom: 10px;
 	}
 	.image {
-		text-align: center;
+		max-width: 713px;
+		max-height: 445px;
+		height: 50vw;
+		width: 80vw;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		margin: auto;
 	}
 }

@@ -7,17 +7,17 @@
 	.topSection {
 		margin-top: 50px;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
 
 		.leftText {
-			width: 40%;
 			font-weight: bold;
 			color: $futuro;
 		}
 
 		.rigthText {
-			width: 50%;
+			margin: 20px 0;
 			.text {
 				font-size: 18px;
 				margin-bottom: 10px;
@@ -34,12 +34,31 @@
 			margin-bottom: 20px;
 		}
 		.colaboradores {
-			columns: 2;
 			margin-left: 20px;
 			.colaborador {
 				font-size: 20px;
 				margin-bottom: 5px;
 			}
+		}
+	}
+}
+
+@media (min-width: 680px) {
+	.container {
+		.topSection {
+			.leftText {
+				width: 40%;
+			}
+
+			.rigthText {
+				margin: 0;
+				width: 50%;
+			}
+		}
+	}
+	.bottomSection {
+		.colaboradores {
+			columns: 2;
 		}
 	}
 }

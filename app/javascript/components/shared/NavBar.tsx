@@ -2,7 +2,11 @@ import React, { useRef, useState } from 'react';
 
 const styles = require('./NavBar.module.scss');
 
-export default function NavBar() {
+interface Props {
+	signedIn: boolean;
+}
+
+export default function NavBar(props: Props) {
 	const [navbar, setNavbar] = useState(false);
 	const narrowLinksRef = useRef(null);
 	const [selectedLink, setSelectedLink] = useState(window.location.pathname);
@@ -34,7 +38,7 @@ export default function NavBar() {
 	const burgerToggle = () => {
 		let linksEl = narrowLinksRef.current;
 		if (navbar) {
-			translate(linksEl, -172);
+			translate(linksEl, -215);
 			setNavbar(false);
 		} else {
 			translate(linksEl, 0);
@@ -92,7 +96,7 @@ export default function NavBar() {
 					</div>
 					<div className={styles.narrowLinks} ref={narrowLinksRef}>
 						<a
-							href='#'
+							href='/'
 							className={`${styles.link} ${
 								selectedLink === '/' && styles.selected
 							}`}
@@ -101,7 +105,7 @@ export default function NavBar() {
 							Sobre
 						</a>
 						<a
-							href='#'
+							href='/artigos'
 							className={`${styles.link} ${
 								selectedLink === '/artigos' && styles.selected
 							}`}
@@ -110,7 +114,7 @@ export default function NavBar() {
 							Artigos
 						</a>
 						<a
-							href='#'
+							href='/colaboradores'
 							className={`${styles.link} ${
 								selectedLink === '/colaboradores' && styles.selected
 							}`}
@@ -119,7 +123,7 @@ export default function NavBar() {
 							Colaboradores
 						</a>
 						<a
-							href='#'
+							href='/contacto'
 							className={`${styles.link} ${
 								selectedLink === '/contacto' && styles.selected
 							}`}
@@ -127,6 +131,28 @@ export default function NavBar() {
 						>
 							Contacto
 						</a>
+						{props.signedIn ? (
+							<a
+								href='/users/sign_out'
+								data-method='delete'
+								className={`${styles.link} ${
+									selectedLink === '/contacto' && styles.selected
+								}`}
+								onClick={burgerToggle}
+							>
+								Log Out
+							</a>
+						) : (
+							<a
+								href='/users/sign_in'
+								className={`${styles.link} ${
+									selectedLink === '/contacto' && styles.selected
+								}`}
+								onClick={burgerToggle}
+							>
+								Login
+							</a>
+						)}
 					</div>
 				</div>
 			</nav>

@@ -7,18 +7,18 @@
 	.topSection {
 		margin: 50px 0;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-around;
 		align-items: center;
 
 		.leftText {
-			width: 40%;
 			font-weight: bold;
 			color: $futuro;
 		}
 
 		form {
+			width: 100%;
 			padding: 25px;
-			width: 50%;
 			font-size: 16px;
 			.formGroup {
 				margin: 5px 0;
@@ -37,6 +37,20 @@
 				color: white;
 				background-color: $jovens;
 				border: none;
+			}
+		}
+	}
+}
+
+@media (min-width: 680px) {
+	.container {
+		.topSection {
+			.leftText {
+				width: 40%;
+			}
+
+			form {
+				width: 50%;
 			}
 		}
 	}

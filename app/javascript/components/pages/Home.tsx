@@ -61,8 +61,11 @@ export default function Home() {
 					fáceis ou simplistas, e, por conseguinte, é fundamental pensar,
 					refletir e discutir as mesmas desde cedo.
 				</p>
-				<div className={styles.image}>
-					<img src='/images/people.png' alt='' />
+				<div
+					className={styles.image}
+					style={{ backgroundImage: 'url(/images/people.png)' }}
+				>
+					{/* <img src='/images/people.png' alt='' /> */}
 				</div>
 				<h2 className={styles.subtitle}>Jovens, o Futuro!</h2>
 				<p className={styles.text}>

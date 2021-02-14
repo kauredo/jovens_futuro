@@ -1,11 +1,12 @@
 @import '../../../assets/stylesheets/utils/utils';
 
 .logo {
-	margin: 25px 0;
+	margin: 2.5vw 0;
 	display: flex;
-	font-size: 125px;
+	font-size: 10vw;
 	font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
+	flex-wrap: wrap;
 
 	.jovens {
 		color: $jovens;
@@ -13,24 +14,35 @@
 	.ando {
 		display: flex;
 		flex-direction: column;
-		margin: 10px 0 0 20px;
-		padding: 10px 0 10px 0;
-		font-size: 62.5px;
+		margin: 1vw 0 0 2vw;
+		padding: 1vw 0 1vw 0;
+		font-size: 5vw;
 		color: $ando;
 
 		p {
-			line-height: 60px;
+			line-height: 4.5vw;
 		}
 	}
 	.line {
 		background-color: $ando;
-		width: 5px;
-		height: 120px;
+		width: 0.5vw;
+		height: 9vw;
 		margin: auto 0;
-		margin-right: 10px;
-		margin-left: 5px;
+		margin-right: 1vw;
+		margin-left: 0.5vw;
 	}
 	.futuro {
 		color: $futuro;
+	}
+}
+
+@media (min-width: 750px) {
+	.navbar {
+		.navWide {
+			display: block;
+		}
+		.navNarrow {
+			display: none;
+		}
 	}
 }

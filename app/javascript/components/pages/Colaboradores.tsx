@@ -1,10 +1,15 @@
 import React from 'react';
+import { User } from '../artigos/NovoArtigo';
 import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 
 const styles = require('./Colaboradores.module.scss');
 
-export default function Colaboradores() {
+interface Props {
+	colaboradores: User[];
+}
+
+export default function Colaboradores(props: Props) {
 	return (
 		<div className={styles.container}>
 			<Logo />
@@ -48,6 +53,13 @@ export default function Colaboradores() {
 				<div className={styles.bottomSection}>
 					<h2 className={styles.subtitle}>Colaboradores</h2>
 					<ul className={styles.colaboradores}>
+						{props.colaboradores.map(colaborador => {
+							return (
+								<li key={colaborador.id} className={styles.colaborador}>
+									{colaborador.attributes.name}
+								</li>
+							);
+						})}
 						<li className={styles.colaborador}>Afonso Froes</li>
 						<li className={styles.colaborador}>André Neves</li>
 						<li className={styles.colaborador}>Bernardo Mendonça</li>

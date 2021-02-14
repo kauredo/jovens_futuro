@@ -16,7 +16,7 @@
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
-				font-size: 40px;
+				font-size: 4vw;
 				font-weight: bold;
 				.link {
 					text-decoration: none;
@@ -52,7 +52,7 @@
 			justify-content: center;
 			align-items: flex-end;
 			position: relative;
-			top: -172px;
+			top: -215px;
 			z-index: 1;
 			font-size: 20px;
 			font-weight: bold;
@@ -75,6 +75,18 @@
 		}
 		.navNarrow {
 			display: none;
+		}
+	}
+}
+
+@media (min-width: 1000px) {
+	.navbar {
+		.navWide {
+			.container {
+				.links {
+					font-size: 40px;
+				}
+			}
 		}
 	}
 }

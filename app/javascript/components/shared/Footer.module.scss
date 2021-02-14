@@ -1,8 +1,6 @@
 @import '../../../assets/stylesheets/utils/utils';
 
 .footer {
-	// position: fixed;
-	// bottom: 0;
 	height: 100px;
 	width: 100%;
 	background-color: $jovens;
@@ -11,6 +9,7 @@
 		width: 90%;
 		margin: auto;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-around;
 		align-items: center;
 	}

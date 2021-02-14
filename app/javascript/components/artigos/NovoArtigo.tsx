@@ -4,27 +4,32 @@ import axios from 'axios';
 const styles = require('./NovoArtigo.module.scss');
 
 export interface Article {
-	id: number;
-	content: string;
-	title: string;
-	published: boolean;
-	user: User;
+	attributes: {
+		id: number;
+		content: string;
+		title: string;
+		published: boolean;
+		user: User;
+	};
 }
 
 export interface User {
-	name: string;
-	email: string;
+	attributes: {
+		id: number;
+		name: string;
+		email: string;
+	};
 }
 
 interface Props {
-	artigo: { attributes: Article };
+	artigo: Article;
 }
 
 export default function NovoArtigo(props: Props) {
 	const artigo = props.artigo.attributes;
-	const [title, setTitle] = useState(artigo.title);
-	const [content, setContent] = useState(artigo.content);
-	const [published, setPublished] = useState(artigo.published);
+	const [title, setTitle] = useState(artigo.title || '');
+	const [content, setContent] = useState(artigo.content || '');
+	const [published, setPublished] = useState(artigo.published || false);
 	const user = artigo.user;
 
 	const handleSubmit = e => {
