@@ -4,7 +4,7 @@ import { Article } from './NovoArtigo';
 const styles = require('./Artigo.module.scss');
 
 interface Props {
-	artigo: { attributes: Article };
+	artigo: Article;
 	full?: boolean;
 }
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 const styles = require('./NovoArtigo.module.scss');
 
 export interface Article {
+	id: number;
 	attributes: {
 		id: number;
 		content: string;
@@ -14,6 +15,13 @@ export interface Article {
 }
 
 export interface User {
+	name: string;
+	email: string;
+	id: number;
+}
+
+export interface Colaborador {
+	id: number;
 	attributes: {
 		id: number;
 		name: string;

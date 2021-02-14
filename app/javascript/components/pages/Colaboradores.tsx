@@ -1,12 +1,12 @@
 import React from 'react';
-import { User } from '../artigos/NovoArtigo';
+import { Colaborador } from '../artigos/NovoArtigo';
 import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 
 const styles = require('./Colaboradores.module.scss');
 
 interface Props {
-	colaboradores: User[];
+	colaboradores: Colaborador[];
 }
 
 export default function Colaboradores(props: Props) {
