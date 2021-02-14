@@ -11,28 +11,36 @@ export default function Contacto() {
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
 
+	const resetForm = () => {
+		setName('');
+		setPhone('');
+		setEmail('');
+		setMessage('');
+	};
+
 	const handleSubmit = e => {
 		e.preventDefault();
 		const csrf = document
 			.querySelector("meta[name='csrf-token']")
 			.getAttribute('content');
-
-		axios({
-			method: 'POST',
-			url: window.location.href,
-			data: { name, phone, email, message },
-			headers: {
-				'Content-Type': 'application/json',
-				'X-CSRF-Token': csrf,
-			},
-		}).then(response => {
-			if (response.data.status === 'success') {
-				alert('Message Sent.');
-				this.resetForm();
-			} else if (response.data.status === 'fail') {
-				alert('Message failed to send.');
-			}
-		});
+		if (name && phone && email && message) {
+			axios({
+				method: 'POST',
+				url: window.location.href,
+				data: { name, phone, email, message },
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRF-Token': csrf,
+				},
+			}).then(response => {
+				if (response.data.notice) {
+					alert(response.data.notice);
+					resetForm();
+				}
+			});
+		} else {
+			alert('Por favor insere todos os dados.');
+		}
 	};
 
 	return (
