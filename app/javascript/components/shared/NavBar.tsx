@@ -4,12 +4,14 @@ const styles = require('./NavBar.module.scss');
 
 interface Props {
 	signedIn: boolean;
+	backoffice?: boolean;
 }
 
 export default function NavBar(props: Props) {
 	const [navbar, setNavbar] = useState(false);
-	const narrowLinksRef = useRef(null);
 	const [selectedLink, setSelectedLink] = useState(window.location.pathname);
+	const narrowLinksRef = useRef(null);
+	const backoffice = props.backoffice;
 
 	const translate = (elem, y) => {
 		const top = parseInt(css(elem, 'top'), 10);
@@ -52,38 +54,61 @@ export default function NavBar(props: Props) {
 				<div className={styles.navWide}>
 					<div className={styles.container}>
 						<div className={styles.links}>
-							<a
-								href='/'
-								className={`${styles.link} ${
-									selectedLink === '/' && styles.selected
-								}`}
-							>
-								Sobre
-							</a>
-							<a
-								href='/artigos'
-								className={`${styles.link} ${
-									selectedLink === '/artigos' && styles.selected
-								}`}
-							>
-								Artigos
-							</a>
-							<a
-								href='/colaboradores'
-								className={`${styles.link} ${
-									selectedLink === '/colaboradores' && styles.selected
-								}`}
-							>
-								Colaboradores
-							</a>
-							<a
-								href='/contacto'
-								className={`${styles.link} ${
-									selectedLink === '/contacto' && styles.selected
-								}`}
-							>
-								Contacto
-							</a>
+							{backoffice ? (
+								<>
+									<a
+										href='/backoffice'
+										className={`${styles.link} ${
+											selectedLink === '/' && styles.selected
+										}`}
+									>
+										Sobre
+									</a>
+									<a
+										href='/backoffice/artigos'
+										className={`${styles.link} ${
+											selectedLink === '/artigos' && styles.selected
+										}`}
+									>
+										Artigos
+									</a>
+								</>
+							) : (
+								<>
+									<a
+										href='/'
+										className={`${styles.link} ${
+											selectedLink === '/' && styles.selected
+										}`}
+									>
+										Sobre
+									</a>
+									<a
+										href='/artigos'
+										className={`${styles.link} ${
+											selectedLink === '/artigos' && styles.selected
+										}`}
+									>
+										Artigos
+									</a>
+									<a
+										href='/colaboradores'
+										className={`${styles.link} ${
+											selectedLink === '/colaboradores' && styles.selected
+										}`}
+									>
+										Colaboradores
+									</a>
+									<a
+										href='/contacto'
+										className={`${styles.link} ${
+											selectedLink === '/contacto' && styles.selected
+										}`}
+									>
+										Contacto
+									</a>
+								</>
+							)}
 						</div>
 					</div>
 				</div>
