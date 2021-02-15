@@ -57,17 +57,25 @@ export default function NavBar(props: Props) {
 							{backoffice ? (
 								<>
 									<a
-										href='/backoffice'
-										className={`${styles.link} ${
+										href='/'
+										className={`${styles.link} ${styles.backofficeLink} ${
 											selectedLink === '/' && styles.selected
+										}`}
+									>
+										Home
+									</a>
+									<a
+										href='/backoffice'
+										className={`${styles.link} ${styles.backofficeLink} ${
+											selectedLink === '/backoffice' && styles.selected
 										}`}
 									>
 										Colaboradores
 									</a>
 									<a
 										href='/backoffice/artigos'
-										className={`${styles.link} ${
-											selectedLink === '/artigos' && styles.selected
+										className={`${styles.link} ${styles.backofficeLink} ${
+											selectedLink === '/backoffice/artigos' && styles.selected
 										}`}
 									>
 										Artigos
@@ -123,9 +131,18 @@ export default function NavBar(props: Props) {
 						{backoffice ? (
 							<>
 								<a
-									href='/backoffice'
+									href='/'
 									className={`${styles.link} ${
 										selectedLink === '/' && styles.selected
+									}`}
+									onClick={burgerToggle}
+								>
+									Home
+								</a>
+								<a
+									href='/backoffice'
+									className={`${styles.link} ${
+										selectedLink === '/backoffice' && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -134,7 +151,7 @@ export default function NavBar(props: Props) {
 								<a
 									href='/backoffice/artigos'
 									className={`${styles.link} ${
-										selectedLink === '/artigos' && styles.selected
+										selectedLink === '/backoffice/artigos' && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -144,9 +161,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/users/sign_out'
 										data-method='delete'
-										className={`${styles.link} ${
-											selectedLink === '/contacto' && styles.selected
-										}`}
+										className={styles.link}
 										onClick={burgerToggle}
 									>
 										Log Out
@@ -195,9 +210,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/users/sign_out'
 										data-method='delete'
-										className={`${styles.link} ${
-											selectedLink === '/contacto' && styles.selected
-										}`}
+										className={styles.link}
 										onClick={burgerToggle}
 									>
 										Log Out

@@ -7,7 +7,11 @@ class Backoffice::ArtigosController < ApplicationController
 
   def publish
     artigo = Artigo.find(params[:artigo_id])
-    artigo.toggle!(:published)
+    if artigo.published
+      artigo.toggle!(:published)
+    else
+      artigo.update(published: !artigo.published, published_at: Time.now)
+    end
     redirect_to backoffice_artigos_path
   end
 end

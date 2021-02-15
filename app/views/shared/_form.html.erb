@@ -1,10 +1,14 @@
 <%= form_with model: @artigo, class: "artigo-form" do |form| %>
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :categoria %>
+    <%= form.select :categoria, Artigo::CATEGORIAS %>
+  </div>
+  <div class="field">
+    <%= form.label :title, 'Título' %>
     <%= form.text_field :title %>
   </div>
   <div class="field">
     <%= form.rich_text_area :contents %>
   </div>
-  <%= form.submit %>
+  <%= form.submit "Submeter para aprovação" %>
 <% end %>

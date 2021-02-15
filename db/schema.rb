@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_022815) do
+ActiveRecord::Schema.define(version: 2021_02_15_214228) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_022815) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "categoria"
+    t.datetime "published_at"
     t.index ["user_id"], name: "index_artigos_on_user_id"
   end
 

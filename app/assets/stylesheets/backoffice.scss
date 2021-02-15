@@ -1,6 +1,7 @@
 // Place all the styles related to the backoffice controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'utils/utils';
 
 .backoffice-user,
 .backoffice-artigo {
@@ -34,6 +35,4 @@
 			background: red;
 		}
 	}
-}
-.backoffice-artigo {
 }
