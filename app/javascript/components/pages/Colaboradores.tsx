@@ -60,7 +60,7 @@ export default function Colaboradores(props: Props) {
 								</li>
 							);
 						})}
-						<li className={styles.colaborador}>Afonso Froes</li>
+						{/* <li className={styles.colaborador}>Afonso Froes</li>
 						<li className={styles.colaborador}>André Neves</li>
 						<li className={styles.colaborador}>Bernardo Mendonça</li>
 						<li className={styles.colaborador}>Carlos Pinto</li>
@@ -92,7 +92,7 @@ export default function Colaboradores(props: Props) {
 						<li className={styles.colaborador}>Pedro Mendes</li>
 						<li className={styles.colaborador}>Pedro Pereira</li>
 						<li className={styles.colaborador}>Rafael Vaz</li>
-						<li className={styles.colaborador}>Vasco Figueiredo</li>
+						<li className={styles.colaborador}>Vasco Figueiredo</li> */}
 					</ul>
 				</div>
 			</div>

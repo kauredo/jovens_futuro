@@ -8,6 +8,27 @@
 	margin: 100px auto;
 	min-height: calc(100vh - 400px);
 
+	// &.index {
+	// width: calc(90% - 100px);
+	// min-height: 0;
+	// margin: auto;
+	// margin-top: 25px;
+
+	.button {
+		padding: 15px;
+		background: $jovens;
+		color: white;
+	}
+	// }
+	.artigos {
+		.artigo {
+			margin: 25px 0;
+			h3 {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
 	.artigo-form {
 		.field {
 			margin: 20px 0;

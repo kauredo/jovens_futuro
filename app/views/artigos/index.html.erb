@@ -1,6 +1,16 @@
-<div class="container">
-  <% if user_signed_in? %>
-    <%= link_to 'Criar novo artigo', new_artigo_path %>
+<div class="container index">
+  <% if current_user && !current_user.is_confirmed? %>
+    <%= link_to 'Criar novo artigo', new_artigo_path, class: "button" %>
   <% end %>
-<%= react_component('artigos/Artigos', artigos: @artigos) %>
+
+  <div class="artigos">
+    <% @artigos.each do |artigo| %>
+      <%= link_to artigo_path(artigo) do %>
+        <div class="artigo">
+          <h3><%= artigo.title %></h3>
+          <p><%= artigo.user.name %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

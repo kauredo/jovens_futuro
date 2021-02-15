@@ -1,7 +1,8 @@
 class ArtigosController < ApplicationController
-  before_action :check_user, except: [:index]
+  before_action :check_user, except: [:index, :show]
   def index
-    @artigos = ArtigoSerializer.new(Artigo.published).serializable_hash[:data]
+    @artigos = Artigo.published
+    @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]
   end
 
   def show
@@ -46,6 +47,6 @@ class ArtigosController < ApplicationController
   end
 
   def check_user
-    redirect_to artigos_path if !user_signed_in?
+    redirect_to artigos_path if !user_signed_in? || !current_user&.is_confirmed?
   end
 end
