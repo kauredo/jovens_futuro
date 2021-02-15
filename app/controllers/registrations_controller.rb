@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  after_action :logout_if_not_confirmed, only: [:create]
+  after_action :advise_confirm, only: [:create]
 
   private
 
@@ -11,8 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password)
   end
 
-  def logout_if_not_confirmed
+  def advise_confirm
     flash[:notice] = "A tua conta vai ser confirmada brevemente"
-    sign_out current_user
   end
 end

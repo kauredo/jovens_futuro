@@ -1,5 +1,5 @@
 <div class="container index">
-  <% if current_user && !current_user.is_confirmed? %>
+  <% if current_user && current_user.is_confirmed? %>
     <%= link_to 'Criar novo artigo', new_artigo_path, class: "button" %>
   <% end %>
 
