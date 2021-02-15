@@ -47,6 +47,6 @@ class ArtigosController < ApplicationController
   end
 
   def check_user
-    redirect_to artigos_path if !user_signed_in? || !current_user&.is_confirmed?
+    redirect_to artigos_path if !user_signed_in? || !current_user&.confirmed?
   end
 end

@@ -1,0 +1,36 @@
+// Place all the styles related to the backoffice controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.backoffice-user {
+	border-bottom: 2px solid black;
+	margin: 20px 0;
+	padding-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	.backoffice-btns {
+		width: max-content;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.backoffice-btn {
+			margin: 0 5px;
+			text-align: center;
+			line-height: 50px;
+			width: 150px;
+			padding: 5px 10px;
+			color: white;
+
+			&.unconfirm-btn {
+				background: green;
+			}
+			&.confirm-btn {
+				background: red;
+			}
+		}
+	}
+}

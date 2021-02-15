@@ -1,6 +1,20 @@
 class RegistrationsController < Devise::RegistrationsController
   after_action :advise_confirm, only: [:create]
 
+  def confirm_user
+    user = User.find(params[:id])
+    confirmed = user.confirmed
+    user.update(confirmed: !confirmed)
+    redirect_to backoffice_path
+  end
+
+  def admin_user
+    user = User.find(params[:id])
+    admin = user.admin
+    user.update(admin: !admin)
+    redirect_to backoffice_path
+  end
+
   private
 
   def sign_up_params

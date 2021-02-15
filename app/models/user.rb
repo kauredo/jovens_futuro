@@ -6,8 +6,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   scope :confirmed, -> { where(confirmed: true) }
+  scope :not_confirmed, -> { where(confirmed: false) }
 
-  def is_confirmed?
-    self.confirmed
+  def confirmed?
+    confirmed
+  end
+
+  def admin?
+    admin
   end
 end

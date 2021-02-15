@@ -1,0 +1,22 @@
+<div class="container">
+  <% @users.each do |user| %>
+    <div class="backoffice-user">
+      <div>
+        <h3><%= user.name %></h3>
+        <p><%= user.email %></p>
+      </div>
+      <div class="backoffice-btns">
+        <% if user.confirmed? && user != current_user %>
+          <%= link_to 'Unconfirm User', confirm_user_path(id: user.id), method: :patch, class: 'backoffice-btn unconfirm-btn' %>
+        <% elsif user != current_user %>
+          <%= link_to 'Confirm User', confirm_user_path(id: user.id), method: :patch, class: 'backoffice-btn confirm-btn' %>
+        <% end %>
+        <% if user.admin? && user != current_user %>
+          <%= link_to 'Remove Admin', admin_user_path(id: user.id), method: :patch, class: 'backoffice-btn unconfirm-btn' %>
+        <% elsif user != current_user %>
+          <%= link_to 'Add admin', admin_user_path(id: user.id), method: :patch, class: 'backoffice-btn confirm-btn' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
