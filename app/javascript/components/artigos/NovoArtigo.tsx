@@ -7,7 +7,9 @@ export interface Article {
 	id: number;
 	attributes: {
 		id: number;
+		categoria: string;
 		title: string;
+		novo: boolean;
 		published: boolean;
 		user: User;
 	};

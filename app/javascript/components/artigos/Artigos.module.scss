@@ -1,6 +1,8 @@
 @import '../../../assets/stylesheets/utils/utils';
 
-.container {
-	width: 90%;
-	margin: auto;
+.artigos {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }

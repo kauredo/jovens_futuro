@@ -12,12 +12,12 @@ export default function Artigos(props: Props) {
 	const artigos = props.artigos;
 
 	return (
-		<div className={styles.container}>
-			<ul>
+		<div>
+			<div className={styles.artigos}>
 				{artigos.map(artigo => (
 					<Artigo key={artigo.id} artigo={artigo} />
 				))}
-			</ul>
+			</div>
 		</div>
 	);
 }

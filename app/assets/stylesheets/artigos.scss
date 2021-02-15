@@ -5,21 +5,19 @@
 
 .container {
 	width: 90%;
-	margin: 100px auto;
-	min-height: calc(100vh - 400px);
+	margin: 50px auto;
+	min-height: calc(100vh - 300px);
 
-	// &.index {
-	// width: calc(90% - 100px);
-	// min-height: 0;
-	// margin: auto;
-	// margin-top: 25px;
-
-	.button {
-		padding: 15px;
-		background: $jovens;
-		color: white;
+	.button-div {
+		height: fit-content;
+		margin-bottom: 15px;
+		.button {
+			padding: 15px;
+			background: $jovens;
+			color: white;
+		}
 	}
-	// }
+
 	h2,
 	h3 {
 		margin-bottom: 10px;
