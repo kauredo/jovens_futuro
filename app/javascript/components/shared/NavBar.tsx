@@ -131,7 +131,7 @@ export default function NavBar(props: Props) {
 						>
 							Contacto
 						</a>
-						{props.signedIn ? (
+						{props.signedIn && (
 							<a
 								href='/users/sign_out'
 								data-method='delete'
@@ -141,16 +141,6 @@ export default function NavBar(props: Props) {
 								onClick={burgerToggle}
 							>
 								Log Out
-							</a>
-						) : (
-							<a
-								href='/users/sign_in'
-								className={`${styles.link} ${
-									selectedLink === '/contacto' && styles.selected
-								}`}
-								onClick={burgerToggle}
-							>
-								Login
 							</a>
 						)}
 					</div>

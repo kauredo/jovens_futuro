@@ -14,7 +14,7 @@ export default function NavBar() {
 						jovenseofuturo2021@gmail.com
 					</a>
 				</div>
-				<div className={styles.right}>Created by Jovens &o Futuro 2021</div>
+				<div className={styles.right}>Criado por Jovens &o Futuro 2021</div>
 			</div>
 		</footer>
 	);
