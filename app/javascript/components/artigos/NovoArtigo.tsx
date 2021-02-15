@@ -7,7 +7,6 @@ export interface Article {
 	id: number;
 	attributes: {
 		id: number;
-		content: string;
 		title: string;
 		published: boolean;
 		user: User;

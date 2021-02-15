@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_215453) do
+ActiveRecord::Schema.define(version: 2021_02_15_005437) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_02_14_215453) do
 
   create_table "artigos", force: :cascade do |t|
     t.string "title"
-    t.string "content"
     t.boolean "published"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -69,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_215453) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

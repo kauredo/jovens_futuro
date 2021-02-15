@@ -6,6 +6,7 @@
 .container {
 	width: 90%;
 	margin: 100px auto;
+	min-height: calc(100vh - 400px);
 
 	.artigo-form {
 		.field {
@@ -16,4 +17,9 @@
 			color: white;
 		}
 	}
+}
+
+.trix-content {
+	overflow-wrap: anywhere;
+	margin-bottom: 1rem;
 }

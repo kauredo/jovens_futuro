@@ -1,4 +1,4 @@
 class ArtigoSerializer
   include JSONAPI::Serializer
-  attributes :id, :title, :content, :published, :user
+  attributes :id, :title, :published, :user
 end

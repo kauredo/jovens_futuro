@@ -1,6 +1,9 @@
 <div class="container">
-<%= @artigo.title %>
-<%= @artigo.contents %>
-<%= @artigo.updated_at %>
-<%= @artigo.user.name %>
+  <h2>
+    <%= @artigo.title %>
+  </h2>
+  <%= @artigo.contents %>
+  <p>
+  <%= "#{@artigo.user.name} - #{@artigo.updated_at.strftime("%d %b %Y")}" %>
+  </p>
 </div>
