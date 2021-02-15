@@ -1,5 +1,6 @@
 class ArtigosController < ApplicationController
   before_action :check_user, except: [:index, :show]
+
   def index
     @artigos = Artigo.published
     @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]

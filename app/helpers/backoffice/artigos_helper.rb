@@ -1,0 +1,2 @@
+module Backoffice::ArtigosHelper
+end

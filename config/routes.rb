@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     patch 'admin_user', to: 'registrations#admin_user'
   end
   resources :artigos
-  get '/backoffice', to: 'backoffice#index'
+  namespace :backoffice do
+    get '/', to: 'pages#index'
+    resources :artigos, only: [:index] do
+      patch 'publish', to: 'artigos#publish'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

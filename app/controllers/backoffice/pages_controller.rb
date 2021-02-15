@@ -1,4 +1,4 @@
-class BackofficeController < ApplicationController
+class Backoffice::PagesController < ApplicationController
   layout 'backoffice'
 
   def index

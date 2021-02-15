@@ -62,7 +62,7 @@ export default function NavBar(props: Props) {
 											selectedLink === '/' && styles.selected
 										}`}
 									>
-										Sobre
+										Colaboradores
 									</a>
 									<a
 										href='/backoffice/artigos'
@@ -120,53 +120,90 @@ export default function NavBar(props: Props) {
 						<i className='fa fa-bars fa-2x' onClick={burgerToggle}></i>
 					</div>
 					<div className={styles.narrowLinks} ref={narrowLinksRef}>
-						<a
-							href='/'
-							className={`${styles.link} ${
-								selectedLink === '/' && styles.selected
-							}`}
-							onClick={burgerToggle}
-						>
-							Sobre
-						</a>
-						<a
-							href='/artigos'
-							className={`${styles.link} ${
-								selectedLink === '/artigos' && styles.selected
-							}`}
-							onClick={burgerToggle}
-						>
-							Artigos
-						</a>
-						<a
-							href='/colaboradores'
-							className={`${styles.link} ${
-								selectedLink === '/colaboradores' && styles.selected
-							}`}
-							onClick={burgerToggle}
-						>
-							Colaboradores
-						</a>
-						<a
-							href='/contacto'
-							className={`${styles.link} ${
-								selectedLink === '/contacto' && styles.selected
-							}`}
-							onClick={burgerToggle}
-						>
-							Contacto
-						</a>
-						{props.signedIn && (
-							<a
-								href='/users/sign_out'
-								data-method='delete'
-								className={`${styles.link} ${
-									selectedLink === '/contacto' && styles.selected
-								}`}
-								onClick={burgerToggle}
-							>
-								Log Out
-							</a>
+						{backoffice ? (
+							<>
+								<a
+									href='/backoffice'
+									className={`${styles.link} ${
+										selectedLink === '/' && styles.selected
+									}`}
+									onClick={burgerToggle}
+								>
+									Colaboradores
+								</a>
+								<a
+									href='/backoffice/artigos'
+									className={`${styles.link} ${
+										selectedLink === '/artigos' && styles.selected
+									}`}
+									onClick={burgerToggle}
+								>
+									Artigos
+								</a>
+								{props.signedIn && (
+									<a
+										href='/users/sign_out'
+										data-method='delete'
+										className={`${styles.link} ${
+											selectedLink === '/contacto' && styles.selected
+										}`}
+										onClick={burgerToggle}
+									>
+										Log Out
+									</a>
+								)}
+							</>
+						) : (
+							<>
+								<a
+									href='/'
+									className={`${styles.link} ${
+										selectedLink === '/' && styles.selected
+									}`}
+									onClick={burgerToggle}
+								>
+									Sobre
+								</a>
+								<a
+									href='/artigos'
+									className={`${styles.link} ${
+										selectedLink === '/artigos' && styles.selected
+									}`}
+									onClick={burgerToggle}
+								>
+									Artigos
+								</a>
+								<a
+									href='/colaboradores'
+									className={`${styles.link} ${
+										selectedLink === '/colaboradores' && styles.selected
+									}`}
+									onClick={burgerToggle}
+								>
+									Colaboradores
+								</a>
+								<a
+									href='/contacto'
+									className={`${styles.link} ${
+										selectedLink === '/contacto' && styles.selected
+									}`}
+									onClick={burgerToggle}
+								>
+									Contacto
+								</a>
+								{props.signedIn && (
+									<a
+										href='/users/sign_out'
+										data-method='delete'
+										className={`${styles.link} ${
+											selectedLink === '/contacto' && styles.selected
+										}`}
+										onClick={burgerToggle}
+									>
+										Log Out
+									</a>
+								)}
+							</>
 						)}
 					</div>
 				</div>

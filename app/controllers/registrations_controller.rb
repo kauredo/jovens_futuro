@@ -3,15 +3,13 @@ class RegistrationsController < Devise::RegistrationsController
 
   def confirm_user
     user = User.find(params[:id])
-    confirmed = user.confirmed
-    user.update(confirmed: !confirmed)
+    user.toggle!(:confirmed)
     redirect_to backoffice_path
   end
 
   def admin_user
     user = User.find(params[:id])
-    admin = user.admin
-    user.update(admin: !admin)
+    user.toggle!(:admin)
     redirect_to backoffice_path
   end
 
