@@ -37,9 +37,41 @@
 			color: white;
 		}
 	}
+
+	.search {
+		width: fit-content;
+		margin: auto;
+		margin-bottom: 10px;
+		font-size: 1rem;
+
+		input,
+		select {
+			height: 35px;
+			width: 100%;
+			padding: 5px 10px;
+			margin: 5px 0;
+		}
+
+		input[type='submit'] {
+			border: none;
+			background: $jovens;
+			color: white;
+		}
+	}
 }
 
 .trix-content {
 	overflow-wrap: anywhere;
 	margin-bottom: 1rem;
+}
+
+@media (min-width: 680px) {
+	.container {
+		.search {
+			select,
+			input {
+				width: fit-content;
+			}
+		}
+	}
 }

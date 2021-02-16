@@ -3,8 +3,14 @@ class ArtigosController < ApplicationController
 
   def index
     @page = params[:page]&.to_i || 1
-    @pages = Artigo.pages
-    @artigos = Artigo.published.paginate(page: @page)
+
+    @q = Artigo.published.ransack(params[:q])
+    result = @q.result
+    @pages = result.pages
+    @total = result.count
+    @artigos = result.paginate(page: @page)
+
+    # @artigos = Artigo.published.paginate(page: @page)
     @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]
   end
 
@@ -46,7 +52,7 @@ class ArtigosController < ApplicationController
   private
 
   def artigo_params 
-    params.require(:artigo).permit(:title, :content, :contents, :published, :user)
+    params.require(:artigo).permit(:title, :categoria, :contents, :user)
   end
 
   def check_user

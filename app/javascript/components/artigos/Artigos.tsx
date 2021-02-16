@@ -9,6 +9,8 @@ interface Props {
 	artigos: Article[];
 	page: number;
 	pages: number;
+	perPage: number;
+	total: number;
 }
 
 export default function Artigos(props: Props) {
@@ -16,13 +18,17 @@ export default function Artigos(props: Props) {
 
 	return (
 		<div>
-			<Pagination page={props.page} lastPage={props.pages} />
 			<div className={styles.artigos}>
 				{artigos.map(artigo => (
 					<Artigo key={artigo.id} artigo={artigo} />
 				))}
 			</div>
-			<Pagination page={props.page} lastPage={props.pages} />
+			<Pagination
+				page={props.page}
+				lastPage={props.pages}
+				perPage={props.perPage}
+				total={props.total}
+			/>
 		</div>
 	);
 }

@@ -18,7 +18,9 @@ export default function Artigo(props: Props) {
 		<div className={styles.artigo}>
 			<div className={styles.photo}></div>
 			<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
-			<a href={`${window.location.href}/${artigo.id}`}>
+			<a
+				href={`${window.location.origin}${window.location.pathname}/${artigo.id}`}
+			>
 				<h2 className={styles.title}>{artigo.title}</h2>
 			</a>
 			<h4 className={styles.name}>{user.name}</h4>

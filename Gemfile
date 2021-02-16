@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'jsonapi-serializer'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'react-rails'
 gem 'webpacker'
 

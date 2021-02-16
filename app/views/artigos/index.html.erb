@@ -4,6 +4,17 @@
       <%= link_to 'Criar novo artigo', new_artigo_path, class: "button" %>
     </div>
   <% end %>
+  <div class="search">
+    <%= search_form_for @q do |f| %>
 
-  <%= react_component('artigos/Artigos', artigos: @artigos1, page: @page, pages: @pages) %>
+      <%= f.search_field :title_cont, placeholder: "Título" %>
+
+      <%= f.select :categoria_eq, Artigo::CATEGORIAS, include_blank: "Categoria" %>
+
+      <%= f.select :from_user, User.confirmed.map(&:name), include_blank: "Colunista" %>
+
+      <%= f.submit "Pesquisa" %>
+    <% end %>
+  </div>
+  <%= react_component('artigos/Artigos', artigos: @artigos1, page: @page, pages: @pages, perPage: Artigo.per_page, total: @total) %>
 </div>
