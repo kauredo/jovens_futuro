@@ -1,8 +1,10 @@
 class ArtigosController < ApplicationController
-  before_action :check_user, except: [:index, :show]
+  before_action :check_user, except: %i(index show)
 
   def index
-    @artigos = Artigo.published
+    @page = params[:page]&.to_i || 1
+    @pages = Artigo.pages
+    @artigos = Artigo.published.paginate(page: @page)
     @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]
   end
 

@@ -1,0 +1,25 @@
+@import '../../../assets/stylesheets/utils/utils';
+
+.pagination {
+	text-align: center;
+	.paginationList {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.item {
+			min-width: 1rem;
+			padding: 5px 10px;
+			margin: 5px;
+			cursor: pointer;
+			border: 1px solid black;
+		}
+
+		.disabled {
+			display: none;
+		}
+		.active {
+			background-color: $futuro;
+		}
+	}
+}
