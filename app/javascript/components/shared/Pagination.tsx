@@ -15,7 +15,8 @@ export default function Pagination(props: Props) {
 		pages.push(i);
 	}
 
-	const setCurrentPage = page => {
+	const setCurrentPage = (event, page) => {
+		event.preventDefault;
 		const url = `${window.location.origin}/artigos?page=${page}`;
 		window.location.href = url;
 	};
@@ -25,10 +26,10 @@ export default function Pagination(props: Props) {
 			Paginação
 			<div className={styles.paginationList}>
 				<div className={currentPage === 1 ? styles.disabled : styles.item}>
-					<a onClick={() => setCurrentPage(1)}>Primeira</a>
+					<a onClick={e => setCurrentPage(e, 1)}>Primeira</a>
 				</div>
 				<div className={currentPage === 1 ? styles.disabled : styles.item}>
-					<a onClick={() => setCurrentPage(currentPage - 1)}>{'<'}</a>
+					<a onClick={e => setCurrentPage(e, currentPage - 1)}>{'<'}</a>
 				</div>
 
 				{pages.map((page, index) => {
@@ -41,7 +42,7 @@ export default function Pagination(props: Props) {
 									: styles.item
 							}
 						>
-							<a onClick={() => setCurrentPage(page)}>{page}</a>
+							<a onClick={e => setCurrentPage(e, page)}>{page}</a>
 						</div>
 					);
 				})}
@@ -50,14 +51,14 @@ export default function Pagination(props: Props) {
 						currentPage === props.lastPage ? styles.disabled : styles.item
 					}
 				>
-					<a onClick={() => setCurrentPage(currentPage + 1)}>{'>'}</a>
+					<a onClick={e => setCurrentPage(e, currentPage + 1)}>{'>'}</a>
 				</div>
 				<div
 					className={
 						currentPage === props.lastPage ? styles.disabled : styles.item
 					}
 				>
-					<a onClick={() => setCurrentPage(props.lastPage)}>Última</a>
+					<a onClick={e => setCurrentPage(e, props.lastPage)}>Última</a>
 				</div>
 			</div>
 		</div>

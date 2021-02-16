@@ -22,6 +22,7 @@ export default function Artigos(props: Props) {
 					<Artigo key={artigo.id} artigo={artigo} />
 				))}
 			</div>
+			<Pagination page={props.page} lastPage={props.pages} />
 		</div>
 	);
 }
