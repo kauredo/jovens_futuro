@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :backoffice do
+    get 'admin/users'
+    get 'admin/artigos'
+  end
   root 'pages#home'
   get '/colaboradores', to: 'pages#colaboradores'
   get '/contacto', to: 'pages#contacto'
@@ -8,10 +12,10 @@ Rails.application.routes.draw do
     patch 'confirm_user', to: 'registrations#confirm_user'
     patch 'admin_user', to: 'registrations#admin_user'
   end
-  resources :artigos
+  resources :artigos, only: [:index, :show]
   namespace :backoffice do
-    get '/', to: 'pages#index'
-    resources :artigos, only: [:index] do
+    get '/', to: 'artigos#index'
+    resources :artigos do
       patch 'publish', to: 'artigos#publish'
     end
   end

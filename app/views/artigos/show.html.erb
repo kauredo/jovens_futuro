@@ -1,9 +1,8 @@
 <div class="container">
-  <h2>
-    <%= @artigo.title %>
-  </h2>
+  <%= react_component('artigos/Artigo', artigo: @artigo1, justHeader: true) %>
+
   <%= @artigo.contents %>
-  <p>
+  <p class="signature">
   <%= "#{@artigo.user.name} - #{@artigo.published_at.strftime("%d %b %Y")}" %>
   </p>
 </div>

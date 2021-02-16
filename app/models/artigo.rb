@@ -3,7 +3,8 @@ class Artigo < ApplicationRecord
 
   has_rich_text :contents
   belongs_to :user
-  scope :published, -> { where(published: true).joins(:user).where(user: { confirmed: true }) }
+  scope :last_first, -> { all.reverse }
+  scope :published, -> { where(published: true).joins(:user).where(user: { confirmed: true }).order({ published_at: :desc }) }
   scope :novo, -> { where('published_at > ?', 3.days.ago) }
   scope :from_user, ->(user) { joins(:user).where(user: { name: user }) }
 
@@ -25,10 +26,9 @@ class Artigo < ApplicationRecord
       offset = (page - 1) * per_page
       limit(per_page).offset(offset)
     end
-    
+
     def ransackable_scopes(auth_object = nil)
       %i(from_user)
     end
   end
-
 end

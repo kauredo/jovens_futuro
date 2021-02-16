@@ -4,13 +4,13 @@ class RegistrationsController < Devise::RegistrationsController
   def confirm_user
     user = User.find(params[:id])
     user.toggle!(:confirmed)
-    redirect_to backoffice_path
+    redirect_to backoffice_admin_users_path
   end
 
   def admin_user
     user = User.find(params[:id])
     user.toggle!(:admin)
-    redirect_to backoffice_path
+    redirect_to backoffice_admin_users_path
   end
 
   private
@@ -24,6 +24,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def advise_confirm
-    flash[:notice] = "A tua conta vai ser confirmada brevemente"
+    flash[:notice] = 'A tua conta vai ser confirmada brevemente'
   end
 end

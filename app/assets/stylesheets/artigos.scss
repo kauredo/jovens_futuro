@@ -10,7 +10,7 @@
 
 	.button-div {
 		height: fit-content;
-		margin-bottom: 15px;
+		margin-top: 100px;
 		.button {
 			padding: 15px;
 			background: $jovens;
@@ -63,6 +63,14 @@
 .trix-content {
 	overflow-wrap: anywhere;
 	margin-bottom: 1rem;
+	max-width: 600px;
+	margin: auto;
+}
+
+.signature {
+	max-width: 600px;
+	margin: auto;
+	text-align: end;
 }
 
 @media (min-width: 680px) {

@@ -1,9 +1,4 @@
-<div class="container index">
-  <% if current_user && current_user.confirmed? %>
-    <div class="button-div">
-      <%= link_to 'Criar novo artigo', new_artigo_path, class: "button" %>
-    </div>
-  <% end %>
+<div class="container index"> 
   <div class="search">
     <%= search_form_for @q do |f| %>
 

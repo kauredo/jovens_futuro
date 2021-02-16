@@ -8,6 +8,11 @@
 	align-items: center;
 	justify-content: center;
 
+	&.main {
+		margin: auto;
+		margin-bottom: 20px;
+	}
+
 	.categoria {
 		padding: 3px 8px;
 		background-color: $ando;
@@ -20,13 +25,15 @@
 		border-radius: 1000rem;
 		border: 1rem solid $futuro;
 	}
-	.title {
-		&:hover {
-			color: $futuro;
+
+	.titleLink {
+		.title {
+			&:hover {
+				color: $futuro;
+			}
 		}
 	}
-	.name {
-	}
+
 	.content {
 		text-align: center;
 	}

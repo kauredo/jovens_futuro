@@ -1,20 +1,16 @@
 <div class="container index">
+  <div class="button-div">
+    <%= link_to 'Criar novo artigo', new_backoffice_artigo_path, class: "button" %>
+  </div>
   <div class="artigos">
     <% @artigos.each do |artigo| %>
-      <%= link_to artigo_path(artigo) do %>
-      <div class="backoffice-artigo">
-        <div class="artigo">
-          <h3><%= artigo.title %></h3>
-          <p><%= artigo.user.name %></p>
+      <%= link_to backoffice_artigo_path(artigo) do %>
+        <div class="backoffice-artigo">
+          <div class="artigo">
+            <h3><%= artigo.title %> (<%= artigo.categoria %>)</h3>
+            <p><%= artigo.created_at.strftime('%d %b %Y') %></p>
+          </div>
         </div>
-        <div class="backoffice-btns">
-          <% if artigo.published? %>
-            <%= link_to 'Omitir Artigo', backoffice_artigo_publish_path(artigo.id), method: :patch, class: 'backoffice-btn unconfirm-btn' %>
-          <% else %>
-            <%= link_to 'Publicar Artigo', backoffice_artigo_publish_path(artigo.id), method: :patch, class: 'backoffice-btn confirm-btn' %>
-          <% end %>
-        </div>
-      </div>
       <% end %>
     <% end %>
   </div>

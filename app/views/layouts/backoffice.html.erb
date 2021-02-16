@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <%= react_component("shared/NavBar", signedIn: user_signed_in?, backoffice: true) %>
+    <%= react_component("shared/NavBar", signedIn: user_signed_in?, backoffice: true, admin: current_user.admin) %>
     <%= yield %>
   </body>
 </html>

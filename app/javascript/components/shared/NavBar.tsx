@@ -5,6 +5,7 @@ const styles = require('./NavBar.module.scss');
 interface Props {
 	signedIn: boolean;
 	backoffice?: boolean;
+	admin?: boolean;
 }
 
 export default function NavBar(props: Props) {
@@ -12,6 +13,7 @@ export default function NavBar(props: Props) {
 	const [selectedLink, setSelectedLink] = useState(window.location.pathname);
 	const narrowLinksRef = useRef(null);
 	const backoffice = props.backoffice;
+	const admin = props.admin;
 
 	const translate = (elem, y) => {
 		const top = parseInt(css(elem, 'top'), 10);
@@ -70,16 +72,30 @@ export default function NavBar(props: Props) {
 											selectedLink === '/backoffice' && styles.selected
 										}`}
 									>
-										Colaboradores
+										Meus Artigos
 									</a>
-									<a
-										href='/backoffice/artigos'
-										className={`${styles.link} ${styles.backofficeLink} ${
-											selectedLink === '/backoffice/artigos' && styles.selected
-										}`}
-									>
-										Artigos
-									</a>
+									{admin && (
+										<>
+											<a
+												href='/backoffice/admin/artigos'
+												className={`${styles.link} ${styles.backofficeLink} ${
+													selectedLink === '/backoffice/admin/artigos' &&
+													styles.selected
+												}`}
+											>
+												Artigos
+											</a>
+											<a
+												href='/backoffice/admin/users'
+												className={`${styles.link} ${styles.backofficeLink} ${
+													selectedLink === '/backoffice/admin/users' &&
+													styles.selected
+												}`}
+											>
+												Utilizadores
+											</a>
+										</>
+									)}
 								</>
 							) : (
 								<>
@@ -146,7 +162,7 @@ export default function NavBar(props: Props) {
 									}`}
 									onClick={burgerToggle}
 								>
-									Colaboradores
+									Meus artigos
 								</a>
 								<a
 									href='/backoffice/artigos'
