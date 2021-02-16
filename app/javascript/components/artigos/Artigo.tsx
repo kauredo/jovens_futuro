@@ -26,6 +26,9 @@ export default function Artigo(props: Props) {
 					<div className={styles.photo}></div>
 					<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
 					<h2 className={styles.title}>{artigo.title}</h2>
+					<p>
+						<em>Publicado a {artigo.published_at}</em>
+					</p>
 				</>
 			) : (
 				<>
@@ -42,6 +45,9 @@ export default function Artigo(props: Props) {
 						{truncate(
 							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, mollitia omnis placeat velit, earum, atque eum accusamus vel saepe laboriosam dolor dignissimos eaque beatae qui? Quae saepe magnam cumque quidem.'
 						)}
+					</p>
+					<p>
+						<em>Publicado a {artigo.published_at}</em>
 					</p>
 				</>
 			)}

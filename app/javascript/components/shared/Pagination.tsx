@@ -36,45 +36,47 @@ export default function Pagination(props: Props) {
 	};
 
 	return (
-		<div className={styles.pagination}>
-			Paginação ({showing})
-			<div className={styles.paginationList}>
-				<div className={currentPage === 1 ? styles.disabled : styles.item}>
-					<a onClick={e => setCurrentPage(e, 1)}>Primeira</a>
-				</div>
-				<div className={currentPage === 1 ? styles.disabled : styles.item}>
-					<a onClick={e => setCurrentPage(e, currentPage - 1)}>{'<'}</a>
-				</div>
+		lastPage !== 1 && (
+			<div className={styles.pagination}>
+				Paginação ({showing})
+				<div className={styles.paginationList}>
+					<div className={currentPage === 1 ? styles.disabled : styles.item}>
+						<a onClick={e => setCurrentPage(e, 1)}>Primeira</a>
+					</div>
+					<div className={currentPage === 1 ? styles.disabled : styles.item}>
+						<a onClick={e => setCurrentPage(e, currentPage - 1)}>{'<'}</a>
+					</div>
 
-				{pages.map((page, index) => {
-					return (
-						<div
-							key={index}
-							className={
-								page === currentPage
-									? `${styles.active} ${styles.item}`
-									: styles.item
-							}
-						>
-							<a onClick={e => setCurrentPage(e, page)}>{page}</a>
-						</div>
-					);
-				})}
-				<div
-					className={
-						currentPage === props.lastPage ? styles.disabled : styles.item
-					}
-				>
-					<a onClick={e => setCurrentPage(e, currentPage + 1)}>{'>'}</a>
-				</div>
-				<div
-					className={
-						currentPage === props.lastPage ? styles.disabled : styles.item
-					}
-				>
-					<a onClick={e => setCurrentPage(e, props.lastPage)}>Última</a>
+					{pages.map((page, index) => {
+						return (
+							<div
+								key={index}
+								className={
+									page === currentPage
+										? `${styles.active} ${styles.item}`
+										: styles.item
+								}
+							>
+								<a onClick={e => setCurrentPage(e, page)}>{page}</a>
+							</div>
+						);
+					})}
+					<div
+						className={
+							currentPage === props.lastPage ? styles.disabled : styles.item
+						}
+					>
+						<a onClick={e => setCurrentPage(e, currentPage + 1)}>{'>'}</a>
+					</div>
+					<div
+						className={
+							currentPage === props.lastPage ? styles.disabled : styles.item
+						}
+					>
+						<a onClick={e => setCurrentPage(e, props.lastPage)}>Última</a>
+					</div>
 				</div>
 			</div>
-		</div>
+		)
 	);
 }

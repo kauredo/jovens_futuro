@@ -11,6 +11,7 @@ export interface Article {
 		title: string;
 		novo: boolean;
 		published: boolean;
+		published_at: Date;
 		user: User;
 	};
 }
