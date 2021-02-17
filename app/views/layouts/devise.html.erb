@@ -13,6 +13,9 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <%= react_component('shared/Flashes', type: type, message: msg)  %>
+    <% end %>
     <div style="width: fit-content; height: 100vh; margin: auto; padding-top: 100px;">
       <%= yield %>
     </div>

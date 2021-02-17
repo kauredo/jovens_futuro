@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = require('./Footer.module.scss');
 
-export default function NavBar() {
+export default function Footer() {
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.container}>

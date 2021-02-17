@@ -14,6 +14,9 @@
 
   <body>
     <%= react_component("shared/NavBar", signedIn: user_signed_in?) %>
+    <% flash.each do |type, msg| %>
+      <%= react_component('shared/Flashes', type: type, message: msg)  %>
+    <% end %>
     <%= yield %>
     <%= react_component("shared/Footer") %>
   </body>

@@ -1,0 +1,19 @@
+@import '../../../assets/stylesheets/utils/utils';
+
+.flash {
+	height: 50px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding-left: 10px;
+	line-height: 50px;
+	z-index: 1000;
+}
+
+.notice {
+	background-color: $futuro;
+}
+
+.error {
+	background-color: red;
+}

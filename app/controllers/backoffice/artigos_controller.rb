@@ -36,7 +36,7 @@ class Backoffice::ArtigosController < ApplicationController
   end
 
   def check_user
-    redirect_back(fallback_location: new_user_registration_path) if !user_signed_in? || !current_user.confirmed?
+    redirect_back(fallback_location: new_user_session_path) if !user_signed_in? || !current_user.confirmed?
   end
 
   def check_admin_user
