@@ -36,7 +36,7 @@ export default function Pagination(props: Props) {
 	};
 
 	return (
-		lastPage !== 1 && (
+		lastPage > 1 && (
 			<div className={styles.pagination}>
 				Paginação ({showing})
 				<div className={styles.paginationList}>

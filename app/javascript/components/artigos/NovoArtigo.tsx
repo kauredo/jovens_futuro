@@ -8,6 +8,7 @@ export interface Article {
 	attributes: {
 		id: number;
 		categoria: string;
+		content: string;
 		title: string;
 		novo: boolean;
 		published: boolean;
@@ -17,17 +18,19 @@ export interface Article {
 }
 
 export interface User {
-	name: string;
+	avatar: { url: string };
 	email: string;
 	id: number;
+	name: string;
 }
 
 export interface Colaborador {
 	id: number;
 	attributes: {
+		avatar: { url: string };
+		email: string;
 		id: number;
 		name: string;
-		email: string;
 	};
 }
 
@@ -38,7 +41,6 @@ interface Props {
 export default function NovoArtigo(props: Props) {
 	const artigo = props.artigo.attributes;
 	const [title, setTitle] = useState(artigo.title || '');
-	const [content, setContent] = useState(artigo.content || '');
 	const [published, setPublished] = useState(artigo.published || false);
 	const user = artigo.user;
 
@@ -50,11 +52,11 @@ export default function NovoArtigo(props: Props) {
 			.getAttribute('content');
 		const url = `${window.location.origin}/artigos`;
 
-		if (title && content) {
+		if (title) {
 			axios({
 				method: 'POST',
 				url: url,
-				data: { title, content, published, user },
+				data: { title, published, user },
 				headers: {
 					'Content-Type': 'application/json',
 					'X-CSRF-Token': csrf,

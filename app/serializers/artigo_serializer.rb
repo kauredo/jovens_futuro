@@ -7,6 +7,10 @@ class ArtigoSerializer
   end
 
   attribute :published_at do |obj|
-    obj.published_at.strftime('%d-%m-%y')
+    obj.published_at.strftime('%d-%m-%Y')
+  end
+
+  attribute :content do |obj|
+    obj.contents.to_plain_text
   end
 end

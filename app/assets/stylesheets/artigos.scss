@@ -59,12 +59,13 @@
 		}
 	}
 }
-
-.trix-content {
-	overflow-wrap: anywhere;
-	margin-bottom: 1rem;
-	max-width: 600px;
-	margin: auto;
+.content {
+	.trix-content {
+		overflow-wrap: anywhere;
+		margin-bottom: 1rem;
+		max-width: 600px;
+		margin: auto;
+	}
 }
 
 .signature {

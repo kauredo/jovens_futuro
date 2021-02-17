@@ -1,7 +1,8 @@
 <div class="container">
   <%= react_component('artigos/Artigo', artigo: @artigo1, justHeader: true) %>
-
-  <%= @artigo.contents %>
+  <div class="content">
+    <%= @artigo.contents %>
+  </div>
   <p class="signature">
   <%= @artigo.user.name %>
   </p>

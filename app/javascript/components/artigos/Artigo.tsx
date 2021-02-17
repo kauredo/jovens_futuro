@@ -23,7 +23,10 @@ export default function Artigo(props: Props) {
 		<div className={artigoClass}>
 			{justHeader ? (
 				<>
-					<div className={styles.photo}></div>
+					<div
+						className={styles.photo}
+						style={{ backgroundImage: `url(${user.avatar.url})` }}
+					></div>
 					<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
 					<h2 className={styles.title}>{artigo.title}</h2>
 					<p>
@@ -32,7 +35,10 @@ export default function Artigo(props: Props) {
 				</>
 			) : (
 				<>
-					<div className={styles.photo}></div>
+					<div
+						className={styles.photo}
+						style={{ backgroundImage: `url(${user.avatar.url})` }}
+					></div>
 					<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
 					<a
 						className={styles.titleLink}
@@ -41,11 +47,7 @@ export default function Artigo(props: Props) {
 						<h2 className={styles.title}>{artigo.title}</h2>
 					</a>
 					<h4 className={styles.name}>{user.name}</h4>
-					<p className={styles.content}>
-						{truncate(
-							'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, mollitia omnis placeat velit, earum, atque eum accusamus vel saepe laboriosam dolor dignissimos eaque beatae qui? Quae saepe magnam cumque quidem.'
-						)}
-					</p>
+					<p className={styles.content}>{truncate(artigo.content)}</p>
 					<p>
 						<em>Publicado a {artigo.published_at}</em>
 					</p>
