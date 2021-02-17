@@ -54,3 +54,12 @@ test:
   username: vasco
   password: 6645459
   timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: jovensfuturo
+  pool: 5
+  username: vasco
+  password: 6645459
+  timeout: 5000
