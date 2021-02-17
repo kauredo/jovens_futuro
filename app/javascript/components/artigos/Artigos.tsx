@@ -3,7 +3,7 @@ import { Article } from './NovoArtigo';
 import Artigo from './Artigo';
 import Pagination from '../shared/Pagination';
 
-const styles = require('./Artigos.module.scss');
+import styles from './Artigos.module.scss';
 
 interface Props {
 	artigos: Article[];
