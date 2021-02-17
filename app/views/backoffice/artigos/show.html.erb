@@ -4,7 +4,7 @@
   </h2>
   <%= @artigo.contents %>
   <p>
-  <%= "#{@artigo.user.name} - #{@artigo.published_at.strftime("%d %b %Y")}" %>
+  <%= "Criado a #{@artigo.published_at.strftime("%d-%m-%Y")} por #{@artigo.user.name}" %>
   </p>
   <div class="button-div">
     <%= link_to 'Editar artigo', edit_backoffice_artigo_path(@artigo), class: "button" %>

@@ -8,7 +8,14 @@
         <div class="backoffice-artigo">
           <div class="artigo">
             <h3><%= artigo.title %> (<%= artigo.categoria %>)</h3>
-            <p><%= artigo.created_at.strftime('%d %b %Y') %></p>
+            <p><%= "Criado a #{artigo.created_at.strftime('%d-%m-%Y')}" %></p>
+          </div>
+          <div class="backoffice-btns">
+            <% if artigo.published? %>
+              <div class="backoffice-btn unconfirm-btn">Publicado</div>
+            <% else %>
+              <div class="backoffice-btn confirm-btn">Não publicado</div>
+            <% end %>
           </div>
         </div>
       <% end %>

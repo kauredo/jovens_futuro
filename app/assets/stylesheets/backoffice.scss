@@ -12,6 +12,22 @@
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	.user-card {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.user-image {
+		height: 100px;
+		width: 100px;
+		margin-right: 10px;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+}
+.backoffice-user {
 }
 
 .backoffice-btns {
