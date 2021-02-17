@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from './Pagination.module.scss';
+const styles = require('./Pagination.module.scss');
 
 interface Props {
 	page: number;
