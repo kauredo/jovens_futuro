@@ -15,6 +15,7 @@
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react_ujs": "^2.6.1",
+		"sass-loader": "^11.0.1",
 		"trix": "^1.2.0",
 		"typescript": "^4.1.5"
 	},
@@ -22,5 +23,9 @@
 		"extract-text-webpack-plugin": "^3.0.2",
 		"mini-css-extract-plugin": "^0.4.1",
 		"webpack-dev-server": "^3.11.2"
+	},
+	"scripts": {
+		"webpack:deploy": "webpack -p",
+		"heroku-postbuild": "npm run webpack:deploy"
 	}
 }
