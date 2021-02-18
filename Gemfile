@@ -10,7 +10,7 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -35,13 +35,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'activestorage'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
 gem 'devise'
 gem 'jsonapi-serializer'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'react-rails'
+gem 'sassc-rails'
 gem 'webpacker'
 
 group :development, :test do
