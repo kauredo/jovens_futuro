@@ -15,27 +15,9 @@
 // const imagePath = (name) => images(name, true)
 
 // Support component names relative to this directory:
+var componentRequireContext = require.context('components', true);
+var ReactRailsUJS = require('react_ujs');
+ReactRailsUJS.useContext(componentRequireContext);
+
 require('trix');
 require('@rails/actiontext');
-
-document.addEventListener('DOMContentLoaded', function () {
-	// Mount React components. This needs to run after Turbolinks has loaded.
-	var componentRequireContext = require.context('components', true);
-	var ReactRailsUJS = require('react_ujs');
-	ReactRailsUJS.useContext(componentRequireContext);
-
-	var getConstructorOriginal = ReactRailsUJS.getConstructor;
-	var mountComponentsOriginal = ReactRailsUJS.mountComponents;
-
-	// HACK: override the constructor to inject landing_work components
-	ReactRailsUJS.getConstructor = function (className) {
-		return getConstructorOriginal.apply(this, arguments);
-	};
-
-	ReactRailsUJS.mountComponents = function () {
-		mountComponentsOriginal.apply(this, arguments);
-		document.dispatchEvent(new Event('react_rails:mounted'));
-	};
-
-	document.dispatchEvent(new Event('react_rails:loaded'));
-});
