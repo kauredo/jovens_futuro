@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const styles = require('./ImageSlide.module.scss');
+import styles from './ImageSlide.module.scss';
 
 interface Props {
 	image: string;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const styles = require('./Flashes.module.scss');
+import styles from './Flashes.module.scss';
 
 interface Props {
 	type: string;

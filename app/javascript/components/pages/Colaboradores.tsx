@@ -3,7 +3,7 @@ import { Colaborador } from '../artigos/NovoArtigo';
 import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 
-const styles = require('./Colaboradores.module.scss');
+import styles from './Colaboradores.module.scss';
 
 interface Props {
 	colaboradores: Colaborador[];
