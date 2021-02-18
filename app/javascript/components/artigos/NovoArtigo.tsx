@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import styles from './NovoArtigo.module.scss';
+const styles = require('./NovoArtigo.module.scss');
 
 export interface Article {
 	id: number;

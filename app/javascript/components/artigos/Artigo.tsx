@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Article } from './NovoArtigo';
 
-import styles from './Artigo.module.scss';
+const styles = require('./Artigo.module.scss');
 
 interface Props {
 	artigo: Article;

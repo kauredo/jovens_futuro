@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-import styles from './Logo.module.scss';
+const styles = require('./Logo.module.scss');
 
 export default function NavBar() {
 	return (

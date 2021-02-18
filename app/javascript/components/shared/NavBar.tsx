@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-import styles from './NavBar.module.scss';
+const styles = require('./NavBar.module.scss');
 
 interface Props {
 	signedIn: boolean;
