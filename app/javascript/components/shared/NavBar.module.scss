@@ -16,12 +16,14 @@
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
-				font-size: 4vw;
+				font-size: 3vw;
 				font-weight: bold;
 				.link {
 					text-decoration: none;
 					color: $ando;
-					&.selected {
+
+					&.selected,
+					&:hover {
 						color: $futuro;
 					}
 					&.backofficeLink {
@@ -83,12 +85,12 @@
 	}
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
 	.navbar {
 		.navWide {
 			.container {
 				.links {
-					font-size: 40px;
+					font-size: 36px;
 				}
 			}
 		}
