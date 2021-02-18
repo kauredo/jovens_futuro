@@ -11,8 +11,8 @@
 		"allowSyntheticDefaultImports": true,
 		"target": "es5",
 		"jsx": "react",
-		"noEmit": true
+		"esModuleInterop": true
 	},
 	"exclude": ["**/*.spec.ts", "node_modules", "vendor", "public"],
-	"compileOnSave": true
+	"compileOnSave": false
 }
