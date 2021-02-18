@@ -41,6 +41,7 @@ interface Props {
 export default function NovoArtigo(props: Props) {
 	const artigo = props.artigo.attributes;
 	const [title, setTitle] = useState(artigo.title || '');
+	const [content, setContent] = useState('');
 	const [published, setPublished] = useState(artigo.published || false);
 	const user = artigo.user;
 
