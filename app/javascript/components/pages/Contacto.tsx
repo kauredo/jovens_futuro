@@ -3,7 +3,7 @@ import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 import axios from 'axios';
 
-import styles from './Contacto.module.scss';
+const styles = require('./Contacto.module.scss');
 
 export default function Contacto() {
 	const [name, setName] = useState('');

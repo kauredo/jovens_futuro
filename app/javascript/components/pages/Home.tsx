@@ -2,7 +2,7 @@ import React from 'react';
 import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 
-import styles from './Home.module.scss';
+const styles = require('./Home.module.scss');
 
 export default function Home() {
 	console.log(styles);
