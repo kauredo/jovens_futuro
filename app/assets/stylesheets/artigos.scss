@@ -8,13 +8,17 @@
 	margin: 50px auto;
 	min-height: calc(100vh - 250px);
 
-	.button-div {
-		height: fit-content;
-		margin-top: 100px;
-		.button {
-			padding: 15px;
-			background: $jovens;
-			color: white;
+	.user-btns {
+		display: flex;
+		.button-div {
+			height: fit-content;
+			margin-right: 20px;
+			margin-top: 50px;
+			.button {
+				padding: 15px;
+				background: $jovens;
+				color: white;
+			}
 		}
 	}
 

@@ -10,7 +10,9 @@
     <%= "Criado a #{@artigo.created_at.strftime("%d-%m-%Y")} por #{@artigo.user.name}" %>
   <% end %>
   </p>
-  <div class="button-div">
-    <%= link_to 'Editar artigo', edit_backoffice_artigo_path(@artigo), class: "button" %>
+  <div class="user-btns">
+    <div class="button-div">
+      <%= link_to 'Editar artigo', edit_backoffice_artigo_path(@artigo), class: "button" %>
+    </div>
   </div>
 </div>

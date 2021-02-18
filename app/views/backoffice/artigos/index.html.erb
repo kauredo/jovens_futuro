@@ -1,7 +1,12 @@
 <div class="container index">
+<div class="user-btns">
   <div class="button-div">
     <%= link_to 'Criar novo artigo', new_backoffice_artigo_path, class: "button" %>
   </div>
+  <div class="button-div">
+    <%= link_to 'Editar perfil', edit_user_registration_path, class: "button" %>
+  </div>
+</div>
   <div class="artigos">
     <% @artigos.each do |artigo| %>
       <%= link_to backoffice_artigo_path(artigo) do %>
