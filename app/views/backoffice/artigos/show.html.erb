@@ -4,7 +4,11 @@
   </h2>
   <%= @artigo.contents %>
   <p>
-  <%= "Criado a #{@artigo.published_at.strftime("%d-%m-%Y")} por #{@artigo.user.name}" %>
+  <% if @artigo.published %>
+    <%= "Publicado a #{@artigo.published_at.strftime("%d-%m-%Y")} por #{@artigo.user.name}" %>
+  <% else %>
+    <%= "Criado a #{@artigo.created_at.strftime("%d-%m-%Y")} por #{@artigo.user.name}" %>
+  <% end %>
   </p>
   <div class="button-div">
     <%= link_to 'Editar artigo', edit_backoffice_artigo_path(@artigo), class: "button" %>
