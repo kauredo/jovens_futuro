@@ -5,6 +5,8 @@ import Logo from '../shared/Logo';
 import styles from './Home.module.scss';
 
 export default function Home() {
+	console.log(styles);
+	console.log(styles.text);
 	return (
 		<div className={styles.container}>
 			<Logo />
