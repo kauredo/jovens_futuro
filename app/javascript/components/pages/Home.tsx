@@ -2,22 +2,20 @@ import React from 'react';
 import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 
-const styles = require('./Home.module.scss');
+import './Home.module.scss';
 
 export default function Home() {
-	console.log(styles);
-	console.log(styles.text);
 	return (
-		<div className={styles.container}>
+		<div className={'container'}>
 			<Logo />
 			<ImageSlide
 				image={
 					'https://images.unsplash.com/photo-1542769494-0cc077eead4b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80'
 				}
 			/>
-			<div className={styles.container}>
-				<h2 className={styles.subtitle}>Jovens &o Futuro</h2>
-				<p className={styles.text}>
+			<div className={'container'}>
+				<h2 className={'subtitle'}>Jovens &o Futuro</h2>
+				<p className={'text'}>
 					Perspetivando o futuro das gerações consideradas jovens e observando o
 					espaço mediático onde são feitas desde reflexões a previsões ou
 					comentários sobre o que aí vem, dificilmente se encontra um
@@ -30,7 +28,7 @@ export default function Home() {
 					que conseguem expressar um pensamento ou uma posição em dois 'tweets'
 					e quatro 'emojis'.
 				</p>
-				<p className={styles.text}>
+				<p className={'text'}>
 					A realidade estará certamente no meio destas duas perspetivas e neste
 					contexto surge o Blog Jovens &o Futuro. Este é um espaço que é criado
 					com dois grandes objetivos. O primeiro é oferecer uma plataforma onde
@@ -43,8 +41,8 @@ export default function Home() {
 					para um mundo de poucas oportunidades e baixos salários, tende a não
 					fechar.
 				</p>
-				<h2 className={styles.subtitle}>Jovens e Futuro?</h2>
-				<p className={styles.text}>
+				<h2 className={'subtitle'}>Jovens e Futuro?</h2>
+				<p className={'text'}>
 					Será que o trilho que temos percorrido tem sido o correto? Quais os
 					erros que foram cometidos para que o futuro das gerações mais jovens
 					seja tão pouco próspero e limitado em termos de oportunidades? Como é
@@ -57,20 +55,20 @@ export default function Home() {
 					ter nas gerações futuras? Por que motivo é tão difícil para um músico
 					singrar em Portugal?
 				</p>
-				<p className={styles.text}>
+				<p className={'text'}>
 					As dúvidas, interrogações e desafios que existem e por vezes
 					persistem, parecem ser infinitos. As respostas decerto que não são
 					fáceis ou simplistas, e, por conseguinte, é fundamental pensar,
 					refletir e discutir as mesmas desde cedo.
 				</p>
 				<div
-					className={styles.image}
+					className={'image'}
 					style={{ backgroundImage: 'url(/images/people.png)' }}
 				>
 					{/* <img src='/images/people.png' alt='' /> */}
 				</div>
-				<h2 className={styles.subtitle}>Jovens, o Futuro!</h2>
-				<p className={styles.text}>
+				<h2 className={'subtitle'}>Jovens, o Futuro!</h2>
+				<p className={'text'}>
 					Portugal com mais de quarenta anos de democracia, é hoje um dos países
 					mais pobres da União Europeia e encaminha-se para num futuro próximo
 					ser o mais pobre. Isto por si só merece uma reflexão nacional de
@@ -81,7 +79,7 @@ export default function Home() {
 					ou não preparados para enfrentar os grandes desafios que o tempo
 					trará.
 				</p>
-				<p className={styles.text}>
+				<p className={'text'}>
 					A preparação dos intervenientes é uma das chaves para que o sucesso no
 					desenvolvimento do país, se reflita num melhor quotidiano do cidadão
 					português. É com alguma estupefação que apesar das gerações mais
@@ -97,7 +95,7 @@ export default function Home() {
 					através de reflexões escritas que este blog proporciona a todos os
 					jovens.
 				</p>
-				<p className={styles.text}>
+				<p className={'text'}>
 					O mote está dado e o espaço está criado. Já só falta a participação
 					dos jovens para que tenhamos a capacidade de proporcionar um futuro
 					mais próspero a todos.
