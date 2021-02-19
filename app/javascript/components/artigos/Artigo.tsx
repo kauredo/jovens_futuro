@@ -13,6 +13,7 @@ export default function Artigo(props: Props) {
 	const user = artigo.user;
 	const novo = artigo.novo;
 	const justHeader = props.justHeader;
+	const artigoLink = `${window.location.origin}${window.location.pathname}/${artigo.id}`;
 
 	const truncate = input =>
 		input.length > 200 ? `${input.substring(0, 200)}...` : input;
@@ -38,20 +39,20 @@ export default function Artigo(props: Props) {
 			) : (
 				<>
 					{novo && <div className={styles.novo}>Recente</div>}
-
-					<div
-						className={styles.photo}
-						style={{ backgroundImage: `url(${user.avatar.url})` }}
-					></div>
+					<a href={artigoLink}>
+						<div
+							className={styles.photo}
+							style={{ backgroundImage: `url(${user.avatar.url})` }}
+						></div>
+					</a>
 					<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
-					<a
-						className={styles.titleLink}
-						href={`${window.location.origin}${window.location.pathname}/${artigo.id}`}
-					>
+					<a className={styles.titleLink} href={artigoLink}>
 						<h2 className={styles.title}>{artigo.title}</h2>
 					</a>
 					<h4 className={styles.name}>{user.name}</h4>
-					<p className={styles.content}>{truncate(artigo.content)}</p>
+					<p className={styles.content}>
+						<em>{truncate(artigo.content)}</em>
+					</p>
 					<p>
 						<em>Publicado a {artigo.published_at}</em>
 					</p>
