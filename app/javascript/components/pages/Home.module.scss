@@ -26,3 +26,11 @@
 		margin: auto;
 	}
 }
+
+@media (min-width: 750px) {
+	.container {
+		.text {
+			text-align: justify;
+		}
+	}
+}
