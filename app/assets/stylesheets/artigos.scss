@@ -79,9 +79,20 @@
 	text-align: end;
 }
 
-@media (min-width: 680px) {
+@media (min-width: 750px) {
 	.container {
 		.search {
+			width: 50%;
+			form {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+
+				input,
+				select {
+					margin: 5px;
+				}
+			}
 			select,
 			input {
 				width: fit-content;
