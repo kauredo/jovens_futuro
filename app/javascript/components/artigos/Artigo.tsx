@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Article } from './NovoArtigo';
 
 const styles = require('./Artigo.module.scss');
@@ -11,6 +11,7 @@ interface Props {
 export default function Artigo(props: Props) {
 	const artigo = props.artigo.attributes;
 	const user = artigo.user;
+	const novo = artigo.novo;
 	const justHeader = props.justHeader;
 
 	const truncate = input =>
@@ -23,6 +24,7 @@ export default function Artigo(props: Props) {
 		<div className={artigoClass}>
 			{justHeader ? (
 				<>
+					{novo && <div className={styles.novo}>Recente</div>}
 					<div
 						className={styles.photo}
 						style={{ backgroundImage: `url(${user.avatar.url})` }}
@@ -35,6 +37,8 @@ export default function Artigo(props: Props) {
 				</>
 			) : (
 				<>
+					{novo && <div className={styles.novo}>Recente</div>}
+
 					<div
 						className={styles.photo}
 						style={{ backgroundImage: `url(${user.avatar.url})` }}
