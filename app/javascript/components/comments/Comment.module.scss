@@ -1,0 +1,65 @@
+@import '../../../assets/stylesheets/utils/utils';
+
+.commentAndReplies {
+	margin: 50px auto;
+	.comment,
+	.reply {
+		width: 100%;
+		margin: auto;
+		border: 1px solid $futuro-transparent;
+		border-radius: 0.25rem;
+
+		.topBar {
+			background-color: $futuro-transparent;
+			display: flex;
+			align-items: center;
+			padding: 10px;
+			.name {
+				margin-bottom: 0;
+			}
+			.date {
+				font-size: 0.9rem;
+				font-weight: lighter;
+				margin: 0;
+				margin-left: 10px;
+				color: $ando;
+			}
+		}
+
+		.content {
+			margin: 20px;
+		}
+
+		.responder {
+			margin: 10px 20px 20px;
+			text-decoration: underline;
+			cursor: pointer;
+			color: $ando;
+			&:hover {
+				color: $futuro;
+			}
+		}
+	}
+
+	.reply {
+		position: relative;
+		left: 25px;
+		margin: 10px auto;
+		width: calc(100% - 50px);
+	}
+}
+
+@media (min-width: 750px) {
+	.commentAndReplies {
+		.comment,
+		.reply {
+			min-width: 550px;
+			width: 50%;
+		}
+		.reply {
+			min-width: 450px;
+			left: 50px;
+			width: calc(50% - 100px);
+		}
+	}
+}

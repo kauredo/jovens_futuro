@@ -3,6 +3,7 @@ class Artigo < ApplicationRecord
 
   has_rich_text :contents
   belongs_to :user
+  has_many :comments
   scope :last_first, -> { all.reverse }
   scope :published, -> { where(published: true).joins(:user).where(user: { confirmed: true }).order({ published_at: :desc }) }
   scope :novo, -> { where('published_at > ?', 3.days.ago) }

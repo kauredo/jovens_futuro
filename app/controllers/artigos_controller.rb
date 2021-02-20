@@ -18,6 +18,7 @@ class ArtigosController < ApplicationController
 
   def show
     @artigo1 = ArtigoSerializer.new(@artigo).serializable_hash[:data]
+    @comments = CommentSerializer.new(Comment.main_comments.where(artigo: @artigo)).serializable_hash[:data]
   end
 
   def create
