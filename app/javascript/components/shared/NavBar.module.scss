@@ -14,13 +14,14 @@
 			.links {
 				height: 100%;
 				display: flex;
-				justify-content: space-around;
+				justify-content: center;
 				align-items: center;
 				font-size: 3vw;
 				font-weight: bold;
 				.link {
 					text-decoration: none;
 					color: $ando;
+					margin: 0 15px;
 
 					&.selected,
 					&:hover {
@@ -57,7 +58,6 @@
 			justify-content: center;
 			align-items: flex-end;
 			position: relative;
-			top: -215px;
 			z-index: 1;
 			font-size: 20px;
 			font-weight: bold;
@@ -89,7 +89,6 @@
 	.navbar {
 		.navWide {
 			.container {
-				width: 70%;
 				.links {
 					font-size: 36px;
 				}

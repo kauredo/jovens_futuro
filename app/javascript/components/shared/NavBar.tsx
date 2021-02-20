@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const styles = require('./NavBar.module.scss');
 
@@ -41,14 +41,20 @@ export default function NavBar(props: Props) {
 
 	const burgerToggle = () => {
 		let linksEl = narrowLinksRef.current;
+
 		if (navbar) {
-			translate(linksEl, -215);
+			translate(linksEl, -linksEl.offsetHeight);
 			setNavbar(false);
 		} else {
 			translate(linksEl, 0);
 			setNavbar(true);
 		}
 	};
+
+	useEffect(() => {
+		let linksEl = narrowLinksRef.current;
+		linksEl.style.top = -linksEl.offsetHeight + 'px';
+	}, []);
 
 	return (
 		<>
@@ -96,6 +102,13 @@ export default function NavBar(props: Props) {
 											</a>
 										</>
 									)}
+									<a
+										href='/users/sign_out'
+										data-method='delete'
+										className={styles.link}
+									>
+										Log Out
+									</a>
 								</>
 							) : (
 								<>
@@ -131,6 +144,20 @@ export default function NavBar(props: Props) {
 									>
 										Contacto
 									</a>
+									{props.signedIn && (
+										<>
+											<a href='/backoffice' className={styles.link}>
+												Backoffice
+											</a>
+											<a
+												href='/users/sign_out'
+												data-method='delete'
+												className={styles.link}
+											>
+												Log Out
+											</a>
+										</>
+									)}
 								</>
 							)}
 						</div>
@@ -138,9 +165,6 @@ export default function NavBar(props: Props) {
 				</div>
 				<div className={styles.navNarrow}>
 					<div className={styles.container}>
-						<a href='/' className={styles.brand}>
-							{/* <img src='/assets/logo.jpeg' alt='logo' className='nav-logo' /> */}
-						</a>
 						<i className='fa fa-bars fa-2x' onClick={burgerToggle}></i>
 					</div>
 					<div className={styles.narrowLinks} ref={narrowLinksRef}>
@@ -164,25 +188,38 @@ export default function NavBar(props: Props) {
 								>
 									Meus artigos
 								</a>
+								{admin && (
+									<>
+										<a
+											href='/backoffice/admin/artigos'
+											onClick={burgerToggle}
+											className={`${styles.link} ${styles.backofficeLink} ${
+												selectedLink === '/backoffice/admin/artigos' &&
+												styles.selected
+											}`}
+										>
+											Artigos
+										</a>
+										<a
+											href='/backoffice/admin/users'
+											onClick={burgerToggle}
+											className={`${styles.link} ${styles.backofficeLink} ${
+												selectedLink === '/backoffice/admin/users' &&
+												styles.selected
+											}`}
+										>
+											Utilizadores
+										</a>
+									</>
+								)}
 								<a
-									href='/backoffice/artigos'
-									className={`${styles.link} ${
-										selectedLink === '/backoffice/artigos' && styles.selected
-									}`}
+									href='/users/sign_out'
+									data-method='delete'
+									className={styles.link}
 									onClick={burgerToggle}
 								>
-									Artigos
+									Log Out
 								</a>
-								{props.signedIn && (
-									<a
-										href='/users/sign_out'
-										data-method='delete'
-										className={styles.link}
-										onClick={burgerToggle}
-									>
-										Log Out
-									</a>
-								)}
 							</>
 						) : (
 							<>
@@ -223,14 +260,23 @@ export default function NavBar(props: Props) {
 									Contacto
 								</a>
 								{props.signedIn && (
-									<a
-										href='/users/sign_out'
-										data-method='delete'
-										className={styles.link}
-										onClick={burgerToggle}
-									>
-										Log Out
-									</a>
+									<>
+										<a
+											href='/backoffice'
+											className={styles.link}
+											onClick={burgerToggle}
+										>
+											Backoffice
+										</a>
+										<a
+											href='/users/sign_out'
+											data-method='delete'
+											className={styles.link}
+											onClick={burgerToggle}
+										>
+											Log Out
+										</a>
+									</>
 								)}
 							</>
 						)}
