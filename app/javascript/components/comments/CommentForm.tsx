@@ -46,14 +46,11 @@ export default function CommentForm(props: Props) {
 			}).then(response => {
 				if (response.data.notice) {
 					alert(response.data.notice);
-					const newComment: Comentario = props.reply
-						? {
-								...response.data.comment,
-						  }
-						: {
-								id: response.data.comment.id,
-								attributes: { ...response.data.comment },
-						  };
+
+					const newComment: Comentario = {
+						id: response.data.comment.id,
+						attributes: { ...response.data.comment },
+					};
 					props.setComments([...props.comments, newComment]);
 					setName('');
 					setEmail('');
