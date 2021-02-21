@@ -8,8 +8,10 @@
 	font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
 	flex-wrap: wrap;
+	max-width: 65rem;
 
 	.jovens {
+		margin: 0;
 		color: $jovens;
 	}
 	.ando {
@@ -22,6 +24,7 @@
 		text-transform: uppercase;
 
 		p {
+			margin: 0;
 			line-height: 4.5vw;
 		}
 	}
@@ -34,13 +37,14 @@
 		margin-left: 0.5vw;
 	}
 	.futuro {
+		margin: 0;
 		color: $futuro;
 	}
 }
 
 @media (min-width: 1200px) {
 	.logo {
-		margin: 30px 0;
+		margin: 30px auto;
 		font-size: 120px;
 		.ando {
 			font-size: 60px;

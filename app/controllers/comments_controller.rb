@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     else
       @comment = Comment.new(comment_params)
     end
-    byebug
+
     if @comment.save
       render json: {notice: 'Obrigado pelo teu comentário!', comment: @comment}
     else
