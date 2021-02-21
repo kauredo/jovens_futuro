@@ -23,13 +23,15 @@ export default function Comments(props: Props) {
 	const [comments, setComments] = useState(props.comments);
 
 	return (
-		<div>
+		<>
 			<h2 className={styles.count}>{comments.length} Comentários</h2>
-			<div className={styles.comments}>
-				{comments.map(comm => (
-					<Comment key={comm.id} comment={comm} />
-				))}
-			</div>
+			{comments && (
+				<div className={styles.comments}>
+					{comments.map(comm => (
+						<Comment key={comm.id} comment={comm} />
+					))}
+				</div>
+			)}
 			<div>
 				<CommentForm
 					reply={false}
@@ -37,6 +39,6 @@ export default function Comments(props: Props) {
 					setComments={setComments}
 				/>
 			</div>
-		</div>
+		</>
 	);
 }
