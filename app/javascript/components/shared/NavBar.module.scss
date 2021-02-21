@@ -90,7 +90,12 @@
 		.navWide {
 			.container {
 				.links {
-					font-size: 36px;
+					.link {
+						font-size: 36px;
+						&.backofficeLink {
+							font-size: 36px;
+						}
+					}
 				}
 			}
 		}
