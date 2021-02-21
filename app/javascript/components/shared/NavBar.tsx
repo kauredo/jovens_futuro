@@ -8,10 +8,33 @@ interface Props {
 	admin?: boolean;
 }
 
+// function useOutsideAlerter(ref, isOpen, setNavbar) {
+// 	useEffect(() => {
+// 		/**
+// 		 * Alert if clicked on outside of element
+// 		 */
+// 		function handleClickOutside(event) {
+// 			if (ref.current && !ref.current.contains(event.target) && isOpen) {
+// 				console.log(isOpen);
+// 				console.log(setNavbar);
+// 				setNavbar(true);
+// 			}
+// 		}
+
+// 		// Bind the event listener
+// 		document.addEventListener('mousedown', handleClickOutside);
+// 		return () => {
+// 			// Unbind the event listener on clean up
+// 			document.removeEventListener('mousedown', handleClickOutside);
+// 		};
+// 	}, [ref, isOpen]);
+// }
+
 export default function NavBar(props: Props) {
 	const [navbar, setNavbar] = useState(false);
 	const [selectedLink, setSelectedLink] = useState(window.location.pathname);
 	const narrowLinksRef = useRef(null);
+	const wrapperRef = useRef(null);
 	const backoffice = props.backoffice;
 	const admin = props.admin;
 
@@ -56,9 +79,31 @@ export default function NavBar(props: Props) {
 		linksEl.style.top = -linksEl.offsetHeight + 'px';
 	}, []);
 
+	useEffect(() => {
+		/**
+		 * Alert if clicked on outside of element
+		 */
+		function handleClickOutside(event) {
+			if (
+				wrapperRef.current &&
+				!wrapperRef.current.contains(event.target) &&
+				navbar
+			) {
+				burgerToggle();
+			}
+		}
+
+		// Bind the event listener
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => {
+			// Unbind the event listener on clean up
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [wrapperRef, navbar]);
+
 	return (
 		<>
-			<nav className={styles.navbar}>
+			<nav ref={wrapperRef} className={styles.navbar}>
 				<div className={styles.navWide}>
 					<div className={styles.container}>
 						<div className={styles.links}>
