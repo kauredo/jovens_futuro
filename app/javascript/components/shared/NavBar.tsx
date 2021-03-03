@@ -123,29 +123,18 @@ export default function NavBar(props: Props) {
 											selectedLink === '/backoffice' && styles.selected
 										}`}
 									>
-										Meus Artigos
+										Artigos
 									</a>
 									{admin && (
-										<>
-											<a
-												href='/backoffice/admin/artigos'
-												className={`${styles.link} ${styles.backofficeLink} ${
-													selectedLink === '/backoffice/admin/artigos' &&
-													styles.selected
-												}`}
-											>
-												Artigos
-											</a>
-											<a
-												href='/backoffice/admin/users'
-												className={`${styles.link} ${styles.backofficeLink} ${
-													selectedLink === '/backoffice/admin/users' &&
-													styles.selected
-												}`}
-											>
-												Utilizadores
-											</a>
-										</>
+										<a
+											href='/backoffice/admin/users'
+											className={`${styles.link} ${styles.backofficeLink} ${
+												selectedLink === '/backoffice/admin/users' &&
+												styles.selected
+											}`}
+										>
+											Colaboradores
+										</a>
 									)}
 									<a
 										href='/users/sign_out'
@@ -231,31 +220,19 @@ export default function NavBar(props: Props) {
 									}`}
 									onClick={burgerToggle}
 								>
-									Meus artigos
+									Artigos
 								</a>
 								{admin && (
-									<>
-										<a
-											href='/backoffice/admin/artigos'
-											onClick={burgerToggle}
-											className={`${styles.link} ${styles.backofficeLink} ${
-												selectedLink === '/backoffice/admin/artigos' &&
-												styles.selected
-											}`}
-										>
-											Artigos
-										</a>
-										<a
-											href='/backoffice/admin/users'
-											onClick={burgerToggle}
-											className={`${styles.link} ${styles.backofficeLink} ${
-												selectedLink === '/backoffice/admin/users' &&
-												styles.selected
-											}`}
-										>
-											Utilizadores
-										</a>
-									</>
+									<a
+										href='/backoffice/admin/users'
+										onClick={burgerToggle}
+										className={`${styles.link} ${styles.backofficeLink} ${
+											selectedLink === '/backoffice/admin/users' &&
+											styles.selected
+										}`}
+									>
+										Colaboradores
+									</a>
 								)}
 								<a
 									href='/users/sign_out'

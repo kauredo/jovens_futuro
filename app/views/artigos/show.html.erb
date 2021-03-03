@@ -4,7 +4,7 @@
     <%= @artigo.contents %>
   </div>
   <p class="signature">
-  <%= @artigo.user.name %>
+  <%= @artigo.colaborator.name %>
   </p>
   <%= react_component('comments/Comments', comments: @comments) %>
 </div>

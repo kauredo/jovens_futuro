@@ -4,6 +4,10 @@
     <%= form.select :categoria, Artigo::CATEGORIAS %>
   </div>
   <div class="field">
+    <%= form.label :colaborator %>
+    <%= form.select :colaborator, Colaborator.all.map{ |c| [c.name, c.id] } %>
+  </div>
+  <div class="field">
     <%= form.label :title, 'Título' %>
     <%= form.text_field :title %>
   </div>

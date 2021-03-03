@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   namespace :backoffice do
     get 'admin/users'
-    get 'admin/artigos'
   end
   root 'pages#home'
   get '/colaboradores', to: 'pages#colaboradores'
@@ -15,11 +14,13 @@ Rails.application.routes.draw do
   resources :artigos, only: %I(index show create update) do
     post "comment", to: 'comments#create'
   end
+  resources :colaborators, only: %I(create update)
   namespace :backoffice do
     get '/', to: 'artigos#index'
     resources :artigos, except: %I(index create update) do
       patch 'publish', to: 'artigos#publish'
     end
+    resources :colaborators
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

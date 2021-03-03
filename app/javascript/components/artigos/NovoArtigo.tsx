@@ -13,13 +13,12 @@ export interface Article {
 		novo: boolean;
 		published: boolean;
 		published_at: Date;
-		user: User;
+		colaborator: User;
 	};
 }
 
 export interface User {
 	avatar: { url: string };
-	email: string;
 	id: number;
 	name: string;
 }
@@ -43,7 +42,7 @@ export default function NovoArtigo(props: Props) {
 	const [title, setTitle] = useState(artigo.title || '');
 	const [content, setContent] = useState('');
 	const [published, setPublished] = useState(artigo.published || false);
-	const user = artigo.user;
+	const user = artigo.colaborator;
 
 	const handleSubmit = e => {
 		e.preventDefault();

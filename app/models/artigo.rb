@@ -2,12 +2,12 @@ class Artigo < ApplicationRecord
   CATEGORIAS = %w(Economia Política Sociedade Saúde Mundo Desporto Cultura Fotografia).freeze
 
   has_rich_text :contents
-  belongs_to :user
+  belongs_to :colaborator
   has_many :comments
   scope :last_first, -> { all.reverse }
-  scope :published, -> { where(published: true).joins(:user).where(user: { confirmed: true }).order({ published_at: :desc }) }
+  scope :published, -> { where(published: true).order({ published_at: :desc }) }
   scope :novo, -> { where('published_at > ?', 3.days.ago) }
-  scope :from_user, ->(user) { joins(:user).where(user: { name: user }) }
+  scope :from_colaborador, ->(colaborador) { joins(:colaborador).where(colaborador: { name: colaborador }) }
 
   class << self
     def per_page
@@ -29,7 +29,7 @@ class Artigo < ApplicationRecord
     end
 
     def ransackable_scopes(auth_object = nil)
-      %i(from_user)
+      %i(from_colaborador)
     end
   end
 end

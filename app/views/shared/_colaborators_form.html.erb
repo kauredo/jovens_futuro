@@ -1,0 +1,11 @@
+<%= form_with model: @colaborator, class: "artigo-form" do |form| %>
+  <div class="field">
+    <%= form.label :name, 'Nome' %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :avatar %><br />
+    <%= form.file_field :avatar %>
+  </div>
+  <%= form.submit "Criar Colaborador" %>
+<% end %>

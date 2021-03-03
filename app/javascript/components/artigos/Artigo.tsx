@@ -10,7 +10,7 @@ interface Props {
 
 export default function Artigo(props: Props) {
 	const artigo = props.artigo.attributes;
-	const user = artigo.user;
+	const user = artigo.colaborator;
 	const novo = artigo.novo;
 	const justHeader = props.justHeader;
 	const artigoLink = `${window.location.origin}${window.location.pathname}/${artigo.id}`;

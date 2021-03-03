@@ -3,11 +3,7 @@ class Backoffice::AdminController < ApplicationController
   before_action :check_user
 
   def users
-    @users = User.all.order({ created_at: :desc }) 
-  end
-
-  def artigos
-    @artigos = Artigo.last_first
+    @users = Colaborator.all.order({ created_at: :desc }) 
   end
 
   private

@@ -12,7 +12,6 @@ class ArtigosController < ApplicationController
     @total = result.count
     @artigos = result.paginate(page: @page)
 
-    # @artigos = Artigo.published.paginate(page: @page)
     @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]
   end
 
@@ -22,8 +21,8 @@ class ArtigosController < ApplicationController
   end
 
   def create
-    @artigo = Artigo.new(artigo_params)
-    @artigo.user = current_user
+    @artigo = Artigo.new(artigo_params.except(:colaborator))
+    @artigo.colaborator = Colaborator.find(artigo_params[:colaborator])
     if @artigo.save
       redirect_to backoffice_path, notice: 'Artigo criado' 
     else
@@ -50,10 +49,10 @@ class ArtigosController < ApplicationController
   end
 
   def check_approved_user
-    redirect_back(fallback_location: backoffice_path) unless @artigo.user == current_user || current_user.admin
+    redirect_back(fallback_location: backoffice_path) unless current_user.admin
   end
 
   def artigo_params
-    params.require(:artigo).permit(:title, :categoria, :contents, :user)
+    params.require(:artigo).permit(:title, :categoria, :contents, :colaborator)
   end
 end

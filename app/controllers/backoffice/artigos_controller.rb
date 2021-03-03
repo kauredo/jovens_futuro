@@ -5,7 +5,7 @@ class Backoffice::ArtigosController < ApplicationController
   before_action :check_admin_user, only: %I(publish)
 
   def index
-    @artigos = Artigo.where(user: current_user).reverse
+    @artigos = Artigo.last_first
   end
 
   def show
@@ -25,14 +25,14 @@ class Backoffice::ArtigosController < ApplicationController
     else
       artigo.update(published: !artigo.published, published_at: Time.current)
     end
-    redirect_to backoffice_admin_artigos_path
+    redirect_to backoffice_path
   end
 
   private
 
   def find_artigo
     @artigo = Artigo.find(params[:id])
-    redirect_back(fallback_location: backoffice_path) unless @artigo.user == current_user || current_user.admin
+    redirect_back(fallback_location: backoffice_path) unless current_user.admin?
   end
 
   def check_user

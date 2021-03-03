@@ -11,11 +11,11 @@
   <p>
   <% if @artigo.published %>
     <strong>
-      <%= "Publicado a #{@artigo.published_at.strftime("%d-%m-%Y")} por #{@artigo.user.name}" %>
+      <%= "Publicado a #{@artigo.published_at.strftime("%d-%m-%Y")} por #{@artigo.colaborator.name}" %>
     </strong>
   <% else %>
     <strong>
-      <%= "Criado a #{@artigo.created_at.strftime("%d-%m-%Y")} por #{@artigo.user.name}" %>
+      <%= "Criado a #{@artigo.created_at.strftime("%d-%m-%Y")} por #{@artigo.colaborator.name}" %>
     </strong>
   <% end %>
   </p>

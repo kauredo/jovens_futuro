@@ -1,24 +1,19 @@
 <div class="container">
+  <div class="user-btns">
+    <div class="button-div">
+      <%= link_to 'Adicionar colaborador', new_backoffice_colaborator_path, class: "button" %>
+    </div>
+  </div>
   <% @users.each do |user| %>
     <div class="backoffice-user">
       <div class="user-card">
         <div class="user-image" style="<%= "background-image: url('#{user.avatar_url}')" %>"></div>
         <div>
           <h3><%= user.name %></h3>
-          <p><%= user.email %></p>
         </div>
       </div>
       <div class="backoffice-btns">
-        <% if user.confirmed? && user != current_user %>
-          <%= link_to 'Unconfirm User', confirm_user_path(id: user.id), method: :patch, class: 'backoffice-btn unconfirm-btn' %>
-        <% elsif user != current_user %>
-          <%= link_to 'Confirm User', confirm_user_path(id: user.id), method: :patch, class: 'backoffice-btn confirm-btn' %>
-        <% end %>
-        <% if user.admin? && user != current_user %>
-          <%= link_to 'Remove Admin', admin_user_path(id: user.id), method: :patch, class: 'backoffice-btn unconfirm-btn' %>
-        <% elsif user != current_user %>
-          <%= link_to 'Add admin', admin_user_path(id: user.id), method: :patch, class: 'backoffice-btn confirm-btn' %>
-        <% end %>
+        <%= link_to 'Editar', edit_backoffice_colaborator_path(user.id), class: 'backoffice-btn unconfirm-btn' %>
       </div>
     </div>
   <% end %>
