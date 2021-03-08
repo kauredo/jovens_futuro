@@ -21,8 +21,11 @@ class ArtigosController < ApplicationController
   end
 
   def create
-    @artigo = Artigo.new(artigo_params.except(:colaborator))
-    @artigo.colaborator = Colaborator.find(artigo_params[:colaborator])
+    @artigo = Artigo.new(artigo_params.except(:colaborators))
+    colaborators = Colaborator.where(id: artigo_params[:colaborators])
+    colaborators.each do |c|
+      ArtigosColaborator.create(artigo: @artigo, colaborator: c)
+    end
     if @artigo.save
       redirect_to backoffice_path, notice: 'Artigo criado' 
     else
@@ -31,7 +34,14 @@ class ArtigosController < ApplicationController
   end
 
   def update
-    if @artigo.update(artigo_params)
+    unless @colaborator_ids == artigo_params[:colaborators].map(&:to_i)
+      @artigo.artigos_colaborator.map(&:destroy!)
+      colaborators = Colaborator.where(id: artigo_params[:colaborators])
+      colaborators.each do |c|
+        ArtigosColaborator.create(artigo: @artigo, colaborator: c)
+      end
+    end
+    if @artigo.update(artigo_params.except(:colaborators))
       redirect_to backoffice_artigo_path(@artigo), notice: 'Artigo criado'
     else
       render json: { error: 'Artigo não criado' }
@@ -42,6 +52,7 @@ class ArtigosController < ApplicationController
 
   def find_artigo
     @artigo = Artigo.find(params[:id])
+    @colaborator_ids = @artigo.colaborators.map(&:id)
   end
 
   def check_user
@@ -53,6 +64,6 @@ class ArtigosController < ApplicationController
   end
 
   def artigo_params
-    params.require(:artigo).permit(:title, :categoria, :contents, :colaborator)
+    params.require(:artigo).permit(:title, :categoria, :contents, colaborators: [])
   end
 end

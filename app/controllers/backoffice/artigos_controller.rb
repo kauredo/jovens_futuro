@@ -14,6 +14,7 @@ class Backoffice::ArtigosController < ApplicationController
 
   def new
     @artigo = Artigo.new
+    @colaborator_ids = []
   end
 
   def edit; end
@@ -32,6 +33,7 @@ class Backoffice::ArtigosController < ApplicationController
 
   def find_artigo
     @artigo = Artigo.find(params[:id])
+    @colaborator_ids = @artigo.colaborators.map(&:id)
     redirect_back(fallback_location: backoffice_path) unless current_user.admin?
   end
 

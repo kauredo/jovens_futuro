@@ -1,6 +1,6 @@
 class ArtigoSerializer
   include JSONAPI::Serializer
-  attributes :id, :categoria, :title, :published, :colaborator
+  attributes :id, :categoria, :title, :published, :colaborators
 
   attribute :novo do |obj|
     Artigo.novo.include? obj

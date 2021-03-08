@@ -9,8 +9,10 @@ interface Props {
 }
 
 export default function Artigo(props: Props) {
+	console.log(props);
 	const artigo = props.artigo.attributes;
-	const user = artigo.colaborator;
+	const users = artigo.colaborators;
+	// const user = users[0];
 	const novo = artigo.novo;
 	const justHeader = props.justHeader;
 	const artigoLink = `${window.location.origin}${window.location.pathname}/${artigo.id}`;
@@ -21,15 +23,22 @@ export default function Artigo(props: Props) {
 	const artigoClass = justHeader
 		? `${styles.artigo} ${styles.main}`
 		: styles.artigo;
+
+	const photoClass = index =>
+		`${styles.photo} ${users.length === 2 && index === 0 && styles.offset}`;
 	return (
 		<div className={artigoClass}>
 			{justHeader ? (
 				<>
-					{novo && <div className={styles.novo}>Recente</div>}
-					<div
-						className={styles.photo}
-						style={{ backgroundImage: `url(${user.avatar.url})` }}
-					></div>
+					<div style={{ position: 'relative' }}>
+						{users.map((user, index) => (
+							<div
+								key={`${artigo.title}user${index}${artigo.published_at}`}
+								className={photoClass(index)}
+								style={{ backgroundImage: `url(${user.avatar.url})` }}
+							></div>
+						))}
+					</div>
 					<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
 					<h2 className={styles.title}>{artigo.title}</h2>
 					<p>
@@ -38,18 +47,31 @@ export default function Artigo(props: Props) {
 				</>
 			) : (
 				<>
-					{novo && <div className={styles.novo}>Recente</div>}
-					<a href={artigoLink}>
+					{novo && (
 						<div
-							className={styles.photo}
-							style={{ backgroundImage: `url(${user.avatar.url})` }}
-						></div>
+							className={`${styles.novo} ${
+								users.length === 2 && styles.offset
+							}`}
+						>
+							Recente
+						</div>
+					)}
+					<a href={artigoLink} style={{ position: 'relative' }}>
+						{users.map((user, index) => (
+							<div
+								key={`${artigo.title}user${index}${artigo.published_at}`}
+								className={photoClass(index)}
+								style={{ backgroundImage: `url(${user.avatar.url})` }}
+							></div>
+						))}
 					</a>
 					<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
 					<a className={styles.titleLink} href={artigoLink}>
 						<h2 className={styles.title}>{artigo.title}</h2>
 					</a>
-					<h4 className={styles.name}>{user.name}</h4>
+					<h4 className={styles.name}>
+						{users.map(user => user.name).join(', ')}
+					</h4>
 					<p className={styles.content}>
 						<em>{truncate(artigo.content)}</em>
 					</p>

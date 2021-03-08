@@ -2,6 +2,7 @@
 
 .artigo {
 	max-width: 400px;
+	overflow-wrap: anywhere;
 	margin: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -15,12 +16,17 @@
 
 	.novo {
 		position: relative;
+		z-index: 10;
 		top: 25px;
 		right: 32px;
 		padding: 5px 10px;
 		background-color: red;
 		color: white;
 		transform: rotate(-25deg);
+
+		&.offset {
+			right: 18%;
+		}
 	}
 
 	.categoria {
@@ -29,13 +35,39 @@
 		color: white;
 		margin: 10px;
 	}
+
 	.photo {
+		position: relative;
+		z-index: 9;
 		width: 150px;
 		height: 150px;
 		border-radius: 1000rem;
 		border: 1rem solid $futuro;
 		background-position: center;
 		background-size: contain;
+
+		&:nth-child(2) + :not(.offset) {
+			left: 50%;
+		}
+
+		&:nth-child(1) + :not(.offset) {
+			right: 50%;
+		}
+	}
+
+	.offset {
+		right: 25%;
+
+		+ .photo {
+			left: 25%;
+		}
+	}
+
+	.photo + .photo {
+		position: absolute;
+		top: 0;
+
+		z-index: 8;
 	}
 
 	.titleLink {

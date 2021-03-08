@@ -4,9 +4,17 @@
     <%= form.select :categoria, Artigo::CATEGORIAS %>
   </div>
   <div class="field">
-    <%= form.label :colaborator %>
-    <%= form.select :colaborator, Colaborator.all.map{ |c| [c.name, c.id] } %>
+    <%= form.label :colaborators %>
+    <div>
+      <% Colaborator.all.map do |c| %>
+        <div>
+          <%= form.check_box(:colaborators, {multiple: true, checked: @colaborator_ids.include?(c.id)}, c.id, nil) %>
+          <%= form.label c.name %>
+        </div>
+      <% end %>
+    </div>
   </div>
+
   <div class="field">
     <%= form.label :title, 'Título' %>
     <%= form.text_field :title %>
