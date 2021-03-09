@@ -16,7 +16,7 @@ export default function Footer() {
 					</a>
 				</div>
 				<div className={styles.right}>
-					Econtre-nos:{' '}
+					Encontre-nos:{' '}
 					<a href='#' className={styles.sendEmail}>
 						<i className='fab fa-twitter'></i>
 					</a>
