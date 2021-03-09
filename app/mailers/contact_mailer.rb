@@ -2,6 +2,6 @@ class ContactMailer < ApplicationMailer
   def new_contact_email
     @params = params[:params]
 
-    mail(to: 'vasco.kf@gmail.com', subject: 'Novo contacto via site')
+    mail(to: 'jovenseofuturo2021@gmail.com', subject: 'Novo contacto via site')
   end
 end
