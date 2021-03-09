@@ -70,7 +70,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   #TODO - Replace host
-  host = 'example.com' #replace with your own url
+  host = 'jovens-futuro.herokuapp.com' #replace with your own url
   config.action_mailer.default_url_options = { host: host }
 
   # SMTP settings for gmail
