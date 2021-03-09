@@ -8,7 +8,7 @@ class Artigo < ApplicationRecord
   scope :last_first, -> { all.reverse }
   scope :published, -> { where(published: true).order({ published_at: :desc }) }
   scope :novo, -> { where('published_at > ?', 3.days.ago) }
-  scope :from_colaborador, ->(colaborador) { joins(:colaborador).where(colaborador: { name: colaborador }) }
+  scope :from_colaborador, ->(colaborador) { joins(artigos_colaborator: :colaborator).where(colaborator: { name: colaborador })}
 
   class << self
     def per_page
