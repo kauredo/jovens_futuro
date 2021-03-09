@@ -35,16 +35,18 @@
 		color: white;
 		margin: 10px;
 	}
-
-	.photo {
-		position: relative;
-		z-index: 9;
+	.photo,
+	.articlePhoto {
 		width: 150px;
 		height: 150px;
 		border-radius: 1000rem;
 		border: 1rem solid $futuro;
 		background-position: center;
 		background-size: contain;
+	}
+	.photo {
+		position: relative;
+		z-index: 9;
 
 		&:nth-child(2) + :not(.offset) {
 			left: 50%;

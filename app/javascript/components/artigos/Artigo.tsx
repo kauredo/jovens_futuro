@@ -30,12 +30,15 @@ export default function Artigo(props: Props) {
 		<div className={artigoClass}>
 			{justHeader ? (
 				<>
-					<div style={{ position: 'relative' }}>
+					<div style={{ display: 'flex' }}>
 						{users.map((user, index) => (
 							<div
 								key={`${artigo.title}user${index}${artigo.published_at}`}
-								className={photoClass(index)}
-								style={{ backgroundImage: `url(${user.avatar.url})` }}
+								className={styles.articlePhoto}
+								style={{
+									backgroundImage: `url(${user.avatar.url})`,
+									margin: '0.125rem',
+								}}
 							></div>
 						))}
 					</div>
