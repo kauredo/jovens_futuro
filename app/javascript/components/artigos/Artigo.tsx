@@ -30,7 +30,14 @@ export default function Artigo(props: Props) {
 		<div className={artigoClass}>
 			{justHeader ? (
 				<>
-					<div style={{ display: 'flex' }}>
+					<div
+						style={{
+							display: 'flex',
+							flexWrap: 'wrap',
+							alignItems: 'center',
+							justifyContent: 'center',
+						}}
+					>
 						{users.map((user, index) => (
 							<div
 								key={`${artigo.title}user${index}${artigo.published_at}`}
