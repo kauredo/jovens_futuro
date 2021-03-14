@@ -17,10 +17,18 @@ export default function Footer() {
 				</div>
 				<div className={styles.right}>
 					Encontre-nos:{' '}
-					<a href='#' className={styles.sendEmail}>
+					<a
+						href='https://twitter.com/JovensOFuturo1?s=20'
+						target='_blank'
+						className={styles.sendEmail}
+					>
 						<i className='fab fa-twitter'></i>
 					</a>
-					<a href='#' className={styles.sendEmail}>
+					<a
+						href='https://www.instagram.com/jovenseofuturo/'
+						target='_blank'
+						className={styles.sendEmail}
+					>
 						<i className='fab fa-instagram'></i>
 					</a>
 				</div>
