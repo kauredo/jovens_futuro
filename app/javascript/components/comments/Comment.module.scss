@@ -2,9 +2,12 @@
 
 .commentAndReplies {
 	margin: 50px auto;
+	max-width: 55rem;
+
 	.comment,
 	.reply {
 		width: 100%;
+
 		margin: auto;
 		border: 1px solid $futuro-transparent;
 		border-radius: 0.25rem;
@@ -54,12 +57,11 @@
 		.comment,
 		.reply {
 			min-width: 550px;
-			width: 50%;
 		}
 		.reply {
 			min-width: 450px;
 			left: 50px;
-			width: calc(50% - 100px);
+			width: calc(100% - 100px);
 		}
 	}
 }

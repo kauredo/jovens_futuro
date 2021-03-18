@@ -42,7 +42,8 @@
 		border-radius: 1000rem;
 		border: 1rem solid $futuro;
 		background-position: center;
-		background-size: contain;
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 	.photo {
 		position: relative;

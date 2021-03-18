@@ -20,14 +20,14 @@ export default function Footer() {
 					<a
 						href='https://twitter.com/JovenseoFuturo?s=09'
 						target='_blank'
-						className={styles.sendEmail}
+						className={`${styles.sendEmail} ${styles.twitter}`}
 					>
 						<i className='fab fa-twitter'></i>
 					</a>
 					<a
 						href='https://www.instagram.com/jovenseofuturo/'
 						target='_blank'
-						className={styles.sendEmail}
+						className={`${styles.sendEmail} ${styles.instagram}`}
 					>
 						<i className='fab fa-instagram'></i>
 					</a>
