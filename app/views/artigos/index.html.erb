@@ -6,7 +6,7 @@
 
       <%= f.select :categoria_eq, Artigo::CATEGORIAS, include_blank: "Categoria" %>
 
-      <%= f.select :from_colaborador, Colaborator.all.map(&:name), include_blank: "Colunista" %>
+      <%= f.select :from_colaborador, Colaborator.all.order(:name).map(&:name), include_blank: "Colunista" %>
 
       <%= f.submit "Pesquisa" %>
     <% end %>

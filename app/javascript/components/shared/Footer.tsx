@@ -18,7 +18,7 @@ export default function Footer() {
 				<div className={styles.right}>
 					Encontre-nos:{' '}
 					<a
-						href='https://twitter.com/JovensOFuturo1?s=20'
+						href='https://twitter.com/JovenseoFuturo?s=09'
 						target='_blank'
 						className={styles.sendEmail}
 					>
