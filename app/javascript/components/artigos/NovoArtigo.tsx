@@ -13,6 +13,7 @@ export interface Article {
 		novo: boolean;
 		published: boolean;
 		published_at: Date;
+		slug: string;
 		colaborators: User[];
 	};
 }

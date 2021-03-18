@@ -20,7 +20,7 @@ class Backoffice::ArtigosController < ApplicationController
   def edit; end
 
   def publish
-    artigo = Artigo.find(params[:artigo_id])
+    artigo = Artigo.friendly.find(params[:artigo_slug])
     if artigo.published
       artigo.toggle!(:published)
     else
@@ -32,7 +32,7 @@ class Backoffice::ArtigosController < ApplicationController
   private
 
   def find_artigo
-    @artigo = Artigo.find(params[:id])
+    @artigo = Artigo.friendly.find(params[:slug])
     @colaborator_ids = @artigo.colaborators.map(&:id)
     redirect_back(fallback_location: backoffice_path) unless current_user.admin?
   end

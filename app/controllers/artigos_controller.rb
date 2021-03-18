@@ -41,6 +41,7 @@ class ArtigosController < ApplicationController
         ArtigosColaborator.create(artigo: @artigo, colaborator: c)
       end
     end
+    @artigo.slug = nil if @artigo.title != params[:title]
     if @artigo.update(artigo_params.except(:colaborators))
       redirect_to backoffice_artigo_path(@artigo), notice: 'Artigo criado'
     else
@@ -51,7 +52,7 @@ class ArtigosController < ApplicationController
   private
 
   def find_artigo
-    @artigo = Artigo.find(params[:id])
+    @artigo = Artigo.friendly.find(params[:slug])
     @colaborator_ids = @artigo.colaborators.map(&:id)
   end
 

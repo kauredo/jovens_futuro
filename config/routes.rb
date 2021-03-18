@@ -11,13 +11,13 @@ Rails.application.routes.draw do
     patch 'confirm_user', to: 'registrations#confirm_user'
     patch 'admin_user', to: 'registrations#admin_user'
   end
-  resources :artigos, only: %I(index show create update) do
-    post "comment", to: 'comments#create'
+  resources :artigos, param: :slug, only: %I(index show create update) do
+    post 'comment', to: 'comments#create'
   end
   resources :colaborators, only: %I(create update)
   namespace :backoffice do
     get '/', to: 'artigos#index'
-    resources :artigos, except: %I(index create update) do
+    resources :artigos, param: :slug, except: %I(index create update) do
       patch 'publish', to: 'artigos#publish'
     end
     resources :colaborators
