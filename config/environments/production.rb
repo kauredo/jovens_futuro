@@ -70,20 +70,20 @@ Rails.application.configure do
 
   host = 'jovens-futuro.herokuapp.com'
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true  
-  config.action_mailer.default_url_options = { host: host }
-  config.action_mailer.raise_delivery_errors = false  
-  config.action_mailer.default :charset => "utf-8" 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default charset: 'utf-8'
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
     domain: host,
-    user_name: ENV['SITE_EMAIL'],
-    password: ENV['EMAIL_PASSWORD'],
     authentication: 'plain',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    user_name: ENV['SITE_EMAIL'],
+    password: ENV['EMAIL_PASSWORD']
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
