@@ -22,34 +22,35 @@ class ArtigosController < ApplicationController
 
   def create
     @artigo = Artigo.new(artigo_params.except(:colaborators))
-    colaborators = Colaborator.where(id: artigo_params[:colaborators])
-    colaborators.each do |c|
-      ArtigosColaborator.create(artigo: @artigo, colaborator: c)
-    end
+    associate_colaborators()
     if @artigo.save
-      redirect_to backoffice_path, notice: 'Artigo criado' 
+      redirect_to backoffice_path, notice: 'Artigo criado'
     else
-      render json: { error: 'Artigo não criado' }
+      render 'backoffice/artigos/new'
     end
   end
 
   def update
-    unless @colaborator_ids == artigo_params[:colaborators].map(&:to_i)
+    unless @colaborator_ids == artigo_params[:colaborators]&.map(&:to_i)
       @artigo.artigos_colaborator.map(&:destroy!)
-      colaborators = Colaborator.where(id: artigo_params[:colaborators])
-      colaborators.each do |c|
-        ArtigosColaborator.create(artigo: @artigo, colaborator: c)
-      end
+      associate_colaborators()
     end
     @artigo.slug = nil if @artigo.title != params[:title]
     if @artigo.update(artigo_params.except(:colaborators))
       redirect_to backoffice_artigo_path(@artigo), notice: 'Artigo criado'
     else
-      render json: { error: 'Artigo não criado' }
+      render 'backoffice/artigos/edit'
     end
   end
 
   private
+
+  def associate_colaborators
+    colaborators = Colaborator.where(id: artigo_params[:colaborators])
+    colaborators.each do |c|
+      ArtigosColaborator.create(artigo: @artigo, colaborator: c)
+    end
+  end
 
   def find_artigo
     @artigo = Artigo.friendly.find(params[:slug])
