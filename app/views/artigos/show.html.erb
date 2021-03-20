@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@artigo.title} - #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @artigo1[:attributes][:content].first(150).concat('...') %>
-<% content_for :meta_image, cl_image_path(@artigo.colaborators.first.avatar) %>
+<% content_for :meta_image, cl_image_path("background.png", transformation: @meta_image) %>
 
 <div class="container">
   <%= react_component('artigos/Artigo', artigo: @artigo1, justHeader: true) %>

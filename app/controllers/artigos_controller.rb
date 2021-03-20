@@ -17,6 +17,7 @@ class ArtigosController < ApplicationController
 
   def show
     @artigo1 = ArtigoSerializer.new(@artigo).serializable_hash[:data]
+    @meta_image = generate_meta_image()
     @comments = CommentSerializer.new(Comment.main_comments.where(artigo: @artigo)).serializable_hash[:data]
   end
 
@@ -44,6 +45,35 @@ class ArtigosController < ApplicationController
   end
 
   private
+
+  def generate_meta_image
+    case @artigo.colaborators.count
+    when 2
+      [
+        { width: 1200, crop: 'scale' },
+        { border: '50px_solid_rgb:57b2f2', flags: 'clip', gravity: 'center', height: 450, width: 450, overlay: @artigo.colaborators.first.avatar.file.public_id, radius: 'max', crop: 'thumb' },
+        { flags: 'layer_apply', width: 450, x: -200 },
+        { border: '50px_solid_rgb:57b2f2', flags: 'clip', gravity: 'center', height: 450, width: 450, overlay: @artigo.colaborators.last.avatar.file.public_id, radius: 'max', crop: 'thumb' },
+        { flags: 'layer_apply', width: 450, x: 200 }
+      ]
+    when 3
+      [
+        { width: 1200, crop: 'scale' },
+        { border: '35px_solid_rgb:57b2f2', flags: 'clip', gravity: 'center', height: 350, width: 350, overlay: @artigo.colaborators.first.avatar.file.public_id, radius: 'max', crop: 'thumb' },
+        { flags: 'layer_apply', width: 350, x: -300 },
+        { border: '35px_solid_rgb:57b2f2', flags: 'clip', gravity: 'center', height: 350, width: 350, overlay: @artigo.colaborators[1].avatar.file.public_id, radius: 'max', crop: 'thumb' },
+        { flags: 'layer_apply', width: 350 },
+        { border: '35px_solid_rgb:57b2f2', flags: 'clip', gravity: 'center', height: 350, width: 350, overlay: @artigo.colaborators.last.avatar.file.public_id, radius: 'max', crop: 'thumb' },
+        { flags: 'layer_apply', width: 350, x: 300 }
+      ]
+    else
+      [
+        { width: 1200, crop: 'scale' },
+        { border: '50px_solid_rgb:57b2f2', flags: 'clip', gravity: 'center', height: 501, width: 501, overlay: @artigo.colaborators.first&.avatar.file.public_id, radius: 'max', crop: 'thumb' },
+        { flags: 'layer_apply', width: 501 }
+      ]
+    end
+  end
 
   def associate_colaborators
     colaborators = Colaborator.where(id: artigo_params[:colaborators])
