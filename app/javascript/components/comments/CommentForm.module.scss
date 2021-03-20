@@ -3,6 +3,8 @@
 .form,
 .replyForm {
 	width: 100%;
+	max-width: 500px;
+
 	margin: 20px auto;
 	border: 1px solid $futuro-transparent;
 	background-color: $futuro-transparent;

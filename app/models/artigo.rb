@@ -1,4 +1,7 @@
 class Artigo < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   CATEGORIAS = %w(Economia Política Sociedade Saúde Mundo Desporto Cultura Fotografia).freeze
 
   has_rich_text :contents

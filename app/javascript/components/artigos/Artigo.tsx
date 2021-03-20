@@ -13,7 +13,7 @@ export default function Artigo(props: Props) {
 	const users = artigo.colaborators;
 	const novo = artigo.novo;
 	const justHeader = props.justHeader;
-	const artigoLink = `${window.location.origin}${window.location.pathname}/${artigo.id}`;
+	const artigoLink = `${window.location.origin}${window.location.pathname}/${artigo.slug}`;
 
 	const truncate = input =>
 		input.length > 200 ? `${input.substring(0, 200)}...` : input;

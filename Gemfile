@@ -39,6 +39,7 @@ gem 'bootsnap', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
 gem 'devise'
+gem 'friendly_id'
 gem 'jsonapi-serializer'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'react-rails'

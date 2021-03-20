@@ -2,8 +2,8 @@
 
 .container {
 	width: 90%;
-	margin: auto;
-	margin-bottom: 50px;
+	max-width: 1240px;
+	margin: 0 auto 50px;
 
 	.subtitle {
 		font-weight: bolder;
@@ -19,7 +19,7 @@
 		max-height: 445px;
 		height: 50vw;
 		width: 80vw;
-		background-image: url('https://res.cloudinary.com/drpwozhzg/image/upload/v1613676743/people.webp');
+		background-image: url('https://res.cloudinary.com/drpwozhzg/image/upload/v1616107794/philosopheers-painitng-final.png');
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: contain;
@@ -30,7 +30,7 @@
 @media (min-width: 750px) {
 	.container {
 		.text {
-			text-align: justify;
+			// text-align: justify;
 		}
 	}
 }

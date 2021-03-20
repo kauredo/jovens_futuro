@@ -37,6 +37,9 @@
 		.colaboradores {
 			margin-left: 20px;
 			.colaborador {
+				&::marker {
+					color: $futuro;
+				}
 				font-size: 20px;
 				margin-bottom: 5px;
 			}
@@ -52,7 +55,7 @@
 			}
 
 			.rigthText {
-				text-align: justify;
+				// text-align: justify;
 				margin: 0;
 				width: 50%;
 			}
