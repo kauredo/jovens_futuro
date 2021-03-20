@@ -73,13 +73,12 @@
 		z-index: 8;
 	}
 
-	.titleLink {
-		.title {
-			text-align: center;
-			&:hover {
-				color: $futuro;
-			}
-		}
+	.title {
+		text-align: center;
+	}
+
+	.titleLink > .title:hover {
+		color: $futuro;
 	}
 
 	.content {
