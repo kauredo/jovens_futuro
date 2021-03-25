@@ -10,6 +10,10 @@ export default function Contacto() {
 	const [phone, setPhone] = useState('');
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
+	const [serverState, setServerState] = useState({
+		submitting: false,
+		status: null,
+	});
 
 	const resetForm = () => {
 		setName('');
@@ -18,29 +22,59 @@ export default function Contacto() {
 		setMessage('');
 	};
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		const csrf = document
-			.querySelector("meta[name='csrf-token']")
-			.getAttribute('content');
-		if (name && phone && email && message) {
-			axios({
-				method: 'POST',
-				url: window.location.href,
-				data: { name, phone, email, message },
-				headers: {
-					'Content-Type': 'application/json',
-					'X-CSRF-Token': csrf,
-				},
-			}).then(response => {
-				if (response.data.notice) {
-					alert(response.data.notice);
-					resetForm();
-				}
-			});
-		} else {
-			alert('Por favor insere todos os dados.');
+	// const handleSubmit = e => {
+	// 	e.preventDefault();
+	// 	const csrf = document
+	// 		.querySelector("meta[name='csrf-token']")
+	// 		.getAttribute('content');
+	// 	if (name && phone && email && message) {
+	// 		axios({
+	// 			method: 'POST',
+	// 			url: window.location.href,
+	// 			data: { name, phone, email, message },
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 				'X-CSRF-Token': csrf,
+	// 			},
+	// 		}).then(response => {
+	// 			if (response.data.notice) {
+	// 				alert(response.data.notice);
+	// 				resetForm();
+	// 			}
+	// 		});
+	// 	} else {
+	// 		alert('Por favor insere todos os dados.');
+	// 	}
+	// };
+
+	const handleServerResponse = (ok, msg) => {
+		setServerState({
+			submitting: false,
+			status: { ok, msg },
+		});
+		if (ok) {
+			resetForm();
 		}
+		alert(msg);
+	};
+	const handleOnSubmit = e => {
+		e.preventDefault();
+		const form = e.target;
+		setServerState({ submitting: true, status: serverState.status });
+		axios({
+			method: 'post',
+			url: 'https://formspree.io/mgerwzdg',
+			data: new FormData(form),
+		})
+			.then(r => {
+				handleServerResponse(
+					true,
+					'Obrigado por nos contactares! Vamos responder assim que possível!'
+				);
+			})
+			.catch(r => {
+				handleServerResponse(false, r.response.data.error);
+			});
 	};
 
 	return (
@@ -57,11 +91,13 @@ export default function Contacto() {
 						Queres oferecer o teu contributo para este Blog? Entra em contacto
 						connosco!
 					</h2>
-					<form id='contact-form' onSubmit={handleSubmit} method='POST'>
+					<form id='contact-form' onSubmit={handleOnSubmit}>
 						<div className={styles.formGroup}>
 							<input
 								onChange={e => setName(e.target.value)}
 								value={name}
+								id='name'
+								name='name'
 								type='text'
 								className={styles.formControl}
 								placeholder='Nome'
@@ -72,6 +108,8 @@ export default function Contacto() {
 								type='email'
 								onChange={e => setEmail(e.target.value)}
 								value={email}
+								id='email'
+								name='email'
 								className={styles.formControl}
 								aria-describedby='emailHelp'
 								placeholder='Email'
@@ -81,6 +119,8 @@ export default function Contacto() {
 							<input
 								onChange={e => setPhone(e.target.value)}
 								type='phone'
+								id='phone'
+								name='phone'
 								value={phone}
 								className={styles.formControl}
 								placeholder='Telefone'
@@ -90,12 +130,18 @@ export default function Contacto() {
 							<textarea
 								onChange={e => setMessage(e.target.value)}
 								placeholder='Mensagem'
+								id='message'
+								name='message'
 								value={message}
 								className={styles.formControl}
 								rows={5}
 							></textarea>
 						</div>
-						<button type='submit' className={styles.submitButton}>
+						<button
+							type='submit'
+							disabled={serverState.submitting}
+							className={styles.submitButton}
+						>
 							Submeter
 						</button>
 					</form>
