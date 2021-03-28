@@ -41,7 +41,7 @@ export default function Artigo(props: Props) {
 								key={`${artigo.title}user${index}${artigo.published_at}`}
 								className={styles.articlePhoto}
 								style={{
-									backgroundImage: `url(${user.avatar.url})`,
+									backgroundImage: `url(${user.avatar})`,
 									margin: '0.125rem',
 								}}
 							></div>
@@ -69,7 +69,7 @@ export default function Artigo(props: Props) {
 							<div
 								key={`${artigo.title}user${index}${artigo.published_at}`}
 								className={photoClass(index)}
-								style={{ backgroundImage: `url(${user.avatar.url})` }}
+								style={{ backgroundImage: `url(${user.avatar})` }}
 							></div>
 						))}
 					</a>
