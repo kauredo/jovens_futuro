@@ -16,6 +16,7 @@ class ArtigosController < ApplicationController
   end
 
   def show
+    @artigo.update_page_views!
     @artigo1 = ArtigoSerializer.new(@artigo).serializable_hash[:data]
     @meta_image = generate_meta_image()
     @comments = CommentSerializer.new(Comment.main_comments.where(artigo: @artigo)).serializable_hash[:data]

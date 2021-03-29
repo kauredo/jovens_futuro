@@ -8,7 +8,7 @@ class Artigo < ApplicationRecord
   has_many :artigos_colaborator
   has_many :colaborators, through: :artigos_colaborator
   has_many :comments
-  scope :last_first, -> { all.reverse }
+  scope :last_first, -> { all.order({ published_at: :desc }) }
   scope :published, -> { where(published: true).order({ published_at: :desc }) }
   scope :novo, -> { where('published_at > ?', 3.days.ago) }
   scope :from_colaborador, ->(colaborador) { joins(artigos_colaborator: :colaborator).where(colaborator: { name: colaborador })}
@@ -35,5 +35,9 @@ class Artigo < ApplicationRecord
     def ransackable_scopes(auth_object = nil)
       %i(from_colaborador)
     end
+  end
+
+  def update_page_views!
+    update(page_views: page_views + 1)
   end
 end

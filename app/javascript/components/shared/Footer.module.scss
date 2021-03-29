@@ -18,6 +18,9 @@
 		.sendEmail {
 			color: white;
 			margin: 5px;
+			&:hover {
+				color: $futuro;
+			}
 		}
 	}
 
@@ -27,5 +30,9 @@
 
 	.instagram:hover {
 		color: #c32aa3;
+	}
+
+	.facebook:hover {
+		color: #2d88ff;
 	}
 }
