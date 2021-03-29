@@ -16,19 +16,19 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				font-size: 3vw;
+				font-size: 2rem;
 				font-weight: bold;
 				.link {
 					text-decoration: none;
-					color: $ando;
+					color: $futuro;
 					margin: 0 15px;
 
 					&.selected,
 					&:hover {
-						color: $futuro;
+						color: $background;
 					}
 					&.backofficeLink {
-						font-size: 3vw;
+						font-size: 2rem;
 					}
 				}
 			}
@@ -38,10 +38,14 @@
 		height: 100%;
 		background-color: inherit;
 
+		.burger {
+			// color: $futuro;
+		}
+
 		.container {
 			height: 100%;
 			width: 90%;
-			color: $futuro;
+			color: $background;
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
@@ -64,9 +68,9 @@
 			.link {
 				padding: 10px 0;
 				text-decoration: none;
-				color: $ando;
+				color: $futuro;
 				&.selected {
-					color: $futuro;
+					color: $background;
 				}
 			}
 		}
@@ -91,9 +95,9 @@
 			.container {
 				.links {
 					.link {
-						font-size: 36px;
+						font-size: 2rem;
 						&.backofficeLink {
-							font-size: 36px;
+							font-size: 2rem;
 						}
 					}
 				}

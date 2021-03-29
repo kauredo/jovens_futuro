@@ -177,7 +177,10 @@ export default function NavBar(props: Props) {
 				</div>
 				<div className={styles.navNarrow}>
 					<div className={styles.container}>
-						<i className='fa fa-bars fa-2x' onClick={burgerToggle}></i>
+						<i
+							className={`fa fa-bars fa-2x ${styles.burger}`}
+							onClick={burgerToggle}
+						></i>
 					</div>
 					<div className={styles.narrowLinks} ref={narrowLinksRef}>
 						{backoffice ? (
