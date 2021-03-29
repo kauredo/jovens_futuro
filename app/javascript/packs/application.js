@@ -19,5 +19,7 @@ var componentRequireContext = require.context('components', true);
 var ReactRailsUJS = require('react_ujs');
 ReactRailsUJS.useContext(componentRequireContext);
 
+import './trix-editor-overrides';
+require('@rails/activestorage').start();
 require('trix');
 require('@rails/actiontext');
