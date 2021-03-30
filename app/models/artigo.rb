@@ -15,7 +15,7 @@ class Artigo < ApplicationRecord
 
   class << self
     def per_page
-      10
+      ENV['ARTIGOS_PER_PAGE']
     end
 
     def pages(per_page = self.per_page)
