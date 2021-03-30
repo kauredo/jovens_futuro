@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import './utils/utils';
 
+select,
+input[type='submit'] {
+	cursor: pointer;
+}
+
 .container {
 	width: 90%;
 	margin: 50px auto;
