@@ -18,6 +18,12 @@ export default function Artigos(props: Props) {
 
 	return (
 		<div>
+			<Pagination
+				page={props.page}
+				lastPage={props.pages}
+				perPage={props.perPage}
+				total={props.total}
+			/>
 			<div className={styles.artigos}>
 				{artigos.map(artigo => (
 					<Artigo key={artigo.id} artigo={artigo} />

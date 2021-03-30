@@ -10,7 +10,11 @@ class ArtigosController < ApplicationController
     result = @q.result
     @pages = result.pages
     @total = result.count
-    @artigos = result.paginate(page: @page)
+    if @page <= @pages
+      @artigos = result.paginate(page: @page)
+    else
+      redirect_to artigos_path(page: @pages)
+    end
 
     @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]
   end

@@ -22,8 +22,6 @@ export default function Pagination(props: Props) {
 	}
 
 	const setCurrentPage = (event, page) => {
-		event.preventDefault;
-
 		const pageIndex = window.location.search.indexOf('page');
 		const params =
 			window.location.search === ''
@@ -32,49 +30,59 @@ export default function Pagination(props: Props) {
 				? `${window.location.search}&page=${page}`
 				: `${window.location.search.substring(0, pageIndex)}page=${page}`;
 		const url = `${window.location.origin}${window.location.pathname}${params}`;
-		window.location.href = url;
+		return (window.location.href = url);
 	};
 
 	return (
-		lastPage > 1 && (
+		lastPage > 1 &&
+		currentPage <= lastPage && (
 			<div className={styles.pagination}>
 				Paginação ({showing})
 				<div className={styles.paginationList}>
-					<div className={currentPage === 1 ? styles.disabled : styles.item}>
-						<a onClick={e => setCurrentPage(e, 1)}>Primeira</a>
-					</div>
-					<div className={currentPage === 1 ? styles.disabled : styles.item}>
-						<a onClick={e => setCurrentPage(e, currentPage - 1)}>{'<'}</a>
-					</div>
+					<a onClick={e => setCurrentPage(e, 1)}>
+						<div className={currentPage === 1 ? styles.disabled : styles.item}>
+							Primeira
+						</div>
+					</a>
+					<a onClick={e => setCurrentPage(e, currentPage - 1)}>
+						<div className={currentPage === 1 ? styles.disabled : styles.item}>
+							{'<'}
+						</div>
+					</a>
 
 					{pages.map((page, index) => {
 						return (
-							<div
-								key={index}
-								className={
-									page === currentPage
-										? `${styles.active} ${styles.item}`
-										: styles.item
-								}
-							>
-								<a onClick={e => setCurrentPage(e, page)}>{page}</a>
-							</div>
+							<a key={index} onClick={e => setCurrentPage(e, page)}>
+								<div
+									className={
+										page === currentPage
+											? `${styles.active} ${styles.item}`
+											: styles.item
+									}
+								>
+									{page}
+								</div>
+							</a>
 						);
 					})}
-					<div
-						className={
-							currentPage === props.lastPage ? styles.disabled : styles.item
-						}
-					>
-						<a onClick={e => setCurrentPage(e, currentPage + 1)}>{'>'}</a>
-					</div>
-					<div
-						className={
-							currentPage === props.lastPage ? styles.disabled : styles.item
-						}
-					>
-						<a onClick={e => setCurrentPage(e, props.lastPage)}>Última</a>
-					</div>
+					<a onClick={e => setCurrentPage(e, currentPage + 1)}>
+						<div
+							className={
+								currentPage === props.lastPage ? styles.disabled : styles.item
+							}
+						>
+							{'>'}
+						</div>
+					</a>
+					<a onClick={e => setCurrentPage(e, props.lastPage)}>
+						<div
+							className={
+								currentPage === props.lastPage ? styles.disabled : styles.item
+							}
+						>
+							Última
+						</div>
+					</a>
 				</div>
 			</div>
 		)
