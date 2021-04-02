@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const styles = require('./Pagination.module.scss');
 
@@ -13,7 +13,8 @@ export default function Pagination(props: Props) {
 	const currentPage = props.page;
 	const lastPage = props.lastPage;
 	const firstShowing = props.perPage * currentPage - props.perPage + 1;
-	const lastShowing = props.perPage * currentPage;
+	const lastShowing =
+		currentPage === lastPage ? props.total : props.perPage * currentPage;
 	const showing = `${firstShowing}-${lastShowing} de ${props.total}`;
 
 	let pages = [];
@@ -68,16 +69,16 @@ export default function Pagination(props: Props) {
 					<a onClick={e => setCurrentPage(e, currentPage + 1)}>
 						<div
 							className={
-								currentPage === props.lastPage ? styles.disabled : styles.item
+								currentPage === lastPage ? styles.disabled : styles.item
 							}
 						>
 							{'>'}
 						</div>
 					</a>
-					<a onClick={e => setCurrentPage(e, props.lastPage)}>
+					<a onClick={e => setCurrentPage(e, lastPage)}>
 						<div
 							className={
-								currentPage === props.lastPage ? styles.disabled : styles.item
+								currentPage === lastPage ? styles.disabled : styles.item
 							}
 						>
 							Última

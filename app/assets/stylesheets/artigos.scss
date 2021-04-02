@@ -28,6 +28,15 @@ input[type='submit'] {
 		}
 	}
 
+	.comment {
+		margin: auto;
+		max-width: 60rem;
+		margin-top: 1rem;
+	}
+	.reply {
+		padding-left: 3rem;
+	}
+
 	h2,
 	h3 {
 		margin-bottom: 10px;

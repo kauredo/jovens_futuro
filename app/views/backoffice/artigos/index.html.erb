@@ -16,6 +16,7 @@
           <div class="artigo">
             <h3><%= artigo.title %> (<%= artigo.categoria %>)</h3>
             <p><%= artigo.colaborators.map(&:name).to_sentence %> - <%= "criado a #{artigo.created_at.strftime('%d-%m-%Y')}" %></p>
+            <p><%= artigo.comments.main_comments.count %> <%= 'comment'.pluralize(artigo.comments.main_comments) %> (<%= artigo.comments.count - artigo.comments.main_comments.count %> <%= 'reply'.pluralize(artigo.comments.count - artigo.comments.main_comments.count) %>)</p>
             <p><%= artigo.page_views %> <%= 'view'.pluralize(artigo.page_views) %></p>
           </div>
         </div>

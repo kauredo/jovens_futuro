@@ -10,6 +10,7 @@ class Backoffice::ArtigosController < ApplicationController
 
   def show
     @artigo1 = ArtigoSerializer.new(@artigo).serializable_hash[:data]
+    @comments = Comment.main_comments.where(artigo: @artigo)
   end
 
   def new

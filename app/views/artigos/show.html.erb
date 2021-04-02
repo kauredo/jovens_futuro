@@ -8,7 +8,7 @@
     <%= @artigo.contents %>
   </div>
   <p class="signature">
-  <%= @artigo.colaborators.map(&:name).to_sentence %>
+  <%= @artigo.colaborators.map(&:name).to_sentence(two_words_connector: ' e ', last_word_connector: ' e ') %>
   </p>
   <%= react_component('comments/Comments', comments: @comments) %>
 </div>
