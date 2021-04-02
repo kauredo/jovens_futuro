@@ -3,4 +3,6 @@ class Colaborator < ApplicationRecord
   has_many :artigos_colaborator
   has_many :artigos, through: :artigos_colaborator
   has_many :colaborators, through: :artigos_colaborator
+
+  scope :with_artigos, -> { joins(:artigos).distinct }
 end
