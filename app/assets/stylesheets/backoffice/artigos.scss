@@ -1,3 +1,52 @@
 // Place all the styles related to the backoffice/Artigos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import './utils/utils';
+
+.top-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.total-stats {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 3rem;
+	right: 0;
+	top: 0;
+	box-shadow: 0px 0px 0.25rem rgba($jovens, 0.3);
+	border-radius: 1rem;
+
+	.header {
+		height: 100%;
+		width: 100%;
+		border-radius: 1rem 1rem 0 0;
+		padding: 2rem 2rem 1rem;
+		background: $jovens;
+		color: white;
+	}
+
+	.section {
+		padding: 1rem;
+	}
+
+	@media (min-width: 750px) {
+		margin-top: 0;
+		float: right;
+		flex-direction: row;
+		align-items: center;
+		width: fit-content;
+
+		.header {
+			border-radius: 1rem 0 0 1rem;
+			width: auto;
+		}
+
+		.section:last-child {
+			padding-right: 2rem;
+		}
+	}
+}

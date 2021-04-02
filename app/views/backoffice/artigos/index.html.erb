@@ -1,10 +1,29 @@
 <div class="container index">
-  <div class="user-btns">
-    <div class="button-div">
-      <%= link_to 'Criar novo artigo', new_backoffice_artigo_path, class: "button" %>
+  <div class="top-row">
+    <div class="user-btns">
+      <%= link_to new_backoffice_artigo_path do %>
+        <div class="button-div">
+          <p>Criar novo artigo</p>
+        </div>
+      <% end %>
+      <%= link_to edit_user_registration_path do %>
+        <div class="button-div">
+          <p>Editar Perfil</p>
+        </div>
+      <% end %>
     </div>
-    <div class="button-div">
-      <%= link_to 'Editar perfil', edit_user_registration_path, class: "button" %>
+    <div class="total-stats">
+      <div class="header">
+        <h3>Total</h3>
+      </div>
+      <div class="section">
+        <h4>Comentários:</h4>
+        <p><%= Comment.main_comments.count %> comentários (<%= Comment.count - Comment.main_comments.count %> respostas)</p>
+      </div>
+      <div class="section">
+        <h4>Views:</h4>
+        <p><%= Artigo.all.map(&:page_views).sum %> views</p>
+      </div>
     </div>
   </div>
   <div class="artigos">

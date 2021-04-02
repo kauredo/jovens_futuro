@@ -1,8 +1,10 @@
 <div class="container">
   <div class="user-btns" style="margin: 0 auto 2rem;">
-    <div class="button-div">
-      <%= link_to 'Editar artigo', edit_backoffice_artigo_path(@artigo), class: "button" %>
-    </div>
+    <%= link_to edit_backoffice_artigo_path(@artigo) do %>
+      <div class="button-div">
+        <p>Editar artigo</p>
+      </div>
+    <% end %>
   </div>
   <h2>
     <%= @artigo.title %>

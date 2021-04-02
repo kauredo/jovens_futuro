@@ -1,8 +1,10 @@
 <div class="container">
   <div class="user-btns">
-    <div class="button-div">
-      <%= link_to 'Adicionar colaborador', new_backoffice_colaborator_path, class: "button" %>
-    </div>
+    <%= link_to new_backoffice_colaborator_path do %>
+      <div class="button-div">
+        <p>Adicionar colaborador</p>
+      </div>
+    <% end %>
   </div>
   <% @users.each do |user| %>
     <div class="backoffice-user">
