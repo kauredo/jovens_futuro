@@ -15,7 +15,6 @@
 	.user-card {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
 	}
 
 	.user-image {
@@ -27,20 +26,18 @@
 		background-repeat: no-repeat;
 	}
 }
-.backoffice-user {
-}
 
 .backoffice-btns {
-	width: max-content;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	.backoffice-btn {
-		margin: 0 5px;
+		margin: 0;
 		text-align: center;
 		line-height: 50px;
-		width: 150px;
+		width: inherit;
 		padding: 5px 10px;
 		color: white;
 
@@ -49,6 +46,13 @@
 		}
 		&.confirm-btn {
 			background: red;
+		}
+	}
+	@media (min-width: 750px) {
+		width: max-content;
+		.backoffice-btn {
+			width: 150px;
+			margin: 0 5px;
 		}
 	}
 }
