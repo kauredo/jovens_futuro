@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Links from './Links';
 
 const styles = require('./NavBar.module.scss');
 
@@ -16,46 +17,15 @@ export default function NavBar(props: Props) {
 	const backoffice = props.backoffice;
 	const admin = props.admin;
 
-	const translate = (elem, y) => {
-		const top = parseInt(css(elem, 'top'), 10);
-		const dy = top - y;
-		let i = 1;
-		const count = 20;
-		const delay = 20;
-
-		const loop = () => {
-			if (i >= count) {
-				return;
-			}
-
-			i += 1;
-			elem.style.top = (top - (dy * i) / count).toFixed(0) + 'px';
-			setTimeout(() => loop(), delay);
-		};
-
-		loop();
-	};
-
-	const css = (element, property) => {
-		return window.getComputedStyle(element, null).getPropertyValue(property);
-	};
-
 	const burgerToggle = () => {
-		let linksEl = narrowLinksRef.current;
-
 		if (navbar) {
-			translate(linksEl, -linksEl.offsetHeight);
 			setNavbar(false);
+			document.body.style.overflowY = 'auto';
 		} else {
-			translate(linksEl, 0);
 			setNavbar(true);
+			document.body.style.overflowY = 'hidden';
 		}
 	};
-
-	useEffect(() => {
-		let linksEl = narrowLinksRef.current;
-		linksEl.style.top = -linksEl.offsetHeight + 'px';
-	}, []);
 
 	useEffect(() => {
 		/**
@@ -78,6 +48,12 @@ export default function NavBar(props: Props) {
 			document.removeEventListener('mousedown', handleClickOutside);
 		};
 	}, [wrapperRef, navbar]);
+
+	useEffect(() => {
+		let vh = window.innerHeight * 0.01;
+		// Then we set the value in the --vh custom property to the root of the document
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
+	}, [navbar, setNavbar]);
 
 	return (
 		<>
@@ -177,15 +153,29 @@ export default function NavBar(props: Props) {
 				</div>
 				<div className={styles.navNarrow}>
 					<div className={styles.container}>
-						<i
-							className={`fa fa-bars fa-2x ${styles.burger}`}
-							onClick={burgerToggle}
-						></i>
+						<button className={styles.burger} onClick={burgerToggle}>
+							<span></span>
+							<span style={{ width: navbar ? '20px' : '25px' }}></span>
+							<span></span>
+						</button>
 					</div>
-					<div className={styles.narrowLinks} ref={narrowLinksRef}>
+					<div
+						className={styles.narrowLinks}
+						ref={narrowLinksRef}
+						style={{
+							height: navbar ? 'calc(100vh - 60px)' : 0,
+							transition: 'all 0.4s ease-in-out',
+							paddingBottom: navbar ? '30px' : 0,
+						}}
+					>
 						{backoffice ? (
 							<>
 								<a
+									style={{
+										opacity: navbar ? 1 : 0,
+										pointerEvents: navbar ? 'auto' : 'none',
+										transition: 'all 0.4s ease-in-out',
+									}}
 									href='/'
 									className={`${styles.link} ${
 										selectedLink === '/' && styles.selected
@@ -195,6 +185,11 @@ export default function NavBar(props: Props) {
 									Home
 								</a>
 								<a
+									style={{
+										opacity: navbar ? 1 : 0,
+										pointerEvents: navbar ? 'auto' : 'none',
+										transition: 'all 0.4s ease-in-out',
+									}}
 									href='/backoffice'
 									className={`${styles.link} ${
 										selectedLink === '/backoffice' && styles.selected
@@ -205,6 +200,11 @@ export default function NavBar(props: Props) {
 								</a>
 								{admin && (
 									<a
+										style={{
+											opacity: navbar ? 1 : 0,
+											pointerEvents: navbar ? 'auto' : 'none',
+											transition: 'all 0.4s ease-in-out',
+										}}
 										href='/backoffice/admin/users'
 										onClick={burgerToggle}
 										className={`${styles.link} ${styles.backofficeLink} ${
@@ -216,6 +216,11 @@ export default function NavBar(props: Props) {
 									</a>
 								)}
 								<a
+									style={{
+										opacity: navbar ? 1 : 0,
+										pointerEvents: navbar ? 'auto' : 'none',
+										transition: 'all 0.4s ease-in-out',
+									}}
 									href='/users/sign_out'
 									data-method='delete'
 									className={styles.link}
@@ -227,6 +232,11 @@ export default function NavBar(props: Props) {
 						) : (
 							<>
 								<a
+									style={{
+										opacity: navbar ? 1 : 0,
+										pointerEvents: navbar ? 'auto' : 'none',
+										transition: 'all 0.4s ease-in-out',
+									}}
 									href='/'
 									className={`${styles.link} ${
 										selectedLink === '/' && styles.selected
@@ -236,6 +246,11 @@ export default function NavBar(props: Props) {
 									Sobre
 								</a>
 								<a
+									style={{
+										opacity: navbar ? 1 : 0,
+										pointerEvents: navbar ? 'auto' : 'none',
+										transition: 'all 0.4s ease-in-out',
+									}}
 									href='/artigos'
 									className={`${styles.link} ${
 										selectedLink === '/artigos' && styles.selected
@@ -245,6 +260,11 @@ export default function NavBar(props: Props) {
 									Artigos
 								</a>
 								<a
+									style={{
+										opacity: navbar ? 1 : 0,
+										pointerEvents: navbar ? 'auto' : 'none',
+										transition: 'all 0.4s ease-in-out',
+									}}
 									href='/colaboradores'
 									className={`${styles.link} ${
 										selectedLink === '/colaboradores' && styles.selected
@@ -254,6 +274,11 @@ export default function NavBar(props: Props) {
 									Colaboradores
 								</a>
 								<a
+									style={{
+										opacity: navbar ? 1 : 0,
+										pointerEvents: navbar ? 'auto' : 'none',
+										transition: 'all 0.4s ease-in-out',
+									}}
 									href='/contacto'
 									className={`${styles.link} ${
 										selectedLink === '/contacto' && styles.selected
@@ -265,6 +290,11 @@ export default function NavBar(props: Props) {
 								{props.signedIn && (
 									<>
 										<a
+											style={{
+												opacity: navbar ? 1 : 0,
+												pointerEvents: navbar ? 'auto' : 'none',
+												transition: 'all 0.4s ease-in-out',
+											}}
 											href='/backoffice'
 											className={styles.link}
 											onClick={burgerToggle}
@@ -272,6 +302,11 @@ export default function NavBar(props: Props) {
 											Backoffice
 										</a>
 										<a
+											style={{
+												opacity: navbar ? 1 : 0,
+												pointerEvents: navbar ? 'auto' : 'none',
+												transition: 'all 0.4s ease-in-out',
+											}}
 											href='/users/sign_out'
 											data-method='delete'
 											className={styles.link}
@@ -283,6 +318,16 @@ export default function NavBar(props: Props) {
 								)}
 							</>
 						)}
+						<div
+							className={styles.links}
+							style={{
+								opacity: navbar ? 1 : 0,
+								pointerEvents: navbar ? 'auto' : 'none',
+								transition: 'all 0.4s ease-in-out',
+							}}
+						>
+							<Links />
+						</div>
 					</div>
 				</div>
 			</nav>
