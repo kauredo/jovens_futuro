@@ -17,4 +17,14 @@ class ArtigoSerializer
   attribute :content do |obj|
     obj.contents.to_plain_text
   end
+
+  attribute :blobs do |obj|
+    embeds = obj&.contents&.embeds
+    blobs = embeds.blobs
+    names = blobs&.select { |emb| emb.image? }&.map(&:filename)
+
+    embeds.each_with_index.select do |embed, index|
+      obj.contents.to_plain_text.include? names[index].to_s
+    end.map(&:first).flatten&.map(&:url)
+  end
 end

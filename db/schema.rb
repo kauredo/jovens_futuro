@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_182338) do
+ActiveRecord::Schema.define(version: 2021_04_11_014442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_182338) do
     t.bigint "colaborator_id"
     t.string "slug"
     t.integer "page_views", default: 0
+    t.boolean "has_slider"
     t.index ["colaborator_id"], name: "index_artigos_on_colaborator_id"
     t.index ["slug"], name: "index_artigos_on_slug", unique: true
   end

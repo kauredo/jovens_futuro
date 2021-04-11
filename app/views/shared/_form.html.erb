@@ -20,6 +20,10 @@
     <%= form.text_field :title %>
   </div>
   <div class="field">
+    <%= form.label :has_slider, 'Imagens em formato de slider?' %>
+    <%= form.check_box :has_slider %>
+  </div>
+  <div class="field">
     <%= form.rich_text_area :contents %>
   </div>
   <%= form.submit "Submeter para aprovação" %>
