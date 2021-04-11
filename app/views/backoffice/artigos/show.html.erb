@@ -9,6 +9,9 @@
   <h2>
     <%= @artigo.title %>
   </h2>
+  <% if @artigo.has_slider %>
+    <div id="blobs" style="display: none"><%= @artigo1[:attributes][:blobs] %></div>
+  <% end %>
   <%= @artigo.contents %>
   <p>
   <% if @artigo.published %>

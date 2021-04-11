@@ -5,7 +5,7 @@ class Artigo < ApplicationRecord
   CATEGORIAS = %w(Economia Política Sociedade Saúde Mundo Desporto Cultura Fotografia).freeze
 
   has_rich_text :contents
-  has_many :artigos_colaborator
+  has_many :artigos_colaborator, dependent: :destroy
   has_many :colaborators, through: :artigos_colaborator
   has_many :comments
   scope :last_first, -> { all.order({ published_at: :desc }) }

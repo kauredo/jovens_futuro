@@ -24,6 +24,7 @@ class ArtigosController < ApplicationController
     @artigo1 = ArtigoSerializer.new(@artigo).serializable_hash[:data]
     @meta_image = generate_meta_image()
     @comments = CommentSerializer.new(Comment.main_comments.where(artigo: @artigo)).serializable_hash[:data]
+    @count = 0
   end
 
   def create
@@ -101,6 +102,6 @@ class ArtigosController < ApplicationController
   end
 
   def artigo_params
-    params.require(:artigo).permit(:title, :categoria, :contents, colaborators: [])
+    params.require(:artigo).permit(:title, :categoria, :contents, :has_slider, colaborators: [])
   end
 end
