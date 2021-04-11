@@ -73,5 +73,7 @@ const checkForSlider = () => {
 };
 
 if (window.location.href.includes('artigos/')) {
-	document.addEventListener('turbolinks:load', checkForSlider);
+	document.addEventListener('turbolinks:load', () =>
+		setTimeout(checkForSlider, 200)
+	);
 }
