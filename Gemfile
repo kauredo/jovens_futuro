@@ -42,6 +42,7 @@ gem 'devise'
 gem 'friendly_id'
 gem 'image_processing', '~> 1.2'
 gem 'jsonapi-serializer'
+gem 'pry-rails'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'react-rails'
 gem 'sassc-rails'
@@ -49,9 +50,8 @@ gem 'webpacker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
-  gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :development do
