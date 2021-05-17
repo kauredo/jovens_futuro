@@ -50,7 +50,7 @@ const checkForSlider = () => {
 	if (blobs) {
 		const sliders = document.getElementsByTagName('action-text-attachment');
 		if (slider) {
-			for (let index = 0; index < sliders.length; index++) {
+			for (const index of sliders) {
 				removeElementsAround(sliders[index]);
 			}
 		} else {
@@ -73,7 +73,7 @@ const checkForSlider = () => {
 };
 
 if (window.location.href.includes('artigos/')) {
-	document.addEventListener('turbolinks:load', () =>
-		setTimeout(checkForSlider, 200)
-	);
+	document.addEventListener('turbolinks:load', () => {
+		setTimeout(checkForSlider, 200);
+	});
 }

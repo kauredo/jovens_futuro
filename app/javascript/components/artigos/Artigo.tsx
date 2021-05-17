@@ -64,7 +64,11 @@ export default function Artigo(props: Props) {
 							Recente
 						</div>
 					)}
-					<a href={artigoLink} style={{ position: 'relative' }}>
+					<a
+						href={artigoLink}
+						style={{ position: 'relative' }}
+						data-turbolinks='false'
+					>
 						{users.map((user, index) => (
 							<div
 								key={`${artigo.title}user${index}${artigo.published_at}`}
@@ -74,7 +78,11 @@ export default function Artigo(props: Props) {
 						))}
 					</a>
 					<div className={styles.categoria}>{artigo.categoria || 'Outros'}</div>
-					<a className={styles.titleLink} href={artigoLink}>
+					<a
+						className={styles.titleLink}
+						href={artigoLink}
+						data-turbolinks='false'
+					>
 						<h2 className={styles.title}>{artigo.title}</h2>
 					</a>
 					<h4 className={styles.name}>
