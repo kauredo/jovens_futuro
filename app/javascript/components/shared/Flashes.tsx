@@ -8,11 +8,12 @@ interface Props {
 }
 
 export default function Flashes(props: Props) {
-	const [visible, setVisible] = useState(true);
+	const [visible, setVisible] = useState(false);
 	const { type, message } = props;
-	const style = `${styles.flash} ${styles[`${type}`]}`;
+	const style = `${styles.flash} ${styles[type]}`;
 
 	useEffect(() => {
+		setVisible(true);
 		setTimeout(() => {
 			setVisible(false);
 		}, 3000);

@@ -10,10 +10,15 @@ class ArtigosController < ApplicationController
     result = @q.result
     @pages = result.pages
     @total = result.count
-    if @page <= @pages
+    if @page <= @pages && !@pages.zero?
       @artigos = result.paginate(page: @page)
+      # flash[:notice] = "#{@total} artigos com os parâmetros definidos" if @page.to_i == 1 && params[:q].present?
+    elsif @pages.zero?
+      redirect_to artigos_path(page: @page)
+      flash[:error] = 'De momento não existem artigos com esses parâmetros'
     else
       redirect_to artigos_path(page: @pages)
+      flash[:error] = "Página #{@page} não existente"
     end
 
     @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]

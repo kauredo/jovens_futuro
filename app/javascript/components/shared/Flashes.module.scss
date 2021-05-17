@@ -1,12 +1,14 @@
 @import '../../../assets/stylesheets/utils/utils';
 
 .flash {
+	border-radius: 100rem;
 	height: 50px;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	padding-left: 10px;
+	left: 15px;
 	line-height: 50px;
+	padding-left: 30px;
+	position: absolute;
+	top: 12px;
+	width: calc(100% - 30px);
 	z-index: 1000;
 }
 
@@ -15,5 +17,5 @@
 }
 
 .error {
-	background-color: red;
+	background-color: rgb(209, 24, 0);
 }
