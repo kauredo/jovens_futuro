@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @artigo = ArtigoSerializer.new(Artigo.published.last).serializable_hash[:data]
+    @artigo = ArtigoSerializer.new(Artigo.published.first).serializable_hash[:data]
   end
 
   def colaboradores
