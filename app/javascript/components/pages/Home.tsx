@@ -1,10 +1,16 @@
 import React from 'react';
+import { Article } from '../artigos/NovoArtigo';
 import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 
 const styles = require('./Home.module.scss');
 
-export default function Home() {
+interface Props {
+	lastArtigo: Article;
+}
+
+export default function Home(props: Props) {
+	const { lastArtigo } = props;
 	return (
 		<div className={styles.container}>
 			<Logo />
@@ -41,6 +47,20 @@ export default function Home() {
 					para um mundo de poucas oportunidades e baixos salários, tende a não
 					fechar.
 				</p>
+				<div className={styles.btnSection}>
+					<div className={styles.title}>
+						<span>
+							{`Já leste o último artigo, da autoria de ${lastArtigo.attributes.colaborators[0].name}?`}
+						</span>
+					</div>
+					<div className={styles.findMore}>
+						<a href={`/artigos/${lastArtigo.attributes.slug}`}>
+							<div className={styles.findMoreBtn}>
+								<span>Lê-o aqui</span>
+							</div>
+						</a>
+					</div>
+				</div>
 				<h2 className={styles.subtitle}>Jovens e Futuro?</h2>
 				<p className={styles.text}>
 					Será que o trilho que temos percorrido tem sido o correto? Quais os

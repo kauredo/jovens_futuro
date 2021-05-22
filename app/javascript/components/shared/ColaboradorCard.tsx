@@ -18,7 +18,13 @@ export default function ColaboradorCard(props: Props) {
 				></div>
 				<div className={styles.name}>{colaborador.name}</div>
 			</div>
-			<div className={styles.text}>{colaborador.description}</div>
+			<div className={styles.text}>
+				{colaborador.description}
+				{/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+				officiis fugit distinctio corporis, atque nisi eius eaque reiciendis
+				debitis, laudantium dolorem porro, accusantium perspiciatis culpa
+				voluptatum magnam maxime unde et. */}
+			</div>
 		</div>
 	);
 }
