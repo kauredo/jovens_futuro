@@ -7,5 +7,9 @@
     <%= form.label :avatar %><br />
     <%= form.file_field :avatar %>
   </div>
+  <div class="field">
+    <%= form.label :description, 'Descrição' %>
+    <%= form.text_area :description, size: '100x20' %>
+  </div>
   <%= form.submit "Criar Colaborador" %>
 <% end %>
