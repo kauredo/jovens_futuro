@@ -54,7 +54,10 @@ export default function Home(props: Props) {
 						</span>
 					</div>
 					<div className={styles.findMore}>
-						<a href={`/artigos/${lastArtigo.attributes.slug}`}>
+						<a
+							href={`/artigos/${lastArtigo.attributes.slug}`}
+							data-turbolinks='false'
+						>
 							<div className={styles.findMoreBtn}>
 								<span>Lê-o aqui</span>
 							</div>
