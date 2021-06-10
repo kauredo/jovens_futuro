@@ -53,11 +53,11 @@ export default function Home(props: Props) {
 					<div className={styles.title}>
 						<span>{`Já leste os artigos da última semana?`}</span>
 					</div>
-					<div className={styles.lastArtigos}>
-						<ImageSlider
-							autoPlay
-							divs={lastArtigos.map(lastArtigo => {
-								return (
+					<ImageSlider
+						autoPlay
+						divs={lastArtigos.map(lastArtigo => {
+							return (
+								<div className={styles.outerDiv}>
 									<div className={styles.findMore}>
 										<Artigo artigo={lastArtigo} justHeader />
 										<a
@@ -69,10 +69,10 @@ export default function Home(props: Props) {
 											</div>
 										</a>
 									</div>
-								);
-							})}
-						/>
-					</div>
+								</div>
+							);
+						})}
+					/>
 				</div>
 				<h2 className={styles.subtitle}>Jovens e Futuro?</h2>
 				<p className={styles.text}>

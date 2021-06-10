@@ -27,6 +27,7 @@ export default function ImageSlider(props: Props) {
 		<div className={simple ? styles.simple : styles.parent}>
 			<Carousel
 				centerMode={!centerMode}
+				centerSlidePercentage={props.divs ? 100 : 80}
 				infiniteLoop
 				showThumbs={false}
 				showIndicators={false}
