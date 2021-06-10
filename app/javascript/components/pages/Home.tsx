@@ -1,16 +1,18 @@
 import React from 'react';
+import Artigo from '../artigos/Artigo';
 import { Article } from '../artigos/NovoArtigo';
+import ImageSlider from '../images/ImageSlider';
 import ImageSlide from '../shared/ImageSlide';
 import Logo from '../shared/Logo';
 
 const styles = require('./Home.module.scss');
 
 interface Props {
-	lastArtigo: Article;
+	lastArtigos: Article[];
 }
 
 export default function Home(props: Props) {
-	const { lastArtigo } = props;
+	const { lastArtigos } = props;
 	return (
 		<div className={styles.container}>
 			<Logo />
@@ -49,19 +51,27 @@ export default function Home(props: Props) {
 				</p>
 				<div className={styles.btnSection}>
 					<div className={styles.title}>
-						<span>
-							{`Já leste o último artigo, da autoria de ${lastArtigo.attributes.colaborators[0].name}?`}
-						</span>
+						<span>{`Já leste os artigos da última semana?`}</span>
 					</div>
-					<div className={styles.findMore}>
-						<a
-							href={`/artigos/${lastArtigo.attributes.slug}`}
-							data-turbolinks='false'
-						>
-							<div className={styles.findMoreBtn}>
-								<span>Lê-o aqui</span>
-							</div>
-						</a>
+					<div className={styles.lastArtigos}>
+						<ImageSlider
+							autoPlay
+							divs={lastArtigos.map(lastArtigo => {
+								return (
+									<div className={styles.findMore}>
+										<Artigo artigo={lastArtigo} justHeader />
+										<a
+											href={`/artigos/${lastArtigo.attributes.slug}`}
+											data-turbolinks='false'
+										>
+											<div className={styles.findMoreBtn}>
+												<span>Lê-o aqui</span>
+											</div>
+										</a>
+									</div>
+								);
+							})}
+						/>
 					</div>
 				</div>
 				<h2 className={styles.subtitle}>Jovens e Futuro?</h2>

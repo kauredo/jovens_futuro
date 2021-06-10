@@ -15,8 +15,12 @@ export default function Artigo(props: Props) {
 	const justHeader = props.justHeader;
 	const artigoLink = `${window.location.origin}${window.location.pathname}/${artigo.slug}`;
 
-	const truncate = input =>
-		input.length > 200 ? `${input.substring(0, 200)}...` : input;
+	const truncate = input => {
+		const noImages = input.replace(/\s*\[.*?\]\s*/g, '');
+		return noImages.length > 200
+			? `${noImages.substring(0, 200)}...`
+			: noImages;
+	};
 
 	const artigoClass = justHeader
 		? `${styles.artigo} ${styles.main}`
