@@ -36,7 +36,7 @@
 		font-size: 1.25rem;
 		background: rgba($futuro, 0.1);
 		position: relative;
-		right: Max(calc((100vw - 1240px) / 2 + 55px), 5vw);
+		right: Max(calc((100vw - 1240px) / 2 + 55px), 9.5vw);
 
 		width: 100vw;
 		padding: 1rem;
@@ -49,8 +49,6 @@
 	}
 
 	.lastArtigos {
-		display: flex;
-		justify-content: space-around;
 	}
 
 	.findMore {
@@ -64,7 +62,6 @@
 		box-shadow: 0px 0px 0.25rem rgba($jovens, 0.3);
 		border-radius: 0.5rem;
 		padding: 2rem 1rem;
-		background: $background;
 
 		a {
 			position: relative;
