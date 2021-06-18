@@ -51,7 +51,7 @@ export default function Home(props: Props) {
 				</p>
 				<div className={styles.btnSection}>
 					<div className={styles.title}>
-						<span>{`Já leste os artigos da última semana?`}</span>
+						<span>{`Já leste os nossos últimos artigos?`}</span>
 					</div>
 					<ImageSlider
 						autoPlay
