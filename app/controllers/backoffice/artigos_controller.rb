@@ -5,7 +5,22 @@ class Backoffice::ArtigosController < ApplicationController
   before_action :check_admin_user, only: %I(publish)
 
   def index
-    @artigos = Artigo.last_first
+    @page = params[:page]&.to_i || 1
+    @path = backoffice_path
+
+    @q = Artigo.last_first.ransack(params[:q])
+    result = @q.result
+    @pages = result.pages
+    @total = result.count
+
+    @last_page = @pages
+
+    if @page <= @pages && !@pages.zero?
+      @artigos = result.paginate(page: @page)
+    else
+      redirect_to backoffice_path(page: @pages)
+      flash[:error] = "Página #{@page} está vazia"
+    end
   end
 
   def show

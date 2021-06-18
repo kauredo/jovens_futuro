@@ -12,29 +12,13 @@
         </div>
       <% end %>
     </div>
-    <div class="total-stats">
-      <div class="header">
-        <h3>Total</h3>
-      </div>
-      <div class="section">
-        <h4>Artigos:</h4>
-        <p><%= Artigo.published.count %> artigos</p>
-      </div>
-      <div class="section">
-        <h4>Comentários:</h4>
-        <p><%= Comment.main_comments.count %> comentários (<%= Comment.count - Comment.main_comments.count %> respostas)</p>
-      </div>
-      <div class="section">
-        <h4>Views:</h4>
-        <p><%= Artigo.all.map(&:page_views).sum %> views</p>
-      </div>
-      <div class="section">
-        <h4>Views per article:</h4>
-        <p><%= (Artigo.all.map(&:page_views).sum / Artigo.published.count.to_f).round(2) %></p>
-      </div>
-    </div>
+    <%= render 'shared/bo_stats' %>
+  </div>
+  <div style="margin: 2rem;">
+    <%= render 'shared/search_form' %>
   </div>
   <div class="artigos" data-turbolinks="false">
+    <%= react_component('shared/Pagination', page: @page, lastPage: @last_page , perPage: Artigo.per_page, total: @total) %>
     <% @artigos.each do |artigo| %>
       <%= link_to backoffice_artigo_path(artigo) do %>
       <div class="backoffice-artigo">
@@ -57,5 +41,6 @@
       </div>
       <% end %>
     <% end %>
+    <%= react_component('shared/Pagination', page: @page, lastPage: @last_page , perPage: Artigo.per_page, total: @total) %>
   </div>
 </div>

@@ -1,0 +1,21 @@
+<div class="total-stats">
+  <div class="header">
+    <h3>Total</h3>
+  </div>
+  <div class="section">
+    <h4>Artigos:</h4>
+    <p><%= Artigo.published.count %> artigos</p>
+  </div>
+  <div class="section">
+    <h4>Comentários:</h4>
+    <p><%= Comment.main_comments.count %> comentários (<%= Comment.count - Comment.main_comments.count %> respostas)</p>
+  </div>
+  <div class="section">
+    <h4>Views:</h4>
+    <p><%= Artigo.all.map(&:page_views).sum %> views</p>
+  </div>
+  <div class="section">
+    <h4>Views per article:</h4>
+    <p><%= (Artigo.all.map(&:page_views).sum / Artigo.published.count.to_f).round(2) %></p>
+  </div>
+</div>

@@ -5,7 +5,7 @@ class ArtigosController < ApplicationController
 
   def index
     @page = params[:page]&.to_i || 1
-
+    @path = artigos_path
     @q = Artigo.published.ransack(params[:q])
     result = @q.result
     @pages = result.pages
@@ -18,7 +18,7 @@ class ArtigosController < ApplicationController
       flash[:error] = 'De momento não existem artigos com esses parâmetros'
     else
       redirect_to artigos_path(page: @pages)
-      flash[:error] = "Página #{@page} não existente"
+      flash[:error] = "Página #{@page} está vazia"
     end
 
     @artigos1 = ArtigoSerializer.new(@artigos).serializable_hash[:data]
