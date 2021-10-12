@@ -1,5 +1,5 @@
 meta_product_name: 'Jovens &O Futuro'
 meta_title: 'Jovens&OFuturo'
 meta_description: 'Blog feito por jovens, para jovens. Com o intuito de fomentar o pensamento sobre variados temas'
-meta_image: 'people.png' # should exist in `app/assets/images/`
+meta_image: 'https://res.cloudinary.com/drpwozhzg/people.png'
 twitter_account: '@JovenseoFuturo' # required for Twitter Cards
