@@ -26,6 +26,13 @@ export default function Links(props: Props) {
 			>
 				<i className='fab fa-facebook'></i>
 			</a>
+			<a
+				href='https://www.linkedin.com/company/blog-jovens-o-futuro/'
+				target='_blank'
+				className={`${styles.sendEmail} ${styles.linkedin}`}
+			>
+				<i className='fab fa-linkedin'></i>
+			</a>
 		</>
 	);
 }
