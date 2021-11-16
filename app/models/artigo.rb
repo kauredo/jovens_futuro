@@ -7,7 +7,7 @@ class Artigo < ApplicationRecord
   has_rich_text :contents
   has_many :artigos_colaborator, dependent: :destroy
   has_many :colaborators, through: :artigos_colaborator
-  has_many :comments
+  has_many :comments, dependent: :destroy
   scope :last_first, -> { all.order({ published_at: :desc }) }
   scope :published, -> { where(published: true).order({ published_at: :desc }) }
   scope :novo, -> { where('published_at > ?', 3.days.ago) }
