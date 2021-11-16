@@ -24,8 +24,10 @@ export default function ImageSlide(props: Props) {
 					autoPlay
 					notCenter
 					simple
-					divs={names.map(name => (
-						<h2 className={styles.text}>{name}</h2>
+					divs={names.map((name, idx) => (
+						<h2 key={`${idx}-${name}`} className={styles.text}>
+							{name}
+						</h2>
 					))}
 				/>
 			</div>
