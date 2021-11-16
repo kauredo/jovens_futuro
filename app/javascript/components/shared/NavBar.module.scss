@@ -3,7 +3,9 @@
 .navbar {
 	width: 100%;
 	height: 60px;
-	background-color: $jovens;
+	background-color: $background;
+	z-index: 999;
+
 	.navWide {
 		display: none;
 		height: 100%;
@@ -11,24 +13,27 @@
 			width: 90%;
 			height: 100%;
 			margin: auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 			.links {
 				height: 100%;
 				display: flex;
-				justify-content: center;
+				justify-content: right;
 				align-items: center;
-				font-size: 2rem;
+				font-size: 1.25rem;
 				font-weight: bold;
 				.link {
 					text-decoration: none;
-					color: $futuro;
+					color: $jovens;
 					margin: 0 15px;
 
 					&.selected,
 					&:hover {
-						color: $background;
+						color: $futuro;
 					}
 					&.backofficeLink {
-						font-size: 2rem;
+						font-size: 1.25rem;
 					}
 				}
 			}
@@ -39,6 +44,7 @@
 		background-color: inherit;
 
 		.burger {
+			padding-right: 10%;
 			background: none;
 			cursor: pointer;
 			border: none;
@@ -50,14 +56,13 @@
 				width: 25px;
 				height: 3px;
 				margin: 5px;
-				background-color: #fff;
+				background-color: $jovens;
 				transition: width 0.4s ease-in-out;
 			}
 		}
 
 		.container {
 			height: 100%;
-			width: 90%;
 			color: $background;
 			display: flex;
 			justify-content: flex-end;
@@ -69,7 +74,7 @@
 		.narrowLinks {
 			padding-right: 10%;
 			width: 100%;
-			background-color: $jovens;
+			background-color: $background;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -78,12 +83,14 @@
 			z-index: 12;
 			font-size: 20px;
 			font-weight: bold;
+			border-bottom: 3px solid $jovens;
+
 			.link {
 				padding: 10px 0;
 				text-decoration: none;
 				color: $futuro;
 				&.selected {
-					color: $background;
+					color: $jovens;
 				}
 			}
 			.links {
@@ -99,6 +106,8 @@
 @media (min-width: 750px) {
 	.navbar {
 		height: 75px;
+		border-bottom: 3px solid $jovens;
+
 		.navWide {
 			display: block;
 		}
@@ -108,19 +117,19 @@
 	}
 }
 
-@media (min-width: 1200px) {
-	.navbar {
-		.navWide {
-			.container {
-				.links {
-					.link {
-						font-size: 2rem;
-						&.backofficeLink {
-							font-size: 2rem;
-						}
-					}
-				}
-			}
-		}
-	}
-}
+// @media (min-width: 1200px) {
+// 	.navbar {
+// 		.navWide {
+// 			.container {
+// 				.links {
+// 					.link {
+// 						font-size: 2rem;
+// 						&.backofficeLink {
+// 							font-size: 2rem;
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }

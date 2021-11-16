@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageSlider from '../images/ImageSlider';
+import Logo from './Logo';
 
 const styles = require('./ImageSlide.module.scss');
 
@@ -15,6 +16,9 @@ export default function ImageSlide(props: Props) {
 			className={styles.container}
 			style={{ backgroundImage: `url(${props.image})` }}
 		>
+			<div className={styles.overlapLogo}>
+				<Logo />
+			</div>
 			<div className={styles.bar}>
 				<ImageSlider
 					autoPlay

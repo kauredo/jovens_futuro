@@ -4,13 +4,11 @@
 .replyForm {
 	width: 100%;
 	max-width: 500px;
-
-	margin: 20px auto;
-	border: 1px solid $futuro-transparent;
-	background-color: $futuro-transparent;
+	border: 1px solid $jovens;
+	margin: 20px 0;
 
 	padding: 20px;
-	border-radius: 0.25rem;
+	border-radius: 0.125rem;
 	.formGroup {
 		width: 100%;
 		margin-bottom: 5px;
@@ -18,7 +16,7 @@
 	.formControl {
 		width: 100%;
 		background-color: $background;
-		border: 1px solid $futuro-transparent;
+		border: 1px solid $jovens;
 		padding: 10px;
 
 		&:disabled {
@@ -39,17 +37,14 @@
 }
 
 .replyForm {
-	position: relative;
-	left: 25px;
-	margin: 10px auto;
-	width: calc(100% - 50px);
+	margin-left: auto;
+	width: 100%;
 }
 
 @media (min-width: 750px) {
 	.form,
 	.replyForm {
 		min-width: 550px;
-
 		width: 50%;
 	}
 

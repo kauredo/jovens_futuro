@@ -22,9 +22,25 @@ export default function Comment(props: Props) {
 					<p className={styles.date}>{comment.created_at}</p>
 				</div>
 				<div className={styles.content}>{comment.comment}</div>
-				<div className={styles.responder} onClick={() => setReply(!reply)}>
-					Responder
+				<div className={styles.responses}>
+					{replies?.length > 0 ? (
+						<div className={styles.respostas}>Respostas:</div>
+					) : (
+						<div />
+					)}
+					<div className={styles.responder} onClick={() => setReply(!reply)}>
+						Responder
+					</div>
 				</div>
+				{replies?.map(rep => (
+					<div key={rep.id} className={styles.reply}>
+						<div className={styles.sideBar}>
+							<h3 className={styles.name}>{rep.attributes.name}</h3>
+							<p className={styles.date}>{rep.attributes.created_at}</p>
+						</div>
+						<div className={styles.content}>{rep.attributes.comment}</div>
+					</div>
+				))}
 			</div>
 			{reply && (
 				<CommentForm
@@ -35,15 +51,6 @@ export default function Comment(props: Props) {
 					setReply={setReply}
 				/>
 			)}
-			{replies?.map(rep => (
-				<div key={rep.id} className={styles.reply}>
-					<div className={styles.topBar}>
-						<h3 className={styles.name}>{rep.attributes.name}</h3>
-						<p className={styles.date}>{rep.attributes.created_at}</p>
-					</div>
-					<div className={styles.content}>{rep.attributes.comment}</div>
-				</div>
-			))}
 		</div>
 	);
 }

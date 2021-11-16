@@ -32,7 +32,9 @@ export default function Comments(props: Props) {
 					))}
 				</div>
 			)}
-			<div>
+			<div className={styles.bigForm}>
+				<h2>Novo Comentário:</h2>
+
 				<CommentForm
 					reply={false}
 					comments={comments}

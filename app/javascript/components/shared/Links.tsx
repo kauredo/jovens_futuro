@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = require('./Links.module.scss');
 
-export default function Links(props: Props) {
+export default function Links() {
 	return (
 		<>
 			<a

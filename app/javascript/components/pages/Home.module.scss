@@ -1,5 +1,9 @@
 @import '../../../assets/stylesheets/utils/utils';
 
+.topPage {
+	margin: 0 auto 50px;
+}
+
 .container {
 	width: 90%;
 	max-width: 1240px;
@@ -32,14 +36,16 @@
 	}
 
 	.btnSection {
-		margin: 1rem auto;
+		margin: 1.5rem auto;
 		font-size: 1.25rem;
-		background: rgba($futuro, 0.1);
+		// background: rgba($futuro, 0.1);
+		// border-top: 3px solid $jovens;
+		// border-bottom: 3px solid $jovens;
 		position: relative;
-		right: Max(calc((100vw - 1240px) / 2 + 55px), 9.5vw);
+		right: Max(calc((100vw - 1240px) / 2), 5.5vw);
 
 		width: 100vw;
-		padding: 1rem;
+		padding: 2rem 0 1.5rem;
 	}
 
 	.title {

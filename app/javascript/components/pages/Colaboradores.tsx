@@ -1,7 +1,6 @@
 import React from 'react';
 import { Colaborador } from '../artigos/NovoArtigo';
 import ImageSlide from '../shared/ImageSlide';
-import Logo from '../shared/Logo';
 
 const styles = require('./Colaboradores.module.scss');
 
@@ -11,8 +10,7 @@ interface Props {
 
 export default function Colaboradores(props: Props) {
 	return (
-		<div className={styles.container}>
-			<Logo />
+		<div className={styles.topPage}>
 			<ImageSlide
 				image={
 					'https://images.unsplash.com/photo-1513377888081-794d8e958972?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'

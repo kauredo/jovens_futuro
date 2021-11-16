@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Links from './Links';
+import Logo from './Logo';
 
 const styles = require('./NavBar.module.scss');
 
@@ -60,17 +61,14 @@ export default function NavBar(props: Props) {
 			<nav ref={wrapperRef} className={styles.navbar}>
 				<div className={styles.navWide}>
 					<div className={styles.container}>
+						<div>
+							<a href='/'>
+								<Logo small />
+							</a>
+						</div>
 						<div className={styles.links}>
 							{backoffice ? (
 								<>
-									<a
-										href='/'
-										className={`${styles.link} ${styles.backofficeLink} ${
-											selectedLink === '/' && styles.selected
-										}`}
-									>
-										Home
-									</a>
 									<a
 										href='/backoffice'
 										className={`${styles.link} ${styles.backofficeLink} ${
@@ -100,14 +98,6 @@ export default function NavBar(props: Props) {
 								</>
 							) : (
 								<>
-									<a
-										href='/'
-										className={`${styles.link} ${
-											selectedLink === '/' && styles.selected
-										}`}
-									>
-										Sobre
-									</a>
 									<a
 										href='/artigos'
 										className={`${styles.link} ${

@@ -2,9 +2,13 @@ import React, { useRef, useState } from 'react';
 
 const styles = require('./Logo.module.scss');
 
-export default function NavBar() {
+interface Props {
+	small?: boolean;
+}
+
+export default function NavBar(props: Props) {
 	return (
-		<div className={styles.logo}>
+		<div className={props.small ? styles.smallLogo : styles.logo}>
 			<p className={styles.jovens}>Jovens</p>
 			<div className={styles.ando}>
 				<p>&</p>

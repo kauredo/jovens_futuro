@@ -26,6 +26,7 @@ export default function CommentForm(props: Props) {
 			.getAttribute('content');
 		const url = `${window.location.href}/comment`;
 		const finalName = anon ? 'Anónimo' : name;
+		const finalEmail = anon ? 'anon@email.com' : email;
 		const commentId = props.commentId || false;
 
 		if (comment) {
@@ -36,7 +37,7 @@ export default function CommentForm(props: Props) {
 					reply: props.reply,
 					parent_id: commentId,
 					name: finalName,
-					email,
+					email: finalEmail,
 					comment,
 				},
 				headers: {
@@ -47,10 +48,7 @@ export default function CommentForm(props: Props) {
 				if (response.data.notice) {
 					alert(response.data.notice);
 
-					const newComment: Comentario = {
-						id: response.data.comment.id,
-						attributes: { ...response.data.comment },
-					};
+					const newComment: Comentario = response.data.comment;
 					props.setComments([...props.comments, newComment]);
 					setName('');
 					setEmail('');
