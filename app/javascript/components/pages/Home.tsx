@@ -12,6 +12,7 @@ interface Props {
 
 export default function Home(props: Props) {
 	const { lastArtigos } = props;
+
 	return (
 		<div className={styles.topPage}>
 			<ImageSlide

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Colaborador } from '../artigos/NovoArtigo';
+import ColaboradorCard from '../shared/ColaboradorCard';
 import ImageSlide from '../shared/ImageSlide';
+import { isMobile } from 'react-device-detect';
 
 const styles = require('./Colaboradores.module.scss');
 
@@ -9,6 +11,21 @@ interface Props {
 }
 
 export default function Colaboradores(props: Props) {
+	const colaboratorsMap = props.colaboradores.map(col => {
+		return { ...col, show: false };
+	});
+	const [colaboratorHover, setColaboratorHover] = useState(colaboratorsMap);
+
+	const handleMouseHover = (event, colaborador, show) => {
+		event.preventDefault();
+		const oldState = colaboratorHover;
+		const colState = oldState.find(col => col.id === colaborador.id);
+		const index = oldState.indexOf(colState);
+		colState.show = show;
+		oldState[index] = colState;
+		setColaboratorHover([...oldState]);
+	};
+
 	return (
 		<div className={styles.topPage}>
 			<ImageSlide
@@ -51,10 +68,32 @@ export default function Colaboradores(props: Props) {
 				<div className={styles.bottomSection}>
 					<h2 className={styles.subtitle}>Colaboradores</h2>
 					<ul className={styles.colaboradores}>
-						{props.colaboradores.map(colaborador => {
+						{colaboratorHover.map(colaborador => {
 							return (
 								<li key={colaborador.id} className={styles.colaborador}>
-									{colaborador.attributes.name}
+									{isMobile ? (
+										<p
+											className={styles.colaboradorName}
+											onClick={e =>
+												handleMouseHover(e, colaborador, !colaborador.show)
+											}
+										>
+											{colaborador.attributes.name}
+										</p>
+									) : (
+										<p
+											className={styles.colaboradorName}
+											onMouseOver={e => handleMouseHover(e, colaborador, true)}
+											onMouseLeave={e =>
+												handleMouseHover(e, colaborador, false)
+											}
+										>
+											{colaborador.attributes.name}
+										</p>
+									)}
+									{colaborador.show && (
+										<ColaboradorCard colaborador={colaborador} />
+									)}
 								</li>
 							);
 						})}

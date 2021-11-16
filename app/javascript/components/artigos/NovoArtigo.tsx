@@ -27,6 +27,7 @@ export interface User {
 export interface Colaborador {
 	id: number;
 	attributes: {
+		description: string;
 		avatar: { url: string };
 		email: string;
 		id: number;
