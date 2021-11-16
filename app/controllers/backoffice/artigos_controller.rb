@@ -15,7 +15,7 @@ class Backoffice::ArtigosController < ApplicationController
 
     @last_page = @pages
 
-    if @page <= @pages && !@pages.zero?
+    if @page <= @pages && !@pages.zero? || @page == 1
       @artigos = result.paginate(page: @page)
     else
       redirect_to backoffice_path(page: @pages)
