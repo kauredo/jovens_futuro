@@ -39,6 +39,7 @@ gem 'bootsnap', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
 gem 'devise'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'friendly_id'
 gem 'google-analytics-rails', '1.1.0'
 gem 'image_processing', '~> 1.2'

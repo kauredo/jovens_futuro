@@ -45,8 +45,7 @@ const removeElementsAround = el => {
 const checkForSlider = () => {
 	const blobs = document.getElementById('blobs');
 	let slider = document.querySelector('.attachment-gallery');
-	console.log(slider);
-	console.log(blobs);
+
 	if (blobs) {
 		const sliders = document.getElementsByTagName('action-text-attachment');
 		if (slider) {

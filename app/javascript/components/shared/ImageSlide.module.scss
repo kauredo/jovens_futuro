@@ -29,8 +29,9 @@
 	.bar {
 		position: absolute;
 		bottom: -25px;
-		left: 5%;
+		left: Max(calc(5% + (90% - 80rem) / 2), 5%);
 		width: 90%;
+		max-width: 80rem;
 		height: 50px;
 		background-color: $background;
 		border: 3px solid $jovens;
