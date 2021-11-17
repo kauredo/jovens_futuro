@@ -8,7 +8,7 @@ interface Props {
 
 export default function NavBar(props: Props) {
 	return (
-		<div className={props.small ? styles.smallLogo : styles.logo}>
+		<div className={props.small ? styles.smallLogo : styles.bigLogo}>
 			<p className={styles.jovens}>Jovens</p>
 			<div className={styles.ando}>
 				<p>&</p>

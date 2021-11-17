@@ -120,7 +120,7 @@
 	bottom: 0;
 	height: 100%;
 	width: 100%;
-	background: $futuro;
+	background: rgba($futuro, 0.3);
 	z-index: -1;
 
 	&::before {

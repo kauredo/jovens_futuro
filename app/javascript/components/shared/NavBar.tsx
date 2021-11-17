@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function NavBar(props: Props) {
+	const [showBorder, setShowBorder] = useState(false);
 	const [navbar, setNavbar] = useState(false);
 	const selectedLink = window.location.pathname;
 	const narrowLinksRef = useRef(null);
@@ -56,16 +57,35 @@ export default function NavBar(props: Props) {
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	}, [navbar, setNavbar]);
 
+	useEffect(() => {
+		document.addEventListener('scroll', e => {
+			var scrolled = document.scrollingElement.scrollTop;
+			if (scrolled >= 54) {
+				if (!showBorder) {
+					setShowBorder(true);
+				}
+			} else {
+				if (showBorder) {
+					setShowBorder(false);
+				}
+			}
+		});
+	}, [showBorder, setShowBorder]);
+
 	return (
 		<>
-			<nav ref={wrapperRef} className={styles.navbar}>
-				<div className={styles.navWide}>
+			<header ref={wrapperRef} className={styles.navbar}>
+				<nav className={styles.navWide}>
+					<div
+						className={styles.topNav}
+						style={{ borderBottomWidth: showBorder ? '3px' : '0' }}
+					>
+						<a href='/'>
+							<Logo small />
+						</a>
+					</div>
+					<hr className={styles.line} />
 					<div className={styles.container}>
-						<div>
-							<a href='/'>
-								<Logo small />
-							</a>
-						</div>
 						<div className={styles.links}>
 							{backoffice ? (
 								<>
@@ -140,8 +160,8 @@ export default function NavBar(props: Props) {
 							)}
 						</div>
 					</div>
-				</div>
-				<div className={styles.navNarrow}>
+				</nav>
+				<nav className={styles.navNarrow}>
 					<div className={styles.container}>
 						<button className={styles.burger} onClick={burgerToggle}>
 							<span></span>
@@ -319,8 +339,8 @@ export default function NavBar(props: Props) {
 							<Links />
 						</div>
 					</div>
-				</div>
-			</nav>
+				</nav>
+			</header>
 		</>
 	);
 }

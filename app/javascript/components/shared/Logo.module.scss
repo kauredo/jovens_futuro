@@ -1,7 +1,6 @@
 @import '../../../assets/stylesheets/utils/utils';
 
-.logo,
-.smallLogo {
+.logo {
 	user-select: none;
 	width: 100%;
 	display: flex;
@@ -9,6 +8,7 @@
 	align-items: center;
 	font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.8rem;
 
 	.jovens {
 		margin: 0;
@@ -19,6 +19,10 @@
 		flex-direction: column;
 		color: $ando;
 		text-transform: uppercase;
+		font-size: 60%;
+		margin: 3px 0 0 6px;
+		padding: 1.5px 0 3px 0;
+		line-height: 16px;
 
 		p {
 			margin: 0;
@@ -27,6 +31,10 @@
 	.line {
 		background-color: $ando;
 		margin: auto 0;
+		width: 3px;
+		height: 35px;
+		margin-right: 5px;
+		margin-left: 3px;
 	}
 
 	.futuro {
@@ -36,25 +44,12 @@
 }
 
 .smallLogo {
-	font-size: 1.8rem;
-
-	.ando {
-		font-size: 60%;
-		margin: 3px 0 0 6px;
-		padding: 1.5px 0 3px 0;
-		line-height: 16px;
-	}
-
-	.line {
-		width: 3px;
-		height: 35px;
-		margin-right: 5px;
-		margin-left: 3px;
-	}
+	@extend .logo;
+	transform: scale(1.5);
 }
 
-.logo {
-	@extend .smallLogo;
+.bigLogo {
+	@extend .logo;
 	transform: scale(1.5);
 	max-width: fit-content;
 }
