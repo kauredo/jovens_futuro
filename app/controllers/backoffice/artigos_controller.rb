@@ -1,8 +1,8 @@
 class Backoffice::ArtigosController < ApplicationController
   layout 'backoffice'
-  before_action :find_artigo, only: %I(show edit)
   before_action :check_user, except: %I(publish)
   before_action :check_admin_user, only: %I(publish)
+  before_action :find_artigo, only: %I(show edit)
 
   def index
     @page = params[:page]&.to_i || 1

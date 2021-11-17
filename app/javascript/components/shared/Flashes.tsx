@@ -66,9 +66,9 @@ export default function Flashes(props: Props) {
 
 	useEffect(() => {
 		setVisible(true);
-		// setTimeout(() => {
-		// 	setVisible(false);
-		// }, 3000);
+		setTimeout(() => {
+			setVisible(false);
+		}, 3000);
 	}, []);
 
 	return visible ? (
