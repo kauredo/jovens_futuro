@@ -36,3 +36,15 @@ p {
 	padding: 0;
 	max-width: 80rem;
 }
+
+:not(.trix-content) > .control-arrow {
+	background: $background !important;
+
+	&.control-prev::before {
+		border-right-color: $futuro !important;
+	}
+
+	&.control-next::before {
+		border-left-color: $futuro !important;
+	}
+}
