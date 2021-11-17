@@ -67,16 +67,17 @@
 
 	.outerDiv {
 		margin: 0 1rem;
+		height: 100%;
+		display: grid;
+		place-items: center;
 	}
 
 	.findMore {
-		margin: 0.5rem auto;
 		max-width: 400px;
 		text-align: center;
 		text-decoration: none;
 		width: 100%;
 		border-radius: 1rem;
-		height: fit-content;
 		box-shadow: 3px 3px 0.25rem rgba($jovens, 0.3);
 		border-radius: 0.5rem;
 		padding: 2rem 1rem;
