@@ -1,7 +1,7 @@
 require 'faker'
 
-if Rails.env.development?
-  def generate_html(title)
+if Rails.env.development? || Rails.env.staging?
+  def generate_html(_title)
     first = "<div>#{Faker::Lorem.paragraph(sentence_count: rand(20..40))}</div><br/><br/>"
     block = "<blockquote><h1>#{Faker::Lorem.paragraph(sentence_count: rand(5..10))}</h1></blockquote><br/><br/>" 
     images = []
