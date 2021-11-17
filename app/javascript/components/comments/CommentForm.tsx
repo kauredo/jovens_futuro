@@ -10,6 +10,7 @@ interface Props {
 	comments: any;
 	setComments: any;
 	setReply?: any;
+	hide?: boolean;
 }
 
 export default function CommentForm(props: Props) {
@@ -63,52 +64,93 @@ export default function CommentForm(props: Props) {
 		}
 	};
 
-	const formStyles = props.reply
-		? `${styles.replyForm} ${styles.form}`
-		: styles.form;
+	const formStyles = props.reply ? styles.replyForm : styles.form;
 
 	return (
-		<form className={formStyles} onSubmit={handleSubmit} method='POST'>
-			<div className={styles.formGroup}>
-				<input
-					disabled={anon}
-					onChange={e => setName(e.target.value)}
-					value={name}
-					type='text'
-					className={styles.formControl}
-					placeholder='Nome'
-				/>
-			</div>
-			<div className={styles.formGroup}>
-				<input
-					disabled={anon}
-					onChange={e => setEmail(e.target.value)}
-					value={email}
-					type='text'
-					className={styles.formControl}
-					placeholder='Email'
-				/>
-			</div>
-			<div className={styles.formGroup}>
-				<input
-					onChange={e => setAnon(!anon)}
-					className={styles.checkbox}
-					type='checkbox'
-					value={anon ? 1 : 0}
-				/>
-				<label>Comentário Anónimo?</label>
-			</div>
-			<div className={styles.formGroup}>
-				<textarea
-					onChange={e => setComment(e.target.value)}
-					value={comment}
-					className={styles.formControl}
-					rows={5}
-				></textarea>
-			</div>
-			<button type='submit' className={styles.submitButton}>
-				Comentar
-			</button>
-		</form>
+		<div
+			style={{
+				height: props.hide ? 0 : '295px',
+				transition: 'all 0.2s ease-in-out',
+			}}
+		>
+			<form
+				style={{
+					marginTop: props.hide ? '0' : '20px',
+					marginBottom: props.hide ? '0' : '20px',
+					padding: props.hide ? '0' : '20px',
+					opacity: props.hide ? 0 : 1,
+					pointerEvents: props.hide ? 'none' : 'auto',
+					transition: 'all 0.2s ease-in-out',
+				}}
+				className={formStyles}
+				onSubmit={handleSubmit}
+				method='POST'
+			>
+				<div
+					style={{
+						height: props.hide ? '0' : '37px',
+						transition: 'all 0.2s ease-in-out',
+					}}
+					className={styles.formGroup}
+				>
+					<input
+						disabled={anon}
+						onChange={e => setName(e.target.value)}
+						value={name}
+						type='text'
+						className={styles.formControl}
+						placeholder='Nome'
+					/>
+				</div>
+				<div
+					style={{
+						height: props.hide ? '0' : '37px',
+						transition: 'all 0.2s ease-in-out',
+					}}
+					className={styles.formGroup}
+				>
+					<input
+						disabled={anon}
+						onChange={e => setEmail(e.target.value)}
+						value={email}
+						type='text'
+						className={styles.formControl}
+						placeholder='Email'
+					/>
+				</div>
+				<div
+					style={{
+						height: props.hide ? '0' : '34px',
+						transition: 'all 0.2s ease-in-out',
+					}}
+					className={styles.formGroup}
+				>
+					<input
+						onChange={e => setAnon(!anon)}
+						className={styles.checkbox}
+						type='checkbox'
+						value={anon ? 1 : 0}
+					/>
+					<label>Comentário Anónimo?</label>
+				</div>
+				<div
+					style={{
+						height: props.hide ? '0' : '97px',
+						transition: 'all 0.2s ease-in-out',
+					}}
+					className={styles.formGroup}
+				>
+					<textarea
+						onChange={e => setComment(e.target.value)}
+						value={comment}
+						className={styles.formControl}
+						rows={5}
+					></textarea>
+				</div>
+				<button type='submit' className={styles.submitButton}>
+					Comentar
+				</button>
+			</form>
+		</div>
 	);
 }

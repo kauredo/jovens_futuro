@@ -6,7 +6,7 @@
 	max-width: 500px;
 	border: 1px solid $jovens;
 	margin: 20px 0;
-
+	position: relative;
 	padding: 20px;
 	border-radius: 0.125rem;
 	.formGroup {
@@ -50,7 +50,6 @@
 
 	.replyForm {
 		min-width: 450px;
-		left: 50px;
 		width: calc(50% - 100px);
 	}
 }

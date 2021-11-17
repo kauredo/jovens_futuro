@@ -42,15 +42,14 @@ export default function Comment(props: Props) {
 					</div>
 				))}
 			</div>
-			{reply && (
-				<CommentForm
-					reply={true}
-					comments={replies}
-					setComments={setReplies}
-					commentId={commentId}
-					setReply={setReply}
-				/>
-			)}
+			<CommentForm
+				hide={!reply}
+				reply={true}
+				comments={replies}
+				setComments={setReplies}
+				commentId={commentId}
+				setReply={setReply}
+			/>
 		</div>
 	);
 }

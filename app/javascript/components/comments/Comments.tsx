@@ -21,6 +21,7 @@ interface Props {
 
 export default function Comments(props: Props) {
 	const [comments, setComments] = useState(props.comments);
+	const [newComment, setNewComment] = useState(false);
 
 	return (
 		<>
@@ -33,9 +34,14 @@ export default function Comments(props: Props) {
 				</div>
 			)}
 			<div className={styles.bigForm}>
-				<h2>Novo Comentário:</h2>
-
+				<h3
+					className={styles.fakeButton}
+					onClick={() => setNewComment(!newComment)}
+				>
+					Adicionar Comentário
+				</h3>
 				<CommentForm
+					hide={!newComment}
 					reply={false}
 					comments={comments}
 					setComments={setComments}

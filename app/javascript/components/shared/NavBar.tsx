@@ -92,7 +92,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/backoffice'
 										className={`${styles.link} ${styles.backofficeLink} ${
-											selectedLink === '/backoffice' && styles.selected
+											selectedLink.includes('/backoffice') && styles.selected
 										}`}
 									>
 										Artigos
@@ -101,7 +101,7 @@ export default function NavBar(props: Props) {
 										<a
 											href='/backoffice/admin/users'
 											className={`${styles.link} ${styles.backofficeLink} ${
-												selectedLink === '/backoffice/admin/users' &&
+												selectedLink.includes('/backoffice/admin/users') &&
 												styles.selected
 											}`}
 										>
@@ -121,7 +121,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/artigos'
 										className={`${styles.link} ${
-											selectedLink === '/artigos' && styles.selected
+											selectedLink.includes('/artigos') && styles.selected
 										}`}
 									>
 										Artigos
@@ -129,7 +129,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/colaboradores'
 										className={`${styles.link} ${
-											selectedLink === '/colaboradores' && styles.selected
+											selectedLink.includes('/colaboradores') && styles.selected
 										}`}
 									>
 										Colaboradores
@@ -137,7 +137,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/contacto'
 										className={`${styles.link} ${
-											selectedLink === '/contacto' && styles.selected
+											selectedLink.includes('/contacto') && styles.selected
 										}`}
 									>
 										Contacto
@@ -202,7 +202,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/backoffice'
 									className={`${styles.link} ${
-										selectedLink === '/backoffice' && styles.selected
+										selectedLink.includes('/backoffice') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -218,7 +218,7 @@ export default function NavBar(props: Props) {
 										href='/backoffice/admin/users'
 										onClick={burgerToggle}
 										className={`${styles.link} ${styles.backofficeLink} ${
-											selectedLink === '/backoffice/admin/users' &&
+											selectedLink.includes('/backoffice/admin/users') &&
 											styles.selected
 										}`}
 									>
@@ -263,7 +263,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/artigos'
 									className={`${styles.link} ${
-										selectedLink === '/artigos' && styles.selected
+										selectedLink.includes('/artigos') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -277,7 +277,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/colaboradores'
 									className={`${styles.link} ${
-										selectedLink === '/colaboradores' && styles.selected
+										selectedLink.includes('/colaboradores') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -291,7 +291,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/contacto'
 									className={`${styles.link} ${
-										selectedLink === '/contacto' && styles.selected
+										selectedLink.includes('/contacto') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
