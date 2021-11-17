@@ -18,12 +18,21 @@ export default function Colaboradores(props: Props) {
 
 	const handleMouseHover = (event, colaborador, show) => {
 		event.preventDefault();
-		const oldState = colaboratorHover;
-		const colState = oldState.find(col => col.id === colaborador.id);
-		const index = oldState.indexOf(colState);
-		colState.show = show;
-		oldState[index] = colState;
-		setColaboratorHover([...oldState]);
+
+		if (colaborador.attributes.description) {
+			const oldState = colaboratorHover;
+			const colState = oldState.find(col => col.id === colaborador.id);
+			const index = oldState.indexOf(colState);
+			oldState.forEach((col, idx) => {
+				if (idx === index) {
+					col.show = !col.show;
+				} else {
+					col.show = false;
+				}
+			});
+
+			setColaboratorHover([...oldState]);
+		}
 	};
 
 	return (
@@ -73,7 +82,11 @@ export default function Colaboradores(props: Props) {
 								<li key={colaborador.id} className={styles.colaborador}>
 									{isMobile ? (
 										<p
-											className={styles.colaboradorName}
+											className={
+												colaborador.attributes.description
+													? styles.colaboradorNamePointer
+													: styles.colaboradorName
+											}
 											onClick={e =>
 												handleMouseHover(e, colaborador, !colaborador.show)
 											}
@@ -82,11 +95,12 @@ export default function Colaboradores(props: Props) {
 										</p>
 									) : (
 										<p
-											className={styles.colaboradorName}
-											onMouseOver={e => handleMouseHover(e, colaborador, true)}
-											onMouseLeave={e =>
-												handleMouseHover(e, colaborador, false)
+											className={
+												colaborador.attributes.description
+													? styles.colaboradorNamePointer
+													: styles.colaboradorName
 											}
+											onMouseOver={e => handleMouseHover(e, colaborador, true)}
 										>
 											{colaborador.attributes.name}
 										</p>

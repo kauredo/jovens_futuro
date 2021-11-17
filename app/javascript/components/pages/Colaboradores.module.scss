@@ -48,6 +48,10 @@
 				.colaboradorName {
 					margin: 0;
 					width: fit-content;
+				}
+
+				.colaboradorNamePointer {
+					@extend .colaboradorName;
 					cursor: pointer;
 				}
 			}
