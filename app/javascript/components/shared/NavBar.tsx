@@ -60,7 +60,7 @@ export default function NavBar(props: Props) {
 	useEffect(() => {
 		document.addEventListener('scroll', e => {
 			var scrolled = document.scrollingElement.scrollTop;
-			if (scrolled >= 54) {
+			if (scrolled >= 62) {
 				if (!showBorder) {
 					setShowBorder(true);
 				}
@@ -78,7 +78,9 @@ export default function NavBar(props: Props) {
 				<nav className={styles.navWide}>
 					<div
 						className={styles.topNav}
-						style={{ borderBottomWidth: showBorder ? '3px' : '0' }}
+						style={{
+							borderBottomWidth: showBorder ? '3px' : '0',
+						}}
 					>
 						<a href='/'>
 							<Logo small />
