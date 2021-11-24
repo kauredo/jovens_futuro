@@ -52,7 +52,7 @@
 			.searchBar {
 				position: absolute;
 				left: 0;
-				z-index: 998;
+				z-index: 997;
 				top: 0;
 				height: 100%;
 				display: flex;
@@ -70,6 +70,8 @@
 					text-decoration: none;
 					color: $jovens;
 					margin: 0 15px;
+					position: relative;
+					z-index: 998;
 
 					&.selected,
 					&:hover {
