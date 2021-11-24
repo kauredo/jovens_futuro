@@ -21,7 +21,7 @@ const Hits = ({ hits, showHits }) => (
 			<li key={hit.objectID}>
 				<a href={hit.url}>
 					<h5 className={styles.title}>
-						{hit.title} - {hit.categoria}
+						{hit.title} ({hit.categoria})
 					</h5>
 					<p className={styles.colaborators}>{hit.all_colaborators}</p>
 					<p className={styles.contents}>{hit.content.substring(0, 200)}</p>

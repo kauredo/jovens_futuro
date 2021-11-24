@@ -3,7 +3,7 @@ class Artigo < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  algoliasearch per_environment: true do
+  algoliasearch if: :published?, per_environment: true do
     attribute :title, :categoria, :page_views, :published
 
     attribute :url do
