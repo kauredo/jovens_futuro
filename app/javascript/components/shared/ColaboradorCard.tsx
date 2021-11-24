@@ -5,12 +5,15 @@ const styles = require('./ColaboradorCard.module.scss');
 
 interface Props {
 	colaborador: Colaborador;
+	show: boolean;
 }
 
 export default function ColaboradorCard(props: Props) {
 	const colaborador = props.colaborador.attributes;
+	const show = props.show;
+
 	return (
-		<div className={styles.mainCard}>
+		<div className={`${styles.mainCard} ${show && styles.showCard}`}>
 			<div className={styles.imageSide}>
 				<div
 					className={styles.avatar}

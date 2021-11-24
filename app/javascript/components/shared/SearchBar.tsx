@@ -40,7 +40,7 @@ export default function SearchBar() {
 
 	useEffect(() => {
 		const input = searchRef.current;
-		console.log(input.children[0].children[0].children[0]);
+
 		if (
 			!input.children[0] ||
 			input.children[0].children[0].children[0].value === ''

@@ -105,9 +105,11 @@ export default function Colaboradores(props: Props) {
 											{colaborador.attributes.name}
 										</p>
 									)}
-									{colaborador.show && (
-										<ColaboradorCard colaborador={colaborador} />
-									)}
+
+									<ColaboradorCard
+										show={colaborador.show}
+										colaborador={colaborador}
+									/>
 								</li>
 							);
 						})}
