@@ -40,22 +40,28 @@
 			width: 90%;
 			height: 100%;
 			margin: auto;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			display: grid;
+			grid-template-columns: 1fr 2fr 1fr;
 
 			.socialLinks {
-				position: absolute;
+				position: relative;
 				right: 0;
+				z-index: 998;
+				margin-left: auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transform: scale(1.25);
 			}
 
 			.searchBar {
-				position: absolute;
+				position: relative;
 				left: 0;
 				z-index: 997;
 				top: 0;
 				height: 100%;
-				display: flex;
+				width: min-content;
+				margin-right: auto;
 			}
 
 			.links {

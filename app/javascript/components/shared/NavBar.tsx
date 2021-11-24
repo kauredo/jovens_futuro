@@ -89,6 +89,9 @@ export default function NavBar(props: Props) {
 					</div>
 					<hr className={styles.line} />
 					<div className={styles.container}>
+						<div className={styles.searchBar}>
+							<SearchBar />
+						</div>
 						<div className={styles.links}>
 							{backoffice ? (
 								<>
@@ -121,9 +124,6 @@ export default function NavBar(props: Props) {
 								</>
 							) : (
 								<>
-									<div className={styles.searchBar}>
-										<SearchBar />
-									</div>
 									<a
 										href='/artigos'
 										className={`${styles.link} ${
@@ -162,11 +162,11 @@ export default function NavBar(props: Props) {
 											</a>
 										</>
 									)}
-									<div className={styles.socialLinks}>
-										<Links />
-									</div>
 								</>
 							)}
+						</div>
+						<div className={styles.socialLinks}>
+							<Links />
 						</div>
 					</div>
 				</nav>

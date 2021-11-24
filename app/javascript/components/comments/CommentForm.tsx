@@ -77,7 +77,6 @@ export default function CommentForm(props: Props) {
 				style={{
 					marginTop: props.hide ? '0' : '20px',
 					marginBottom: props.hide ? '0' : '20px',
-					padding: props.hide ? '0' : '20px',
 					opacity: props.hide ? 0 : 1,
 					pointerEvents: props.hide ? 'none' : 'auto',
 					transition: 'all 0.2s ease-in-out',
