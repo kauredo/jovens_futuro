@@ -7,7 +7,7 @@ class Artigo < ApplicationRecord
     attribute :title, :categoria, :page_views, :published
 
     attribute :url do
-      Rails.application.routes.url_helpers.artigos_path(self)
+      Rails.application.routes.url_helpers.artigo_path(self)
     end
 
     attribute :colaborators do
@@ -29,7 +29,7 @@ class Artigo < ApplicationRecord
     end
   end
 
-  CATEGORIAS = %w(Economia Política Sociedade Saúde Mundo Desporto Cultura Fotografia).freeze
+  CATEGORIAS = %w[Economia Política Sociedade Saúde Mundo Desporto Cultura Fotografia].freeze
 
   has_rich_text :contents
   has_many :artigos_colaborator, dependent: :destroy
