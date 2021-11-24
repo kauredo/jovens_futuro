@@ -49,10 +49,19 @@
 				right: 0;
 			}
 
+			.searchBar {
+				position: absolute;
+				left: 0;
+				z-index: 998;
+				top: 0;
+				height: 100%;
+				display: flex;
+			}
+
 			.links {
 				height: 100%;
 				display: flex;
-				justify-content: right;
+				justify-content: center;
 				align-items: center;
 				font-size: 1.25rem;
 				font-weight: bold;

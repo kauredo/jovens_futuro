@@ -1,0 +1,49 @@
+@import '../../../assets/stylesheets/utils/utils';
+
+.searchbox {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.innerbox {
+	width: 50%;
+	height: 0px;
+	background: $background;
+	opacity: 0.5;
+	transition: 0.2s ease-in-out all;
+	border: 3px solid $jovens;
+	border-top: none;
+	border-radius: 0.125rem;
+	overflow-y: scroll;
+
+	.title {
+		font-size: 1rem;
+		color: $jovens;
+		padding-bottom: 0.25rem;
+	}
+
+	.colaborators {
+		font-size: 0.95rem;
+		padding-bottom: 1rem;
+	}
+
+	.contents {
+		opacity: 0.9;
+		font-size: 0.85rem;
+		font-weight: normal;
+	}
+
+	&.seen {
+		height: 400px;
+		opacity: 1;
+	}
+
+	li {
+		padding: 1rem;
+		border-top: 1px solid $jovens;
+		&::marker {
+			content: '';
+		}
+	}
+}

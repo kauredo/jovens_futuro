@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Links from './Links';
 import Logo from './Logo';
+import SearchBar from './SearchBar';
 
 const styles = require('./NavBar.module.scss');
 
@@ -82,9 +83,6 @@ export default function NavBar(props: Props) {
 							borderBottomWidth: showBorder ? '3px' : '0',
 						}}
 					>
-						{/* <div className={styles.searchBar}>
-              
-            </div> */}
 						<a href='/'>
 							<Logo small />
 						</a>
@@ -123,6 +121,9 @@ export default function NavBar(props: Props) {
 								</>
 							) : (
 								<>
+									<div className={styles.searchBar}>
+										<SearchBar />
+									</div>
 									<a
 										href='/artigos'
 										className={`${styles.link} ${

@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'activestorage'
+gem 'algoliasearch-rails'
 gem 'bootsnap', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
