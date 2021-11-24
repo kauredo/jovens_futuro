@@ -9,7 +9,7 @@ import {
 } from 'react-instantsearch-dom';
 
 const styles = require('./SearchBar.module.scss');
-
+const indexName = `Artigo_${process.env.RACK_ENV}`;
 const searchClient = algoliasearch(
 	process.env.ALGOLIA_ID,
 	process.env.SEARCH_ALGOLIA_KEY
@@ -52,7 +52,7 @@ export default function SearchBar() {
 	}, [searchValue, setSearchValue]);
 
 	return (
-		<InstantSearch indexName='Artigo_development' searchClient={searchClient}>
+		<InstantSearch indexName={indexName} searchClient={searchClient}>
 			<div className='right-panel'>
 				<div ref={searchRef} className={styles.searchbox}>
 					<SearchBox
