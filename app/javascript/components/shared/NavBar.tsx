@@ -82,6 +82,9 @@ export default function NavBar(props: Props) {
 							borderBottomWidth: showBorder ? '3px' : '0',
 						}}
 					>
+						{/* <div className={styles.searchBar}>
+              
+            </div> */}
 						<a href='/'>
 							<Logo small />
 						</a>
@@ -158,6 +161,9 @@ export default function NavBar(props: Props) {
 											</a>
 										</>
 									)}
+									<div className={styles.socialLinks}>
+										<Links />
+									</div>
 								</>
 							)}
 						</div>

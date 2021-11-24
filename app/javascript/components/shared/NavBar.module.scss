@@ -35,6 +35,7 @@
 		}
 
 		.container {
+			position: relative;
 			padding: 1rem;
 			width: 90%;
 			height: 100%;
@@ -42,6 +43,11 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			.socialLinks {
+				position: absolute;
+				right: 0;
+			}
 
 			.links {
 				height: 100%;
