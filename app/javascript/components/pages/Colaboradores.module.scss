@@ -2,7 +2,7 @@
 
 .container {
 	width: 90%;
-	max-width: 60rem;
+	max-width: 80rem;
 	margin: auto;
 
 	.topSection {
@@ -37,11 +37,23 @@
 		.colaboradores {
 			margin-left: 20px;
 			.colaborador {
+				font-size: 20px;
+				margin-bottom: 5px;
+				position: relative;
+
 				&::marker {
 					color: $futuro;
 				}
-				font-size: 20px;
-				margin-bottom: 5px;
+
+				.colaboradorName {
+					margin: 0;
+					width: fit-content;
+				}
+
+				.colaboradorNamePointer {
+					@extend .colaboradorName;
+					cursor: pointer;
+				}
 			}
 		}
 	}
@@ -55,7 +67,6 @@
 			}
 
 			.rigthText {
-				// text-align: justify;
 				margin: 0;
 				width: 50%;
 			}
@@ -63,7 +74,12 @@
 	}
 	.bottomSection {
 		.colaboradores {
-			columns: 2;
+			display: flex;
+			width: 100%;
+			flex-wrap: wrap;
+			.colaborador {
+				width: 50%;
+			}
 		}
 	}
 }

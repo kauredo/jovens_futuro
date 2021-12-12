@@ -1,10 +1,10 @@
 class UserSerializer
   include JSONAPI::Serializer
-  attributes :id, :name, :artigos
+  attributes :id, :name, :artigos, :description
 
   attribute :avatar do |user|
     if user.avatar.present?
-      url = user.avatar.url 
+      url = user.avatar.url
       uri = URI.parse(url)
       uri.scheme = 'https'
       uri.to_s

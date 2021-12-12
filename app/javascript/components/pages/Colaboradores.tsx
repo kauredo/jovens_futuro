@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Colaborador } from '../artigos/NovoArtigo';
+import ColaboradorCard from '../shared/ColaboradorCard';
 import ImageSlide from '../shared/ImageSlide';
-import Logo from '../shared/Logo';
+import { isMobile } from 'react-device-detect';
 
 const styles = require('./Colaboradores.module.scss');
 
@@ -10,9 +11,32 @@ interface Props {
 }
 
 export default function Colaboradores(props: Props) {
+	const colaboratorsMap = props.colaboradores.map(col => {
+		return { ...col, show: false };
+	});
+	const [colaboratorHover, setColaboratorHover] = useState(colaboratorsMap);
+
+	const handleMouseHover = (event, colaborador, show) => {
+		event.preventDefault();
+
+		if (colaborador.attributes.description) {
+			const oldState = colaboratorHover;
+			const colState = oldState.find(col => col.id === colaborador.id);
+			const index = oldState.indexOf(colState);
+			oldState.forEach((col, idx) => {
+				if (idx === index) {
+					col.show = !col.show;
+				} else {
+					col.show = false;
+				}
+			});
+
+			setColaboratorHover([...oldState]);
+		}
+	};
+
 	return (
-		<div className={styles.container}>
-			<Logo />
+		<div className={styles.topPage}>
 			<ImageSlide
 				image={
 					'https://images.unsplash.com/photo-1513377888081-794d8e958972?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
@@ -53,10 +77,39 @@ export default function Colaboradores(props: Props) {
 				<div className={styles.bottomSection}>
 					<h2 className={styles.subtitle}>Colaboradores</h2>
 					<ul className={styles.colaboradores}>
-						{props.colaboradores.map(colaborador => {
+						{colaboratorHover.map(colaborador => {
 							return (
 								<li key={colaborador.id} className={styles.colaborador}>
-									{colaborador.attributes.name}
+									{isMobile ? (
+										<p
+											className={
+												colaborador.attributes.description
+													? styles.colaboradorNamePointer
+													: styles.colaboradorName
+											}
+											onClick={e =>
+												handleMouseHover(e, colaborador, !colaborador.show)
+											}
+										>
+											{colaborador.attributes.name}
+										</p>
+									) : (
+										<p
+											className={
+												colaborador.attributes.description
+													? styles.colaboradorNamePointer
+													: styles.colaboradorName
+											}
+											onMouseOver={e => handleMouseHover(e, colaborador, true)}
+										>
+											{colaborador.attributes.name}
+										</p>
+									)}
+
+									<ColaboradorCard
+										show={colaborador.show}
+										colaborador={colaborador}
+									/>
 								</li>
 							);
 						})}

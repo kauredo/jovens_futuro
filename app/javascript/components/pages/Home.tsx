@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Artigo from '../artigos/Artigo';
 import { Article } from '../artigos/NovoArtigo';
 import ImageSlider from '../images/ImageSlider';
 import ImageSlide from '../shared/ImageSlide';
-import Logo from '../shared/Logo';
 
 const styles = require('./Home.module.scss');
 
@@ -13,9 +12,9 @@ interface Props {
 
 export default function Home(props: Props) {
 	const { lastArtigos } = props;
+
 	return (
-		<div className={styles.container}>
-			<Logo />
+		<div className={styles.topPage}>
 			<ImageSlide
 				image={
 					'https://images.unsplash.com/photo-1542769494-0cc077eead4b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80'
@@ -50,14 +49,18 @@ export default function Home(props: Props) {
 					fechar.
 				</p>
 				<div className={styles.btnSection}>
+					<section className={styles.curve}></section>
 					<div className={styles.title}>
-						<span>{`Já leste os nossos últimos artigos?`}</span>
+						<h3>{`Já leste os nossos últimos artigos?`}</h3>
 					</div>
 					<ImageSlider
 						autoPlay
-						divs={lastArtigos.map(lastArtigo => {
+						divs={lastArtigos.map((lastArtigo, idx) => {
 							return (
-								<div className={styles.outerDiv}>
+								<div
+									key={`${idx}-${lastArtigo.attributes.slug}`}
+									className={styles.outerDiv}
+								>
 									<div className={styles.findMore}>
 										<Artigo artigo={lastArtigo} justHeader />
 										<a

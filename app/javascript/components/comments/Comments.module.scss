@@ -5,6 +5,23 @@
 	margin: 50px auto 0;
 }
 
+.bigForm {
+	width: 100%;
+	max-width: 55rem;
+	margin: 20px auto;
+}
+
+.fakeButton {
+	text-align: left;
+	cursor: pointer;
+	padding: 0.5rem;
+	color: $jovens;
+	border: 1px solid $jovens;
+	width: fit-content;
+	margin: 0;
+	font-weight: lighter;
+}
+
 @media (min-width: 750px) {
 	.count {
 		min-width: 550px;

@@ -10,7 +10,8 @@ class ArtigosController < ApplicationController
     result = @q.result
     @pages = result.pages
     @total = result.count
-    if @page <= @pages && !@pages.zero?
+
+    if @page <= @pages && !@pages.zero? || @page == 1
       @artigos = result.paginate(page: @page)
       # flash[:notice] = "#{@total} artigos com os parâmetros definidos" if @page.to_i == 1 && params[:q].present?
     elsif @pages.zero?

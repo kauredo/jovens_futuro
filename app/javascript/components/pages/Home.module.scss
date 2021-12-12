@@ -1,5 +1,9 @@
 @import '../../../assets/stylesheets/utils/utils';
 
+.topPage {
+	margin: 0 auto 50px;
+}
+
 .container {
 	width: 90%;
 	max-width: 1240px;
@@ -32,37 +36,54 @@
 	}
 
 	.btnSection {
-		margin: 1rem auto;
+		margin: 4rem auto 1.5rem;
 		font-size: 1.25rem;
-		background: rgba($futuro, 0.1);
 		position: relative;
-		right: Max(calc((100vw - 1240px) / 2 + 55px), 9.5vw);
-
+		right: Max(calc((100vw - 1240px) / 2), 5.5vw);
 		width: 100vw;
-		padding: 1rem;
+		padding: 4rem 0 2.5rem;
 	}
 
 	.title {
+		position: relative;
 		margin: 0 auto;
-		width: fit-content;
-		text-align: center;
+		width: 90%;
+
+		h3 {
+			text-align: center;
+			position: absolute;
+			left: 0;
+			right: 0;
+			width: 100%;
+			bottom: 2.5rem;
+			font-weight: bold;
+			color: $jovens;
+			font-family: 'Raleway', sans-serif;
+
+			@media (min-width: 750px) {
+				bottom: 2rem;
+				margin: 1.5rem auto;
+			}
+		}
 	}
 
 	.outerDiv {
 		margin: 0 1rem;
+		height: 100%;
+		display: grid;
+		place-items: center;
 	}
 
 	.findMore {
-		margin: 0.5rem auto;
 		max-width: 400px;
 		text-align: center;
 		text-decoration: none;
 		width: 100%;
 		border-radius: 1rem;
-		height: fit-content;
-		box-shadow: 0px 0px 0.25rem rgba($jovens, 0.3);
+		box-shadow: 3px 3px 0.25rem rgba($jovens, 0.3);
 		border-radius: 0.5rem;
 		padding: 2rem 1rem;
+		background: $background;
 
 		a {
 			position: relative;
@@ -92,12 +113,44 @@
 	}
 }
 
-@media (min-width: 750px) {
-	.container {
-		.subtitle {
-			// &:nth-of-type(2) {
-			// 	margin-top: 14rem;
-			// }
+.curve {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 95%;
+	width: 100%;
+	background: $jovens;
+	z-index: -1;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		background: $background;
+		height: 3%;
+	}
+
+	&::before {
+		content: '';
+		border-bottom-left-radius: 50% 100%;
+		border-bottom-right-radius: 50% 100%;
+		position: absolute;
+		top: 0;
+	}
+
+	&::after {
+		border-top-left-radius: 50% 100%;
+		border-top-right-radius: 50% 100%;
+		bottom: 0;
+	}
+
+	@media (min-width: 750px) {
+		height: 100%;
+
+		&::before,
+		&::after {
+			height: 6%;
 		}
 	}
 }

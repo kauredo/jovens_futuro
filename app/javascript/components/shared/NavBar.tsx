@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Links from './Links';
+import Logo from './Logo';
+import SearchBar from './SearchBar';
 
 const styles = require('./NavBar.module.scss');
 
@@ -10,6 +12,7 @@ interface Props {
 }
 
 export default function NavBar(props: Props) {
+	const [showBorder, setShowBorder] = useState(false);
 	const [navbar, setNavbar] = useState(false);
 	const selectedLink = window.location.pathname;
 	const narrowLinksRef = useRef(null);
@@ -55,26 +58,47 @@ export default function NavBar(props: Props) {
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	}, [navbar, setNavbar]);
 
+	useEffect(() => {
+		document.addEventListener('scroll', e => {
+			var scrolled = document.scrollingElement.scrollTop;
+			if (scrolled >= 62) {
+				if (!showBorder) {
+					setShowBorder(true);
+				}
+			} else {
+				if (showBorder) {
+					setShowBorder(false);
+				}
+			}
+		});
+	}, [showBorder, setShowBorder]);
+
 	return (
 		<>
-			<nav ref={wrapperRef} className={styles.navbar}>
-				<div className={styles.navWide}>
+			<header ref={wrapperRef} className={styles.navbar}>
+				<nav className={styles.navWide}>
+					<div
+						className={styles.topNav}
+						style={{
+							borderBottomWidth: showBorder ? '3px' : '0',
+						}}
+					>
+						<a href='/'>
+							<Logo small />
+						</a>
+					</div>
+					<hr className={styles.line} />
 					<div className={styles.container}>
+						<div className={styles.searchBar}>
+							<SearchBar />
+						</div>
 						<div className={styles.links}>
 							{backoffice ? (
 								<>
 									<a
-										href='/'
-										className={`${styles.link} ${styles.backofficeLink} ${
-											selectedLink === '/' && styles.selected
-										}`}
-									>
-										Home
-									</a>
-									<a
 										href='/backoffice'
 										className={`${styles.link} ${styles.backofficeLink} ${
-											selectedLink === '/backoffice' && styles.selected
+											selectedLink.includes('/backoffice') && styles.selected
 										}`}
 									>
 										Artigos
@@ -83,7 +107,7 @@ export default function NavBar(props: Props) {
 										<a
 											href='/backoffice/admin/users'
 											className={`${styles.link} ${styles.backofficeLink} ${
-												selectedLink === '/backoffice/admin/users' &&
+												selectedLink.includes('/backoffice/admin/users') &&
 												styles.selected
 											}`}
 										>
@@ -101,17 +125,9 @@ export default function NavBar(props: Props) {
 							) : (
 								<>
 									<a
-										href='/'
-										className={`${styles.link} ${
-											selectedLink === '/' && styles.selected
-										}`}
-									>
-										Sobre
-									</a>
-									<a
 										href='/artigos'
 										className={`${styles.link} ${
-											selectedLink === '/artigos' && styles.selected
+											selectedLink.includes('/artigos') && styles.selected
 										}`}
 									>
 										Artigos
@@ -119,7 +135,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/colaboradores'
 										className={`${styles.link} ${
-											selectedLink === '/colaboradores' && styles.selected
+											selectedLink.includes('/colaboradores') && styles.selected
 										}`}
 									>
 										Colaboradores
@@ -127,7 +143,7 @@ export default function NavBar(props: Props) {
 									<a
 										href='/contacto'
 										className={`${styles.link} ${
-											selectedLink === '/contacto' && styles.selected
+											selectedLink.includes('/contacto') && styles.selected
 										}`}
 									>
 										Contacto
@@ -149,9 +165,12 @@ export default function NavBar(props: Props) {
 								</>
 							)}
 						</div>
+						<div className={styles.socialLinks}>
+							<Links />
+						</div>
 					</div>
-				</div>
-				<div className={styles.navNarrow}>
+				</nav>
+				<nav className={styles.navNarrow}>
 					<div className={styles.container}>
 						<button className={styles.burger} onClick={burgerToggle}>
 							<span></span>
@@ -192,7 +211,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/backoffice'
 									className={`${styles.link} ${
-										selectedLink === '/backoffice' && styles.selected
+										selectedLink.includes('/backoffice') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -208,7 +227,7 @@ export default function NavBar(props: Props) {
 										href='/backoffice/admin/users'
 										onClick={burgerToggle}
 										className={`${styles.link} ${styles.backofficeLink} ${
-											selectedLink === '/backoffice/admin/users' &&
+											selectedLink.includes('/backoffice/admin/users') &&
 											styles.selected
 										}`}
 									>
@@ -253,7 +272,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/artigos'
 									className={`${styles.link} ${
-										selectedLink === '/artigos' && styles.selected
+										selectedLink.includes('/artigos') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -267,7 +286,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/colaboradores'
 									className={`${styles.link} ${
-										selectedLink === '/colaboradores' && styles.selected
+										selectedLink.includes('/colaboradores') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -281,7 +300,7 @@ export default function NavBar(props: Props) {
 									}}
 									href='/contacto'
 									className={`${styles.link} ${
-										selectedLink === '/contacto' && styles.selected
+										selectedLink.includes('/contacto') && styles.selected
 									}`}
 									onClick={burgerToggle}
 								>
@@ -329,8 +348,8 @@ export default function NavBar(props: Props) {
 							<Links />
 						</div>
 					</div>
-				</div>
-			</nav>
+				</nav>
+			</header>
 		</>
 	);
 }

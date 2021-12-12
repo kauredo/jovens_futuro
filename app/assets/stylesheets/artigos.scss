@@ -31,7 +31,7 @@ input[type='submit'] {
 
 	.comment {
 		margin: auto;
-		max-width: 60rem;
+		max-width: 80rem;
 		margin-top: 1rem;
 	}
 	.reply {
@@ -54,8 +54,9 @@ input[type='submit'] {
 			margin: 20px 0;
 		}
 		input[type='submit'] {
-			background: $jovens;
-			color: white;
+			border: 1px solid $jovens;
+			color: $jovens;
+			padding: 10px 20px;
 		}
 	}
 
@@ -74,9 +75,13 @@ input[type='submit'] {
 		}
 
 		input[type='submit'] {
-			border: none;
-			background: $jovens;
-			color: white;
+			border: 1px solid $jovens;
+			color: $jovens;
+
+			&:hover {
+				background: $jovens;
+				color: white;
+			}
 		}
 	}
 }

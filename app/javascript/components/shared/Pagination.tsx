@@ -38,7 +38,7 @@ export default function Pagination(props: Props) {
 		lastPage > 1 &&
 		currentPage <= lastPage && (
 			<div className={styles.pagination}>
-				Paginação ({showing})
+				Artigos {showing}
 				<div className={styles.paginationList}>
 					<a onClick={e => setCurrentPage(e, 1)}>
 						<div className={currentPage === 1 ? styles.disabled : styles.item}>
