@@ -10,9 +10,10 @@ import {
 
 const styles = require('./SearchBar.module.scss');
 const indexName = `Artigo_${process.env.RACK_ENV}`;
+
 const searchClient = algoliasearch(
-	process.env.ALGOLIA_ID,
-	process.env.SEARCH_ALGOLIA_KEY
+	process.env.REACT_APP_ALGOLIA_ID,
+	process.env.REACT_APP_SEARCH_ALGOLIA_KEY
 );
 
 const Hits = ({ hits, showHits }) => (
