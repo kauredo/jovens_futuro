@@ -9,7 +9,7 @@ import {
 } from 'react-instantsearch-dom';
 
 const styles = require('./SearchBar.module.scss');
-const indexName = `Artigo_${process.env.RACK_ENV}`;
+const indexName = `Artigo_${process.env.NODE_ENV}`;
 
 const searchClient = algoliasearch(
 	process.env.REACT_APP_ALGOLIA_ID,
