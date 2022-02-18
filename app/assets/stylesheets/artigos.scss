@@ -94,8 +94,16 @@ input[type='submit'] {
 	}
 }
 
-.trix-content blockquote h1 {
-	color: $futuro;
+.trix-content blockquote {
+	color: white;
+	border-color: $jovens;
+	border-left-width: 0.5rem;
+
+	h1 {
+		background-color: $futuro;
+		padding: 1rem;
+		border-radius: 0 0.25rem 0.25rem 0;
+	}
 }
 
 .signature {
