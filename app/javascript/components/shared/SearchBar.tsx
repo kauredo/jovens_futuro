@@ -12,15 +12,9 @@ const styles = require('./SearchBar.module.scss');
 const indexName = `Artigo_${process.env.NODE_ENV}`;
 
 const searchClient = algoliasearch(
-	process.env.REACT_APP_ALGOLIA_ID,
-	process.env.REACT_APP_SEARCH_ALGOLIA_KEY
+	process.env.REACT_APP_ALGOLIA_ID || "1BDHXFWW71",
+	process.env.REACT_APP_SEARCH_ALGOLIA_KEY || "f5bafa84dffab791b634c134d35a5af5"
 );
-
-console.log(process)
-console.log(process.env)
-console.log(process.env.REACT_APP_ALGOLIA_ID)
-console.log(process.env.REACT_APP_SEARCH_ALGOLIA_KEY)
-console.log(searchClient)
 
 const Hits = ({ hits, showHits }) => (
 	<ol className={`${styles.innerbox} ${showHits && styles.seen}`}>
