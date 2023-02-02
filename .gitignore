@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+.fly-pg-secrets
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
