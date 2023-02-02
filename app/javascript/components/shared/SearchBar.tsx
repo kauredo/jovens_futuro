@@ -16,6 +16,12 @@ const searchClient = algoliasearch(
 	process.env.REACT_APP_SEARCH_ALGOLIA_KEY
 );
 
+console.log(process)
+console.log(process.env)
+console.log(process.env.REACT_APP_ALGOLIA_ID)
+console.log(process.env.REACT_APP_SEARCH_ALGOLIA_KEY)
+console.log(searchClient)
+
 const Hits = ({ hits, showHits }) => (
 	<ol className={`${styles.innerbox} ${showHits && styles.seen}`}>
 		{hits.map(hit => (
